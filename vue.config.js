@@ -1,6 +1,4 @@
-module.exports = {
-  // css: {
-  //   // Enable CSS source maps.
-  //   sourceMap: process.env.NODE_ENV !== 'production'
-  // }
-};
+const { defineConfig } = require('@vue/cli-service')
+module.exports = defineConfig({
+  transpileDependencies: true
+})
