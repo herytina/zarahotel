@@ -1,0 +1,109 @@
+<template>
+  <div>
+    <div class="page-header page-header-small">
+      <parallax
+        class="page-header-image"
+        style="background-image: url('img/chambre.jpeg')"
+      >
+      </parallax>
+      <div class="content-center">
+        <div class="container">
+          <h1 class="title">DESIGN DU DÉBUT DU SIÈCLE ADAPTÉ À L’ÉPOQUE ACTUELLE</h1>
+          <div class="text-center">
+            <n-button type="warning" size="lg">RESERVEZ AU MEILLEUR TARIF ></n-button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section section-about-us">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto text-center">
+            <h2 class="title">CHAQUE CHAMBRE DU
+ZARA HOTEL
+EST UNIQUE</h2>
+            <h5 class="description">
+              According to the National Oceanic and Atmospheric Administration,
+              Ted, Scambos, NSIDClead scentist, puts the potentially record low
+              maximum sea ice extent tihs year down to low ice extent in the
+              Pacific and a late drop in ice extent in the Barents Sea.
+            </h5>
+          </div>
+        </div>
+        <div class="separator separator-primary"></div>
+        <div class="section-story-overview">
+          <div class="row">
+            <div class="col-md-6">
+              <div
+                class="image-container image-left"
+                style="background-image: url('img/chambre.jpeg')"
+              >
+                <!-- First image on the left side -->
+
+              </div>
+              <!-- Second image on the left side of the article -->
+              <div
+                class="image-container"
+                style="background-image: url('img/chambre.jpeg')"
+              >
+                <n-button type="warning" size="lg">RESERVEZ AU MEILLEUR TARIF ></n-button>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <!-- First image on the right side, above the article -->
+              <div
+                class="image-container image-right"
+                style="background-image: url('img/chambre.jpeg')"
+              ></div>
+              <h3>
+                So what does the new record for the lowest level of winter ice
+                actually mean
+              </h3>
+              <p>
+                The Arctic Ocean freezes every winter and much of the sea-ice
+                then thaws every summer, and that process will continue whatever
+                happens with climate change. Even if the Arctic continues to be
+                one of the fastest-warming regions of the world, it will always
+                be plunged into bitterly cold polar dark every winter. And
+                year-by-year, for all kinds of natural reasons, there’s huge
+                variety of the state of the ice.
+              </p>
+              <p>
+                For a start, it does not automatically follow that a record
+                amount of ice will melt this summer. More important for
+                determining the size of the annual thaw is the state of the
+                weather as the midnight sun approaches and temperatures rise.
+                But over the more than 30 years of satellite records, scientists
+                have observed a clear pattern of decline, decade-by-decade.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <progress-pagination></progress-pagination> -->
+  </div>
+
+</template>
+<script>
+import { Button, FormGroupInput } from '@/components';
+
+export default {
+  name: 'landing',
+  bodyClass: 'landing-page',
+  components: {
+    [Button.name]: Button,
+    [FormGroupInput.name]: FormGroupInput
+  },
+  data() {
+    return {
+      form: {
+        firstName: '',
+        email: '',
+        message: ''
+      }
+    };
+  }
+};
+</script>
+<style></style>
