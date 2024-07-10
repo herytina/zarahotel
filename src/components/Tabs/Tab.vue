@@ -1,23 +1,23 @@
 <template>
   <div
-    class="tab-pane"
     v-show="active"
     :id="id || label"
+    class="tab-pane"
     :class="{ active: active }"
     :aria-expanded="active"
   >
-    <slot></slot>
+    <slot />
   </div>
 </template>
 <script>
 export default {
-  name: 'tab-pane',
+  name: 'TabPane',
+  inject: ['addTab', 'removeTab'],
   props: {
     label: String,
     id: String,
     disabled: Boolean
   },
-  inject: ['addTab', 'removeTab'],
   data() {
     return {
       active: false

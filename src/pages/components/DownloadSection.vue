@@ -4,37 +4,75 @@
     data-background-color="black"
     class="container"
   >
-    <div class="row mb-5">
-        <div class="text-center col-md-3">
-          <h3 class="title" v-scroll-reveal.reset="{delay:500, afterReveal:()=>{secondAnim=true}}">ZARA HOTEL</h3>
-          <h5 class="description" v-scroll-reveal.reset="{delay:600, afterReveal:()=>{secondAnim=true}}">
-            12, rue Rakotonirina Stanislas<br>
-            Isoraka – BP 4106<br>
-            Antananarivo – Madagascar
-            <h5 class="mt-3" v-scroll-reveal.reset="{delay:700, afterReveal:()=>{secondAnim=true}}">
-               Téléphone : <br>
+    <v-row no-gutters>
+      <v-col
+        class="pa-2 ma-2 text-center"
+        order="first"
+      >
+        <h3
+          v-motion="'fade-in'"
+          class="title"
+        >
+          ZARA HOTEL
+        </h3>
+        <h5
+          v-motion="'fade-in'"
+          class="mt-9"
+        >
+          12, rue Rakotonirina Stanislas<br>
+          Isoraka – BP 4106<br>
+          Antananarivo – Madagascar
+          <h5
+            v-motion="'fade-in'"
+            class="mt-3"
+          >
+            Téléphone : <br>
             +261 32 05 368 29 <br>
             +261 34 78 459 61 <br>
-            </h5>
           </h5>
+        </h5>
+      </v-col>
+      <v-col class="my-15">
+        <div
+          v-for="(item, i) in boutons"
+          :key="i"
+          :value="item.url"
+          color="primary"
+          class="ml-16"
+        >
+          <router-link
+            v-popover:popover1
+            class="navbar-brand"
+            :to="item.url"
+          >
+            <ul class="ml-15">
+              <li class="mt-3 ml-5 text-h6">
+                > {{ item.name }}
+              </li>
+            </ul>
+          </router-link>
         </div>
-        <div class="text-center col-md-6 mt-5" v-scroll-reveal.reset="{delay:800, afterReveal:()=>{secondAnim=true}}">
-          <div v-for="btn of boutons" :key="btn.name">
-            <router-link v-popover:popover1 class="navbar-brand" :to="btn.url">
-              <ul class="">
-                <li>> {{btn.name}}</li>
-              </ul>
-            </router-link>
-          </div>
-        </div>
+      </v-col>
+      <v-col
+        order="last"
+        class="pa-2 my-8 text-center"
+      >
         <div class="text-center">
-          <h3 v-scroll-reveal.reset="{delay:1000, afterReveal:()=>{secondAnim=true}}">Suivez-nous</h3>
-          <div v-scroll-reveal.reset="{delay:900, afterReveal:()=>{secondAnim=true}}">
+          <h3 v-motion="'fade-in'">
+            Suivez-nous
+          </h3>
+          <div v-motion="'fade-in'">
             <a
               href="#"
               class="btn btn-neutral btn-round btn-lg"
             >
-              <img src="img/zara.jpg" alt="logo" height="100" width="200">
+              <img
+                :src="require('@/assets/img/zara.jpg')"
+                alt="logo"
+                height="100"
+                width="200"
+                class="rounded-circle"
+              >
             </a>
           </div>
           <div class="text-center">
@@ -45,7 +83,7 @@
               rel="tooltip"
               title="Follow us"
             >
-              <i class="fab fa-twitter"></i>
+              <i class="fab fa-twitter" />
             </a>
             <a
               target="_blank"
@@ -54,7 +92,7 @@
               rel="tooltip"
               title="Like us"
             >
-              <i class="fab fa-facebook-square"></i>
+              <i class="fab fa-facebook-square" />
             </a>
             <a
               target="_blank"
@@ -63,27 +101,16 @@
               rel="tooltip"
               title="Follow us"
             >
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a
-              target="_blank"
-              href="https://github.com/creativetimofficial/vue-now-ui-kit"
-              class="btn btn-neutral btn-icon btn-github btn-round btn-lg"
-              rel="tooltip"
-              title="Star on Github"
-            >
-              <i class="fab fa-github"></i>
+              <i class="fab fa-instagram" />
             </a>
           </div>
         </div>
-    </div>
+      </v-col>
+    </v-row>
   </div>
 </template>
 <script>
 export default {
-  // The `data` property in a Vue component is used to define the initial data for the component. It
-  // returns an object with properties that represent the data used in the component. In this case, the
-  // `data` property is defining an object with two properties: `boutons` and `secondAnim`.
   data() {
     return {
       boutons: [

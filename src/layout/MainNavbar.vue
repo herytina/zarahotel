@@ -6,37 +6,66 @@
     :color-on-scroll="colorOnScroll"
     menu-classes="ml-auto"
   >
-    <template>
-      <router-link v-popover:popover1 class="navbar-brand" to="/">
-        <img src="img/zara.jpg" width="120" height="50" alt="logo"/>
+    <div>
+      <router-link
+        class="navbar-brand"
+        to="/"
+      >
+        <img
+          :src="logo"
+          width="120"
+          height="50"
+          alt="logo"
+          class="radius"
+        >
       </router-link>
-    </template>
-    <template v-slot:navbar-menu >
-        <li class="nav-item">
-        <router-link v-popover:popover1 class="nav-link" to="hotel">
-          <i class="now-ui-icons arrows-1_cloud-download-93 text-white item"></i>
-          <p class="text-white item">Hotel</p>
+    </div>
+    <template #navbar-menu>
+      <li class="nav-item">
+        <router-link
+          class="nav-link"
+          to="hotel"
+        >
+          <i class="now-ui-icons arrows-1_cloud-download-93 text-white item" />
+          <p class="text-white item">
+            Hotel
+          </p>
         </router-link>
       </li>
 
       <li class="nav-item">
-        <router-link v-popover:popover1 class="nav-link" to="chambre">
-        <i class="now-ui-icons arrows-1_cloud-download-93 text-white item"></i>
-        <p class="text-white item">Chambres & suites</p>
-      </router-link>
-      </li>
-
-      <li class="nav-item">
-        <router-link v-popover:popover1 class="nav-link" to="service">
-          <i class="now-ui-icons arrows-1_cloud-download-93 text-white item"></i>
-          <p class="text-white item">Services</p>
+        <router-link
+          class="nav-link"
+          to="chambre"
+        >
+          <i class="now-ui-icons arrows-1_cloud-download-93 text-white item" />
+          <p class="text-white item">
+            Chambres & suites
+          </p>
         </router-link>
       </li>
 
       <li class="nav-item">
-        <router-link v-popover:popover1 class="nav-link" to="contact">
-        <i class="now-ui-icons arrows-1_cloud-download-93 text-white item"></i>
-        <p class="text-white item">Emplacement & Contacts</p>
+        <router-link
+          class="nav-link"
+          to="service"
+        >
+          <i class="now-ui-icons arrows-1_cloud-download-93 text-white item" />
+          <p class="text-white item">
+            Services
+          </p>
+        </router-link>
+      </li>
+
+      <li class="nav-item">
+        <router-link
+          class="nav-link"
+          to="contact"
+        >
+          <i class="now-ui-icons arrows-1_cloud-download-93 text-white item" />
+          <p class="text-white item">
+            Emplacement & Contacts
+          </p>
         </router-link>
       </li>
 
@@ -49,7 +78,7 @@
           href="https://twitter.com/CreativeTim"
           target="_blank"
         >
-          <i class="fab fa-twitter"></i>
+          <i class="fab fa-twitter" />
           <p class="d-lg-none d-xl-none">Twitter</p>
         </a>
       </li>
@@ -63,7 +92,7 @@
           href="https://www.facebook.com/zaraHotel"
           target="_blank"
         >
-          <i class="fab fa-facebook-square"></i>
+          <i class="fab fa-facebook-square" />
           <p class="d-lg-none d-xl-none">Facebook</p>
         </a>
       </li>
@@ -77,7 +106,7 @@
           href="https://www.instagram.com/CreativeTimOfficial"
           target="_blank"
         >
-          <i class="fab fa-instagram"></i>
+          <i class="fab fa-instagram" />
           <p class="d-lg-none d-xl-none">Instagram</p>
         </a>
       </li>
@@ -87,16 +116,19 @@
 
 <script>
 import { Navbar } from '@/components';
-import { Popover } from 'element-plus';
 export default {
-  name: 'main-navbar',
+  name: 'MainNavbar',
+  components: {
+    Navbar,
+  },
   props: {
     transparent: Boolean,
     colorOnScroll: Number
   },
-  components: {
-    Navbar,
-    [Popover.name]: Popover
+  data() {
+    return {
+      logo : require('@/assets/img/zara.jpg')
+    }
   }
 };
 </script>
@@ -108,5 +140,8 @@ export default {
   }
   .navigation{
     width: 50%;
+  }
+  .radius{
+    border-radius: 50%;
   }
 </style>

@@ -1,17 +1,23 @@
 <template>
   <div>
     <div class="page-header page-header-small">
-      <parallax
-        class="page-header-image"
-        style="background-image: url('img/anosy.jpeg')"
-      >
-      </parallax>
+      <v-parallax
+        :src="require('@/assets/img/anosy.jpeg')"
+        style="background-size:contain; background-position: center;"
+      />
       <div class="content-center">
         <div class="container">
-          <h1 class="title">ANTANANARIVO
-LA VILLE DES MILLE COLLINES</h1>
+          <h1 class="title">
+            ANTANANARIVO
+            LA VILLE DES MILLE COLLINES
+          </h1>
           <div class="text-center">
-            <n-button type="warning" size="lg">RESERVEZ AU MEILLEUR TARIF ></n-button>
+            <n-button
+              type="warning"
+              size="lg"
+            >
+              RESERVEZ AU MEILLEUR TARIF >
+            </n-button>
           </div>
         </div>
       </div>
@@ -20,11 +26,15 @@ LA VILLE DES MILLE COLLINES</h1>
       <div class="container">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class="title">CONTACTEZ-NOUS</h2>
-            <h5 class="description">
+            <h2 class=" my-10">
+              CONTACTEZ-NOUS
+            </h2>
+            <p class="my-3 text-grey-darken-1">
               NOS CLIENTS SONT LE CŒUR DE NOTRE BOUTIQUE HÔTEL
-            </h5>
-            <h5 class="description">Tout ce dont vous avez besoin et quand vous en avez besoin, vous n’avez qu’à demander.</h5>
+            </p>
+            <p class="my-3 text-grey-darken-1">
+              Tout ce dont vous avez besoin et quand vous en avez besoin, vous n’avez qu’à demander.
+            </p>
           </div>
         </div>
         <div class="section-story-overview">
@@ -35,54 +45,79 @@ LA VILLE DES MILLE COLLINES</h1>
                 style="background-image: url('img/chambre.jpeg')"
               >
                 <!-- First image on the left side -->
-
               </div>
               <!-- Second image on the left side of the article -->
-
             </div>
             <div class="col-md-5">
               <!-- First image on the right side, above the article -->
               <div
                 class="image-container image-right"
                 style="background-image: url('img/chambre.jpeg')"
-              ></div>
+              />
             </div>
           </div>
         </div>
-        <p class="container" style="width: 100%; height: 1px; background-color: black;"></p>
+        <p
+          class="container"
+          style="width: 100%; height: 1px; background-color: black;"
+        />
 
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class="title">RÉSERVER</h2>
-            <h5 class="description">NOUS VOUS GARANTISSONS LE MEILLEUR TARIF</h5>
-            <h5 class="description">Profitez également de nos offres.</h5>
-            <p><n-button type="warning" size="lg">ALLONS-Y ! ></n-button></p>
+            <h2 class="title">
+              RÉSERVER
+            </h2>
+            <h5 class="description">
+              NOUS VOUS GARANTISSONS LE MEILLEUR TARIF
+            </h5>
+            <h5 class="description">
+              Profitez également de nos offres.
+            </h5>
+            <p>
+              <n-button
+                type="warning"
+                size="lg"
+              >
+                ALLONS-Y ! >
+              </n-button>
+            </p>
           </div>
         </div>
-        <p class="container" style="width: 100%; height: 1px; background-color: black;"></p>
+        <p
+          class="container"
+          style="width: 100%; height: 1px; background-color: black;"
+        />
 
-        <div class="mt-5">
-          <l-map style="height: 400px" :zoom="zoom" :center="center" @ready="onMapReady"
->
-            <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-            <l-marker :lat-lng="center" :icon="customIcon">
+        <!-- <div class="mt-5">
+          <l-map
+            style="height: 400px"
+            :zoom="zoom"
+            :center="center"
+            @ready="onMapReady"
+          >
+            <l-tile-layer
+              :url="url"
+              :attribution="attribution"
+            />
+            <l-marker
+              :lat-lng="center"
+              :icon="customIcon"
+            >
               <l-popup>
                 <span>Zara Hotel</span>
               </l-popup>
             </l-marker>
           </l-map>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
-
 </template>
 <script>
 import { Button, FormGroupInput } from '@/components';
 import L from 'leaflet';
 import 'leaflet.fullscreen';
 import 'leaflet.fullscreen/Control.FullScreen.css';
-import { LMap, LMarker, LPopup, LTileLayer } from "@vue-leaflet/vue-leaflet";
 import "leaflet/dist/leaflet.css";
 
 delete L.Icon.Default.prototype._getIconUrl;
@@ -93,16 +128,11 @@ L.Icon.Default.mergeOptions({
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 });
 export default {
-  name: 'landing',
+  name: 'LandingPage',
   bodyClass: 'landing-page',
   components: {
     [Button.name]: Button,
     [FormGroupInput.name]: FormGroupInput,
-    LMap,
-    LTileLayer,
-    LMarker,
-    LPopup,
-    'l-map': window.Vue2Leaflet.LMap,
   },
   data() {
     return {

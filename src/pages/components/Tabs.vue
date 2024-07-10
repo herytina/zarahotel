@@ -1,79 +1,123 @@
 <template>
-      <div class="section" >
-        <div class="row marge" style="background-color:wheat;padding:50px 150px;">
-          <div class="col-md-10 ml-auto col-xl-4 mr-auto" v-scroll-reveal.reset="{delay:500, afterReveal:()=>{secondAnim = true}}">
-            <div v-if="secondAnim">
-            <Transition
-              v-on:before-enter="beforeEnter"
-              v-on:enter="enter"
-              appear
+  <div class="section">
+    <div
+      class="row marge"
+      style="background-color:wheat;padding:50px 150px;"
+    >
+      <div
+        v-motion="'fade-in'"
+        class="col-md-10 ml-auto col-xl-4 mr-auto"
+      >
+        <div v-if="secondAnim">
+          <Transition
+            appear
+            @before-enter="beforeEnter"
+            @enter="enter"
+          >
+            <div
+              delay="0"
+              left="0"
+              style="height: 700;"
             >
-            <div delay="0" left="0" style="height: 700;">
-              <img src="img/zara2.jpg" alt="presentation" height="500"/>
+              <img
+                :src="require('@/assets/img/zara2.jpg')"
+                alt="presentation"
+                height="500"
+              >
             </div>
-            </Transition>
-            </div>
-          </div>
-          <div class="col-md-10 ml-auto col-xl-4 mr-auto" v-scroll-reveal.reset="{delay:600, afterReveal:()=>{secondAnim = true}}">
-            <div v-if="secondAnim">
-            <Transition
-              v-on:before-enter="beforeEnterM"
-              v-on:enter="enterM"
-              appear
-            >
-            <div delay="200" top="150">
-              <h1 class="center">HISTOIRE ET MODERNITER AU COEUR D'ANTANANARIVO</h1>
-            </div>
-            </Transition>
-            </div>
-          </div>
-          <div class="col-md-10 ml-auto col-xl-4 mr-auto" >
-
-            <div>
-              <p>
-                I think that’s a responsibility that I have, to push
-                possibilities, to show people, this is the level that things
-                could be at. So when you get something that has the name Kanye
-                West on it, it’s supposed to be pushing the furthest
-                possibilities. I will be the leader of a company that ends up
-                being worth billions of dollars, because I got the answers. I
-                understand culture. I am the nucleus.
-              </p>
-              <div v-scroll-reveal.reset="{delay:600}">
-                <n-button type="warning" size="lg">RESERVEZ AU MEILLEUR TARIF ></n-button>
-              </div>
-            </div>
-          </div>
+          </Transition>
         </div>
-        <div class="container">
-          <div class="row marge" style="margin: 50px" >
-          <div class="col-md-10 ml-auto col-xl-6" v-scroll-reveal.reset="{delay:600, afterReveal:()=>{secondAnim = true}}">
-           <div v-if="secondAnim">
-            <Transition
-              v-on:before-enter="beforeEnterBL"
-              v-on:enter="enterBL"
-              appear
-            >
-              <div delay="500" top="0" >
-                <img src="img/zara2.jpg" alt="presentation" height="600"/>
-              </div>
-            </Transition>
-            </div>
-          </div>
-          <div class="col col-md-10 ml-auto col-xl-6" v-scroll-reveal.reset="{delay:600}">
-                <div >
-                  <h1>CHAMBRE & SUITES</h1>
-                  <img src="img/zara.jpg" alt="presentation" height="300"/>
-                  <h3>Ambiance élégante, en harmonie et sérénité</h3>
-                  <p>Une atmosphère qui reflète l’histoire des maisons traditionnelles de l’époque qui se fond dans une expérience contemporaine.</p>
-                  <p>DECOUVREZ NOS CHAMBRES & TARIFS</p>
-                </div>
-
-          </div>
-        </div>
-        </div>
-
       </div>
+      <div
+        v-motion="'fade-in'"
+        class="col-md-10 ml-auto col-xl-4 mr-auto"
+      >
+        <div v-if="secondAnim">
+          <Transition
+            appear
+            @before-enter="beforeEnterM"
+            @enter="enterM"
+          >
+            <div
+              delay="200"
+              top="150"
+            >
+              <h1 class="center">
+                HISTOIRE ET MODERNITER AU COEUR D'ANTANANARIVO
+              </h1>
+            </div>
+          </Transition>
+        </div>
+      </div>
+      <div class="col-md-10 ml-auto col-xl-4 mr-auto">
+        <div>
+          <p>
+            I think that’s a responsibility that I have, to push
+            possibilities, to show people, this is the level that things
+            could be at. So when you get something that has the name Kanye
+            West on it, it’s supposed to be pushing the furthest
+            possibilities. I will be the leader of a company that ends up
+            being worth billions of dollars, because I got the answers. I
+            understand culture. I am the nucleus.
+          </p>
+          <div v-motion="'fade-in'">
+            <n-button
+              type="warning"
+              size="lg"
+            >
+              RESERVEZ AU MEILLEUR TARIF >
+            </n-button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div
+        class="row marge"
+        style="margin: 50px"
+      >
+        <div
+          v-motion="'fade-in'"
+          class="col-md-10 ml-auto col-xl-6"
+        >
+          <div v-if="secondAnim">
+            <Transition
+              appear
+              @before-enter="beforeEnterBL"
+              @enter="enterBL"
+            >
+              <div
+                delay="500"
+                top="0"
+              >
+                <img
+                  :src="require('@/assets/img/zara2.jpg')"
+                  alt="presentation"
+                  height="600"
+                >
+              </div>
+            </Transition>
+          </div>
+        </div>
+        <div
+          v-motion="'fade-in'"
+          class="col col-md-10 ml-auto col-xl-6"
+        >
+          <div>
+            <h1>CHAMBRE & SUITES</h1>
+            <img
+              :src="require('@/assets/img/zara.jpg')"
+              alt="presentation"
+              height="300"
+            >
+            <h3>Ambiance élégante, en harmonie et sérénité</h3>
+            <p>Une atmosphère qui reflète l’histoire des maisons traditionnelles de l’époque qui se fond dans une expérience contemporaine.</p>
+            <p>DECOUVREZ NOS CHAMBRES & TARIFS</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
 import {
@@ -81,12 +125,13 @@ import {
 } from '@/components';
 import Velocity from 'velocity-animate';
 export default {
+  name:'TabPage',
   components: {
     [Button.name]: Button,
   },
   data() {
     return {
-      secondAnim: false
+      secondAnim: true
     }
   },
   methods:{

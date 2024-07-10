@@ -1,21 +1,18 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import MainFooter from './layout/MainFooter.vue';
 import MainNavbar from './layout/MainNavbar.vue';
-import Index from './pages/Index.vue';
 import Landing from './pages/Landing.vue';
 import Profile from './pages/Profile.vue';
 import StarterPage from './pages/StarterPage.vue';
+import indexPage from './pages/indexPage.vue';
 
-Vue.use(Router);
 
-export default new Router({
-  linkExactActiveClass: 'active',
-  routes: [
+
+  const routes = [
     {
       path: '/',
-      name: 'index',
-      components: { default: Index, header: MainNavbar, footer: MainFooter },
+      name: 'indexPage',
+      components: { default: indexPage, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 200 },
         footer: { backgroundColor: 'black' }
@@ -24,7 +21,7 @@ export default new Router({
     {
       path: '/hotel',
       name: 'hotel',
-      components: { default: Index, header: MainNavbar, footer: MainFooter },
+      components: { default: indexPage, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 200 },
         footer: { backgroundColor: 'black' }
@@ -57,12 +54,11 @@ export default new Router({
         footer: { backgroundColor: 'black' }
       }
     }
-  ],
-  scrollBehavior: to => {
-    if (to.hash) {
-      return { selector: to.hash };
-    } else {
-      return { x: 0, y: 0 };
-    }
-  }
+  ]
+
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
+  routes,
 });
+
+export default router;

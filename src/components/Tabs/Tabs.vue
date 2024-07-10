@@ -23,22 +23,22 @@
       >
         <li
           v-for="tab in tabs"
+          :key="tab.id"
           class="nav-item active"
           data-toggle="tab"
           role="tablist"
           aria-expanded="true"
-          :key="tab.id"
         >
           <a
             data-toggle="tab"
             role="tablist"
             :href="`#${tab.id}`"
-            @click.prevent="activateTab(tab)"
             :aria-expanded="tab.active"
             class="nav-link"
             :class="{ active: tab.active, disabled: tab.disabled }"
+            @click.prevent="activateTab(tab)"
           >
-            <tab-item-content :tab="tab"> </tab-item-content>
+            <tab-item-content :tab="tab" />
           </a>
         </li>
       </ul>
@@ -52,15 +52,14 @@
         tabContentClasses
       ]"
     >
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'tab-s',
-  inheritAttrs: false,
+  name: 'TabS',
   components: {
     TabItemContent: {
       props: ['tab'],
@@ -69,12 +68,7 @@ export default {
       }
     }
   },
-  provide() {
-    return {
-      addTab: this.addTab,
-      removeTab: this.removeTab
-    };
-  },
+  inheritAttrs: false,
   props: {
     type: {
       type: String,
@@ -129,6 +123,18 @@ export default {
       return '';
     }
   },
+  watch: {
+    value(newVal) {
+      this.findAndActivateTab(newVal);
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      if (this.value) {
+        this.findAndActivateTab(this.value);
+      }
+    });
+  },
   methods: {
     findAndActivateTab(label) {
       let tabToActivate = this.tabs.find(t => t.label === label);
@@ -152,37 +158,6 @@ export default {
         tab.active = false;
       });
     },
-    addTab(tab) {
-      const defaultSlot = this.$slots.default ? this.$slots.default() : [];
-
-      const index = defaultSlot.default.indexOf(tab.$vnode);
-      if (!this.activeTab && index === 0) {
-        tab.active = true;
-      }
-      if (this.activeTab === tab.name) {
-        tab.active = true;
-      }
-      this.tabs.splice(index, 0, tab);
-    },
-    removeTab(tab) {
-      const tabs = this.tabs;
-      const index = tabs.indexOf(tab);
-      if (index > -1) {
-        tabs.splice(index, 1);
-      }
-    }
-  },
-  mounted() {
-    this.$nextTick(() => {
-      if (this.value) {
-        this.findAndActivateTab(this.value);
-      }
-    });
-  },
-  watch: {
-    value(newVal) {
-      this.findAndActivateTab(newVal);
-    }
   }
 };
 </script>

@@ -1,33 +1,42 @@
 <template>
-  <nav :class="classes" class="navbar">
-    <div class="container">
+  <nav
+    :class="classes"
+    class="navbar"
+  >
+    <v-toobar class="container">
       <div class="navbar-translate">
-        <slot v-bind="slotData"></slot>
+        <slot v-bind="slotData" />
         <navbar-toggle-button
           :toggled="showMenu"
           @click="toggle"
-        ></navbar-toggle-button>
+        />
       </div>
       <div
-        class="navbar-collapse collapse"
+        v-if="$slots['navbar-menu'] || $slots['navbar-menu']"
+        id="navigation"
         v-click-outside="close"
+        class="navbar-collapse collapse"
         :style="menuImage ? `background: url(${menuImage}) 0% 0% / cover;` : ''"
         :class="[
           { show: showMenu },
           { 'has-image': menuImage },
           navMenuClasses
         ]"
-        v-if="$slots['navbar-menu'] || $slots['navbar-menu']"
         data-color="orange"
-        id="navigation"
       >
-        <slot name="before-menu"></slot>
-        <ul class="navbar-nav" :class="menuClasses">
-          <slot name="navbar-menu" v-bind="slotData"></slot>
+        <v-spacer />
+        <slot name="before-menu" />
+        <ul
+          class="navbar-nav"
+          :class="menuClasses"
+        >
+          <slot
+            name="navbar-menu"
+            v-bind="slotData"
+          />
         </ul>
-        <slot name="after-menu"></slot>
       </div>
-    </div>
+    </v-toobar>
   </nav>
 </template>
 <script>
@@ -46,7 +55,15 @@ function resizeThrottler(actualResizeHandler) {
 }
 
 export default {
-  name: 'nav-bar',
+  name: 'NavBar',
+  components: {
+    NavbarToggleButton
+  },
+  provide() {
+    return {
+      closeNavbar: this.close
+    };
+  },
   props: {
     transparent: {
       type: Boolean,
@@ -90,14 +107,6 @@ export default {
       default: 'lg'
     }
   },
-  provide() {
-    return {
-      closeNavbar: this.close
-    };
-  },
-  components: {
-    NavbarToggleButton
-  },
   data() {
     return {
       showMenu: false,
@@ -132,6 +141,12 @@ export default {
         this.extraNavClasses
       ];
     }
+  },
+  mounted() {
+    document.addEventListener('scroll', this.scrollListener);
+  },
+  beforeUnmount() {
+    document.removeEventListener('scroll', this.scrollListener);
   },
   methods: {
     setNav(value) {
@@ -172,13 +187,15 @@ export default {
     scrollListener() {
       resizeThrottler(this.handleScroll);
     }
-  },
-  mounted() {
-    document.addEventListener('scroll', this.scrollListener);
-  },
-  beforeUnmount() {
-    document.removeEventListener('scroll', this.scrollListener);
   }
 };
 </script>
-<style></style>
+<style>
+  .contain{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+}
+</style>

@@ -1,45 +1,75 @@
 <template>
-  <div class="hauteur" style="background-color: wheat;" v-scroll-reveal.reset="{ delay: 450, scale: 1.5, afterReveal:()=>{secondAnim = true} } ">
+  <div
+    v-motion="'fade-in'"
+    style="background-color: wheat;"
+  >
     <div class="col block">
-        <div v-scroll-reveal.reset="{delay:500, afterReveal:()=>{secondAnim = true}}">
-          <div v-if="secondAnim">
-            <Transition
-              v-on:before-enter="beforeEnter"
-              v-on:enter="enter"
-              appear
+      <div v-motion="'fade-in'">
+        <div v-if="secondAnim">
+          <Transition
+            appear
+            @before-enter="beforeEnter"
+            @enter="enter"
+          >
+            <div
+              delay="0"
+              left="0"
             >
-              <div delay="0" left="0">
-                <div class="row">
-                  <div v-for="image of images" :key="image">
-                    <div class="space">
-                        <img :src="image" alt="im" height="450" width="450"/>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Transition>
-          </div>
-        </div>
-        <div v-scroll-reveal.reset="{delay:500, afterReveal:()=>{secondAnim = true}}">
-          <div v-if="secondAnim">
-            <Transition
-              v-on:before-enter="beforeEnterB"
-              v-on:enter="enterB"
-              appear
-            >
-              <div delay="200" left="0">
-                <div class="row" style="margin-top: 330px;">
-                  <div v-for="image of images" :key="image">
-                    <div class="space">
-                      <img :src="image" alt="im" height="450" width="450"/>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              </Transition>
+              <v-row
+                class="mb-6"
+                no-gutters
+              >
+                <v-col
+                  v-for="image of images"
+                  :key="image"
+                >
+                  <v-sheet class="pa-2 ma-2">
+                    <img
+                      :src="image"
+                      alt="im"
+                      height="450"
+                      width="450"
+                    >
+                  </v-sheet>
+                </v-col>
+              </v-row>
             </div>
-          </div>
-
+          </Transition>
+        </div>
+      </div>
+      <div v-motion="'fade-in'">
+        <div v-if="secondAnim">
+          <Transition
+            appear
+            @before-enter="beforeEnterB"
+            @enter="enterB"
+          >
+            <div
+              delay="200"
+              left="0"
+            >
+              <v-row
+                class="mb-6"
+                no-gutters
+              >
+                <v-col
+                  v-for="image of images"
+                  :key="image"
+                >
+                  <v-sheet class="pa-2 ma-2">
+                    <img
+                      :src="image"
+                      alt="im"
+                      height="450"
+                      width="450"
+                    >
+                  </v-sheet>
+                </v-col>
+              </v-row>
+            </div>
+          </Transition>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -50,9 +80,9 @@ export default {
   data() {
     return {
       images:[
-        "img/zara.jpg", "img/zara1.jpg", "img/zara2.jpg", "img/zara3.jpg"
+        require("@/assets/img/zara.jpg"), require("@/assets/img/zara1.jpg"), require("@/assets/img/zara2.jpg"), require("@/assets/img/zara3.jpg")
       ],
-      secondAnim: false
+      secondAnim: true
     }
   },
   methods: {
