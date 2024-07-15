@@ -39,20 +39,20 @@
         </div>
         <div class="section-story-overview">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 size">
               <div
                 class="image-container image-left"
-                style="background-image: url('img/chambre.jpeg')"
+                :style="backgroundStyle"
               >
                 <!-- First image on the left side -->
               </div>
               <!-- Second image on the left side of the article -->
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5 size">
               <!-- First image on the right side, above the article -->
               <div
                 class="image-container image-right"
-                style="background-image: url('img/chambre.jpeg')"
+                :style="backgroundStyle"
               />
             </div>
           </div>
@@ -62,6 +62,47 @@
           style="width: 100%; height: 1px; background-color: black;"
         />
 
+        <v-row>
+          <v-col>
+            <form @submit.prevent="submit">
+              <v-row>
+                <v-text-field
+                  class="mx-5"
+                  label="Nom"
+                />
+
+                <v-text-field
+                  label="Prenom"
+                />
+              </v-row>
+              <v-row>
+                <v-text-field
+                  class="mx-5"
+                  label="E-mail"
+                />
+                <v-text-field
+                  label="Télephone"
+                />
+              </v-row>
+            
+              <v-textarea
+                class="mx-1"
+                label="Message"
+                variant="outlined"
+              />
+
+              <v-btn
+                class="me-4"
+                color="warning"
+                type="submit"
+              >
+                envoyer
+              </v-btn>
+            </form>
+          </v-col>
+
+          <v-col />
+        </v-row>
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
             <h2 class="title">
@@ -88,85 +129,75 @@
           style="width: 100%; height: 1px; background-color: black;"
         />
 
-        <!-- <div class="mt-5">
+        <div
+          class="mt-5"
+        >
           <l-map
-            style="height: 400px"
+            style="height: 400px; width: 100%"
             :zoom="zoom"
             :center="center"
             @ready="onMapReady"
           >
             <l-tile-layer
-              :url="url"
-              :attribution="attribution"
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
             />
-            <l-marker
-              :lat-lng="center"
-              :icon="customIcon"
-            >
+            <l-marker :lat-lng="marker">
               <l-popup>
-                <span>Zara Hotel</span>
+                ZARAHOTEL
               </l-popup>
             </l-marker>
           </l-map>
-        </div> -->
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
 import { Button, FormGroupInput } from '@/components';
-import L from 'leaflet';
+import { LMap, LTileLayer, LMarker, LPopup } from '@vue-leaflet/vue-leaflet';
 import 'leaflet.fullscreen';
-import 'leaflet.fullscreen/Control.FullScreen.css';
-import "leaflet/dist/leaflet.css";
+import L from 'leaflet';
 
-delete L.Icon.Default.prototype._getIconUrl;
 
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-  iconUrl: require('leaflet/dist/images/marker-icon.png'),
-  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
-});
 export default {
   name: 'LandingPage',
   bodyClass: 'landing-page',
   components: {
     [Button.name]: Button,
     [FormGroupInput.name]: FormGroupInput,
+    LMap,
+    LTileLayer,
+    LMarker,
+    LPopup
   },
-  data() {
-    return {
-      form: {
-        firstName: '',
-        email: '',
-        message: ''
-      },
-      zoom: 17,
-      center: [-18.89735, 47.5101739],
-      url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      attribution: '© OpenStreetMap contributors',
-      customIcon: L.icon({
-        iconUrl: 'img/location.png',  // Chemin vers votre icône
-        iconSize: [25, 25],             // Taille de l'icône
-        iconAnchor: [12, 41],           // Point d'ancrage de l'icône (la base de l'icône sera à cette position)
-        popupAnchor: [1, -34],          // Point où la popup apparaîtra relativement à l'icône
-        shadowSize: [41, 41],           // Taille de l'ombre de l'icône
-      }),
-    };
+  data(){
+    return{
+      imageUrl :require('@/assets/img/chambre.jpeg'),
+      zoom: 16,
+      center: [-18.8972486,47.5099986],
+      marker: [-18.8972486,47.5099986],
+    }
   },
-   methods: {
-    // The `onMapReady(map)` method is a function that is called when the Leaflet map component is
-    // ready. Inside this method, it adds a fullscreen control to the map. The `L.control.fullscreen()`
-    // function creates a fullscreen control button that allows the user to view the map in fullscreen
-    // mode.
+  computed: {
+    backgroundStyle() {
+      return {
+        backgroundImage: `url(${this.imageUrl})`
+      };
+    },
+  },
+  methods: {
     onMapReady(map) {
       L.control.fullscreen({
         position: 'topright',
         title: 'Plein écran',
-        titleCancel: 'Quitter plein écran',
       }).addTo(map);
-    }
-  }
+    },
+  },
 };
 </script>
-<style></style>
+<style>
+.size{
+  width: 50%;
+}
+</style>

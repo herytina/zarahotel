@@ -19,6 +19,7 @@ import App from './App.vue';
 // You can change this import to `import router from './starterRouter'` to quickly start development from a blank layout.
 import { MotionPlugin } from '@vueuse/motion';
 import 'leaflet/dist/leaflet.css';
+import 'leaflet.fullscreen/Control.FullScreen.css';
 import NowUiKit from './plugins/now-ui-kit';
 import vuetify from './plugins/vuetify'; // You need to create this file
 import router from './router';

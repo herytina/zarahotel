@@ -17,13 +17,13 @@
     "leaflet.fullscreen": "^3.0.2",
     "nouislider": "^14.6.0",
     "velocity-animate": "^1.5.2",
-    "vue": "^3.2.13",
+    "vue": "^3.4.31",
     "vue-lazyload": "^3.0.0",
     "vue-loader": "^17.4.2",
     "vue-router": "^4.4.0",
     "vue3-transitions": "^1.0.0",
-    "webpack-cli": "^5.1.4",
-    "vuetify": "^3.6.10"
+    "vuetify": "^3.6.10",
+    "webpack-cli": "^5.1.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
