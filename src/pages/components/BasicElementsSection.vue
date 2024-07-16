@@ -1,7 +1,7 @@
 <template>
   <div
     class="section section-example"
-    style="background-color: wheat;"
+    style="background-color:rgb(248, 248, 248);"
   >
     <div class="container text-center">
       <v-row
@@ -16,8 +16,7 @@
             <img
               :src="image"
               alt="im"
-              height="300"
-              width="450"
+              class="size"
             >
           </v-sheet>
         </v-col>
@@ -56,5 +55,15 @@ export default {
 .space1{
   margin-left: 10px;
   margin-bottom: 50px;
+}
+.size{
+  height:300px;
+  width:450px
+}
+@media screen and (max-width: 991px) {
+  .size{
+    height: 100px;
+    width: 400px;
+  }
 }
 </style>

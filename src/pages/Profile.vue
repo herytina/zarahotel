@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="page-header clear-filter">
-      <v-parallax
+      <v-parallax 
         :src="require('@/assets/img/service.jpeg')"
       />
     </div>
@@ -10,7 +10,10 @@
         class="container"
         style="margin-top: -100px;"
       >
-        <h3 class="title">
+        <h3
+          v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 500 } } }" 
+          class="title"
+        >
           Le Restaurant de Zara Hotel à Madagascar
         </h3>
         <p
@@ -19,14 +22,17 @@
         />
         <div class="container">
           <div
-            class="row marge"
+            class="row"
             style="margin: 50px"
           >
             <div
               v-motion="'fade-in'"
               class="col col-md-10 ml-auto col-xl-6"
             >
-              <div class="description">
+              <div
+                v-motion="{ initial: { opacity: 0, x: -100 }, enter: { opacity: 1, x: 0, transition: { delay: 600 } } }"
+                class="description"
+              >
                 <h3>Ambiance élégante, en harmonie et sérénité</h3>
                 <p>Une atmosphère qui reflète l’histoire des maisons traditionnelles de l’époque qui se fond dans une expérience contemporaine.</p>
                 <p>DECOUVREZ NOS CHAMBRES & TARIFS</p>
@@ -36,7 +42,7 @@
               </div>
             </div>
             <div
-              v-motion="'fade-in'"
+              v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 600 } } }"
               class="col-md-10 ml-auto col-xl-6"
             >
               <div>
@@ -49,14 +55,21 @@
             </div>
           </div>
         </div>
-        <h3 class="title">
+        <h3
+          v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 700 } } }"
+          class="title"
+        >
           La salle de petit dejeuner
         </h3>
         <p
+          v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 700 } } }"
           class="container"
           style="width: 20%; height: 1px; background-color: black;"
         />
-        <p class="description">
+        <p
+          v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 800 } } }"
+          class="description"
+        >
           L’établissement principal possède une salle à manger-verrière qui est réservée aux clients de l’hôtel pour le buffet petit-déjeuner mais aussi pour tout autre repas. Avec une capacité de 15 personnes, cette salle peut aussi être privatisée pour un cocktail, séminaire ou repas d’affaires dans une atmosphère intimiste et calme.
         </p>
         <div class="container">
@@ -70,10 +83,10 @@
             >
               <v-sheet class="pa-2 ma-2">
                 <img
+                  v-motion="{ initial: { opacity: 0, x: -300 }, enter: { opacity: 1, x: 0, transition: { delay: 1200 } } }"
                   :src="image"
                   alt="im"
-                  height="300"
-                  width="350"
+                  class="service"
                 >
               </v-sheet>
             </v-col>
@@ -81,7 +94,10 @@
         </div>
         <div class="container">
           <v-row class="mt-7">
-            <v-col class="my-auto">
+            <v-col
+              v-motion="{ initial: { opacity: 0, x: -200 }, enter: { opacity: 1, x: 0, transition: { delay: 1300 } } }"
+              class="my-auto"
+            >
               <h3 class="">
                 Vos Séminaires
               </h3>
@@ -91,12 +107,11 @@
                 La salle peut accueillir 10 à 14 personnes.
               </p>
             </v-col>
-            <v-col>
+            <v-col v-motion="{ initial: { opacity: 0, x: 200 }, enter: { opacity: 1, x: 0, transition: { delay: 1300 } } }">
               <img
                 :src="images[1]"
                 alt="im"
-                height="500"
-                width="550"
+                class="service1"
               >
             </v-col>
           </v-row>
@@ -118,4 +133,23 @@ export default {
   }
 };
 </script>
-<style></style>
+<style>
+.service{
+  height:300px;
+  width:350px
+}
+.service1{
+  height:500px;
+  width:550px
+}
+@media screen and (max-width: 991px) {
+  .service{
+    height:150px;
+    width:350px
+  }
+  .service1{
+    height:300px;
+    width:550px
+  }
+}
+</style>

@@ -7,11 +7,17 @@
       />
       <div class="content-center">
         <div class="container">
-          <h1 class="title">
+          <h1
+            v-motion="{ initial: { opacity: 0, x: -100 }, enter: { opacity: 1, x: 0, transition: { delay: 300 } } }"
+            class="title"
+          >
             ANTANANARIVO
             LA VILLE DES MILLE COLLINES
           </h1>
-          <div class="text-center">
+          <div
+            v-motion="{ initial: { opacity: 0, x: -100 }, enter: { opacity: 1, x: 0, transition: { delay: 500 } } }"
+            class="text-center"
+          >
             <n-button
               type="warning"
               size="lg"
@@ -26,21 +32,31 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class=" my-10">
+            <h2
+              v-motion="{ initial: { opacity: 0, x: -100 }, enter: { opacity: 1, x: 0, transition: { delay: 600 } } }"
+              class=" my-10"
+            >
               CONTACTEZ-NOUS
             </h2>
-            <p class="my-3 text-grey-darken-1">
+            <p
+              v-motion="{ initial: { opacity: 0, x: -100 }, enter: { opacity: 1, x: 0, transition: { delay: 700 } } }"
+              class="my-3 text-grey-darken-1"
+            >
               NOS CLIENTS SONT LE CŒUR DE NOTRE BOUTIQUE HÔTEL
             </p>
-            <p class="my-3 text-grey-darken-1">
+            <p
+              v-motion="{ initial: { opacity: 0, x: -100 }, enter: { opacity: 1, x: 0, transition: { delay: 800 } } }"
+              class="my-3 text-grey-darken-1"
+            >
               Tout ce dont vous avez besoin et quand vous en avez besoin, vous n’avez qu’à demander.
             </p>
           </div>
         </div>
         <div class="section-story-overview">
           <div class="row">
-            <div class="col-md-6 size">
+            <div class="col-md-6 size3">
               <div
+                v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 900 } } }"
                 class="image-container image-left"
                 :style="backgroundStyle"
               >
@@ -48,9 +64,10 @@
               </div>
               <!-- Second image on the left side of the article -->
             </div>
-            <div class="col-md-5 size">
+            <div class="col-md-5 size3">
               <!-- First image on the right side, above the article -->
               <div
+                v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 1100 } } }"
                 class="image-container image-right"
                 :style="backgroundStyle"
               />
@@ -64,23 +81,28 @@
 
         <v-row>
           <v-col>
-            <form @submit.prevent="submit">
+            <form
+              v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 1200 } } }"
+              @submit.prevent="submit"
+            >
               <v-row>
                 <v-text-field
-                  class="mx-5"
+                  class="mx-2"
                   label="Nom"
                 />
 
                 <v-text-field
+                  class="mx-2"
                   label="Prenom"
                 />
               </v-row>
               <v-row>
                 <v-text-field
-                  class="mx-5"
+                  class="mx-2"
                   label="E-mail"
                 />
                 <v-text-field
+                  class="mx-2"
                   label="Télephone"
                 />
               </v-row>
@@ -100,21 +122,28 @@
               </v-btn>
             </form>
           </v-col>
-
-          <v-col />
         </v-row>
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class="title">
+            <h2
+              v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 1300 } } }"
+              class="title"
+            >
               RÉSERVER
             </h2>
-            <h5 class="description">
+            <h5
+              v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 1400 } } }"
+              class="description"
+            >
               NOUS VOUS GARANTISSONS LE MEILLEUR TARIF
             </h5>
-            <h5 class="description">
+            <h5
+              v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 1500 } } }"
+              class="description"
+            >
               Profitez également de nos offres.
             </h5>
-            <p>
+            <p v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 1600 } } }">
               <n-button
                 type="warning"
                 size="lg"
@@ -197,7 +226,7 @@ export default {
 };
 </script>
 <style>
-.size{
+.size3{
   width: 50%;
 }
 </style>

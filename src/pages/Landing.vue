@@ -7,10 +7,16 @@
       />
       <div class="content-center">
         <div class="container">
-          <h1 class="title">
+          <h1
+            v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 500 } } }"
+            class="title"
+          >
             DESIGN DU DÉBUT DU SIÈCLE ADAPTÉ À L’ÉPOQUE ACTUELLE
           </h1>
-          <div class="text-center">
+          <div
+            v-motion="{ initial: { opacity: 0, y: 200 }, enter: { opacity: 1, y: 0, transition: { delay: 400 } } }"
+            class="text-center"
+          >
             <n-button
               type="warning"
               size="lg"
@@ -24,7 +30,9 @@
     <div class="section section-about-us">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 ml-auto mr-auto text-center">
+          <div 
+            v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 800 } } }"
+            class="col-md-8 ml-auto mr-auto text-center">
             <h2 class="title">
               CHAQUE CHAMBRE DU
               ZARA HOTEL
@@ -43,6 +51,7 @@
           <div class="row">
             <div class="col-md-6">
               <div
+                v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 500 } } }"
                 class="image-container image-left"
                 :style="backgroundStyle"
               >
@@ -50,7 +59,8 @@
               </div>
               <!-- Second image on the left side of the article -->
               <div
-                class="image-container"
+                v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 300 } } }"
+                class="image-container position"
                 :style="backgroundStyle"
               >
                 <n-button
@@ -64,6 +74,7 @@
             <div class="col-md-5">
               <!-- First image on the right side, above the article -->
               <div
+                v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 800 } } }"
                 class="image-container image-right"
                 :style="backgroundStyle"
               />
@@ -136,4 +147,10 @@ export default {
 };
 </script>
 <style>
+@media screen and (max-width: 991px) {
+  .position{
+    margin-top: -200px;
+  }
+}
+
 </style>

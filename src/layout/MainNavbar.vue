@@ -12,6 +12,7 @@
         to="/"
       >
         <img
+          v-motion="{ initial: { opacity: 0, y: -100 }, enter: { opacity: 1, y: 0, transition: { delay: 500 } } }"
           :src="logo"
           width="120"
           height="50"
@@ -23,10 +24,11 @@
     <template #navbar-menu>
       <li class="nav-item">
         <router-link
+          v-motion="{ initial: { opacity: 0, x: -100 }, enter: { opacity: 1, x: 0, transition: { delay: 500 } } }"
           class="nav-link"
           to="hotel"
         >
-          <i class="now-ui-icons arrows-1_cloud-download-93 text-white item" />
+          <i class="now-ui-icons design_app text-white item" />
           <p class="text-white item">
             Hotel
           </p>
@@ -35,10 +37,11 @@
 
       <li class="nav-item">
         <router-link
+          v-motion="{ initial: { opacity: 0, x: -100 }, enter: { opacity: 1, x: 0, transition: { delay: 650 } } }"
           class="nav-link"
           to="chambre"
         >
-          <i class="now-ui-icons arrows-1_cloud-download-93 text-white item" />
+          <i class="now-ui-icons objects_umbrella-13 text-white item" />
           <p class="text-white item">
             Chambres & suites
           </p>
@@ -47,10 +50,11 @@
 
       <li class="nav-item">
         <router-link
+          v-motion="{ initial: { opacity: 0, x: -100 }, enter: { opacity: 1, x: 0, transition: { delay: 800 } } }"
           class="nav-link"
           to="service"
         >
-          <i class="now-ui-icons arrows-1_cloud-download-93 text-white item" />
+          <i class="now-ui-icons shopping_box text-white item" />
           <p class="text-white item">
             Services
           </p>
@@ -59,17 +63,21 @@
 
       <li class="nav-item">
         <router-link
+          v-motion="{ initial: { opacity: 0, x: -100 }, enter: { opacity: 1, x: 0, transition: { delay: 950 } } }"
           class="nav-link"
           to="contact"
         >
-          <i class="now-ui-icons arrows-1_cloud-download-93 text-white item" />
+          <i class="now-ui-icons location_pin text-white item" />
           <p class="text-white item">
             Emplacement & Contacts
           </p>
         </router-link>
       </li>
 
-      <li class="nav-item">
+      <li
+        v-motion="{ initial: { opacity: 0, y: -100 }, enter: { opacity: 1, y: 0, transition: { delay: 1100 } } }"
+        class="nav-item"
+      >
         <a
           class="nav-link"
           rel="tooltip"
@@ -83,7 +91,10 @@
         </a>
       </li>
 
-      <li class="nav-item">
+      <li
+        v-motion="{ initial: { opacity: 0, y: -100 }, enter: { opacity: 1, y: 0, transition: { delay: 1100 } } }"
+        class="nav-item"
+      >
         <a
           class="nav-link"
           rel="tooltip"
@@ -97,7 +108,10 @@
         </a>
       </li>
 
-      <li class="nav-item">
+      <li
+        v-motion="{ initial: { opacity: 0, y: -100 }, enter: { opacity: 1, y: 0, transition: { delay: 1100 } } }"
+        class="nav-item"
+      >
         <a
           class="nav-link"
           rel="tooltip"
@@ -136,7 +150,7 @@ export default {
 <style scoped>
   .item{
     text-shadow: 1px 2px 3px black;
-    font-size: 18px;
+    font-size: 16px;
   }
   .navigation{
     width: 50%;

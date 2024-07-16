@@ -10,21 +10,21 @@
         order="first"
       >
         <h3
-          v-motion="'fade-in'"
-          class="title"
+          v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 500 } } }"
+          class=""
         >
           ZARA HOTEL
         </h3>
         <h5
-          v-motion="'fade-in'"
+          v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 700 } } }"
           class="mt-9"
         >
           12, rue Rakotonirina Stanislas<br>
           Isoraka – BP 4106<br>
           Antananarivo – Madagascar
           <h5
-            v-motion="'fade-in'"
-            class="mt-3"
+            v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 800 } } }"
+            class="description mt-3"
           >
             Téléphone : <br>
             +261 32 05 368 29 <br>
@@ -32,10 +32,11 @@
           </h5>
         </h5>
       </v-col>
-      <v-col class="my-15">
+      <v-col class="my-4">
         <div
           v-for="(item, i) in boutons"
           :key="i"
+          v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 700 } } }"
           :value="item.url"
           color="primary"
           class="ml-16"
@@ -55,13 +56,13 @@
       </v-col>
       <v-col
         order="last"
-        class="pa-2 my-8 text-center"
+        class="pa-2 text-center"
       >
         <div class="text-center">
-          <h3 v-motion="'fade-in'">
+          <h3 v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 500 } } }">
             Suivez-nous
           </h3>
-          <div v-motion="'fade-in'">
+          <div v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 700 } } }">
             <a
               href="#"
               class="btn btn-neutral btn-round btn-lg"
@@ -77,6 +78,7 @@
           </div>
           <div class="text-center">
             <a
+              v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 900 } } }"
               target="_blank"
               href="https://www.twitter.com/creativetim"
               class="btn btn-neutral btn-icon btn-twitter btn-round btn-lg"
@@ -86,6 +88,7 @@
               <i class="fab fa-twitter" />
             </a>
             <a
+              v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 1000 } } }"
               target="_blank"
               href="https://www.facebook.com/creativetim"
               class="btn btn-neutral btn-icon btn-facebook btn-round btn-lg"
@@ -95,6 +98,7 @@
               <i class="fab fa-facebook-square" />
             </a>
             <a
+              v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 1100 } } }"
               target="_blank"
               href="https://www.linkedin.com/company-beta/9430489/"
               class="btn btn-neutral btn-icon btn-linkedin btn-lg btn-round"

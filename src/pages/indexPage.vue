@@ -12,14 +12,20 @@
           v-motion="'fade-in'"
           class="txt"
         >
-          <h1 class="city">
+          <h1
+            v-motion="{ initial: { opacity: 0, y: 200 }, enter: { opacity: 1, y: 0, transition: { delay: 300 } } }"
+            class="city"
+          >
             ZARA HOTEL
           </h1>
-          <h3 class="city">
+          <h3
+            v-motion="{ initial: { opacity: 0, y: 150 }, enter: { opacity: 1, y: 0, transition: { delay: 300 } } }"
+            class="city"
+          >
             ANTANANARIVO
           </h3>
           <div
-            v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 500 } } }"
+            v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 500 } } }"
             style="margin-top: 40px;"
           >
             <n-button
@@ -40,6 +46,7 @@
                 <img
                   :src="image[1]"
                   alt=""
+                  class="post"
                 >
               </div>
               <div
@@ -49,6 +56,7 @@
                 <img
                   :src="image[2]"
                   alt=""
+                  class="post"
                 >
               </div>
             </div>
@@ -127,5 +135,26 @@ export default {
 }
 .h{
   height: 100%;
+}
+
+@media screen and (min-width: 991px) {
+  .post{
+    margin-top: -200px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .post{
+    margin-top: 200px;
+  }
+  .txt{
+    margin-top: 50%;
+    margin-left: 10%;
+  }
+  .city{
+  font-size: 40px;
+  font-weight: 600;
+  color:aliceblue;
+  text-shadow: 1px 2px 3px black;
+}
 }
 </style>

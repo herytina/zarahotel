@@ -92,34 +92,6 @@
 
     }
 
-    // .bar1,
-    // .bar2,
-    // .bar3 {
-    //   outline: 1px solid transparent;
-    // }
-    // .bar1 {
-    //   top: 0px;
-    //   @include bar-animation($topbar-back);
-    // }
-    // .bar2 {
-    //   opacity: 1;
-    // }
-    // .bar3 {
-    //   bottom: 0px;
-    //   @include bar-animation($bottombar-back);
-    // }
-    // .toggled .bar1 {
-    //   top: 6px;
-    //   @include bar-animation($topbar-x);
-    // }
-    // .toggled .bar2 {
-    //   opacity: 0;
-    // }
-    // .toggled .bar3 {
-    //   bottom: 6px;
-    //   @include bar-animation($bottombar-x);
-    // }
-
   .top-bar {
     transform: rotate(0);
   }
@@ -151,27 +123,6 @@
       opacity: 0;
     }
   }
-
-
-
-    //
-    // @include topbar-x-rotation();
-    // @include topbar-back-rotation();
-    // @include bottombar-x-rotation();
-    // @include bottombar-back-rotation();
-    //
-    // @-webkit-keyframes fadeIn {
-    //   0% {opacity: 0;}
-    //   100% {opacity: 1;}
-    // }
-    // @-moz-keyframes fadeIn {
-    //   0% {opacity: 0;}
-    //   100% {opacity: 1;}
-    // }
-    // @keyframes fadeIn {
-    //   0% {opacity: 0;}
-    //   100% {opacity: 1;}
-    // }
 }
 
 @mixin navbar-collapse() {
@@ -195,11 +146,11 @@
         @include transition (0.50s, cubic-bezier(0.685, 0.0473, 0.346, 1));
 
         &:before{
-            background: $brand-primary; /* For browsers that do not support gradients */
-            background: -webkit-linear-gradient($brand-primary 0%, #000 80%); /* For Safari 5.1 to 6.0 */
-            background: -o-linear-gradient($brand-primary 0%, #000 80%); /* For Opera 11.1 to 12.0 */
-            background: -moz-linear-gradient($brand-primary 0%, #000 80%); /* For Firefox 3.6 to 15 */
-            background: linear-gradient($brand-primary 0%, #000 80%); /* Standard syntax (must be last) */
+            background: rgb(250, 184, 3); /* For browsers that do not support gradients */
+            background: -webkit-linear-gradient(rgb(250, 184, 3) 0%, #000 80%); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(rgb(250, 184, 3) 0%, #000 80%); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(rgb(250, 184, 3) 0%, #000 80%); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(rgb(250, 184, 3) 0%, #000 90%); /* Standard syntax (must be last) */
             @include opacity(.76);
 
             display: block;

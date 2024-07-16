@@ -1,7 +1,6 @@
 <template>
   <div
-    class="row justify-content-center"
-    style="margin: 100px;"
+    class="row justify-content-center carol"
   >
     <div class="col-12">
       <el-carousel height="500px">
@@ -13,7 +12,7 @@
             class="d-block"
             :src="img"
             alt="Third slide"
-            style="width: 100%;"
+            style="width: 100%; height: 100%;"
           >
           <div class="carousel-caption d-none d-md-block">
             <h5>Yellowstone National Park, United States</h5>
@@ -32,4 +31,13 @@ export default {
 }
 }
 </script>
-<style></style>
+<style>
+.carol{
+  margin: 100px;
+}
+@media screen and (max-width: 991px) {
+  .carol{
+    margin: 10px;
+  }
+}
+</style>

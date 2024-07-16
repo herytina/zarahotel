@@ -2,7 +2,6 @@
   <div class="section">
     <div
       class="row marge"
-      style="background-color:wheat;padding:50px 150px;"
     >
       <div
         v-motion="'fade-in'"
@@ -73,7 +72,7 @@
     </div>
     <div class="container">
       <div
-        class="row marge"
+        class="row"
         style="margin: 50px"
       >
         <div
@@ -93,7 +92,7 @@
                 <img
                   :src="require('@/assets/img/zara2.jpg')"
                   alt="presentation"
-                  height="600"
+                  class="size0"
                 >
               </div>
             </Transition>
@@ -108,7 +107,7 @@
             <img
               :src="require('@/assets/img/zara.jpg')"
               alt="presentation"
-              height="300"
+              class="size1"
             >
             <h3>Ambiance élégante, en harmonie et sérénité</h3>
             <p>Une atmosphère qui reflète l’histoire des maisons traditionnelles de l’époque qui se fond dans une expérience contemporaine.</p>
@@ -190,4 +189,25 @@ export default {
 }
 </script>
 <style>
+.marge{
+  background-color:rgb(248, 248, 248);
+  padding:50px 150px;
+}
+.size0{
+  height: 600px;
+}
+.size1{
+  height: 300px;
+}
+@media screen and (max-width: 991px) {
+  .size0{
+    height: 200px;
+  }
+  .size1{
+    height: 150;
+  }
+  .marge{
+  padding:5px 5px;
+}
+}
 </style>

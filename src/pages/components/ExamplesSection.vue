@@ -1,7 +1,7 @@
 <template>
   <div
     v-motion="'fade-in'"
-    style="background-color: wheat;"
+    style="background-color:rgb(248, 248, 248);"
   >
     <div class="col block">
       <div v-motion="'fade-in'">
@@ -27,8 +27,7 @@
                     <img
                       :src="image"
                       alt="im"
-                      height="450"
-                      width="450"
+                      class="size"
                     >
                   </v-sheet>
                 </v-col>
@@ -60,8 +59,7 @@
                     <img
                       :src="image"
                       alt="im"
-                      height="450"
-                      width="450"
+                      class="size"
                     >
                   </v-sheet>
                 </v-col>
@@ -125,5 +123,15 @@ export default {
 }
 .hauteur{
   height:1000px;
+}
+.size{
+  height: 450px;
+  width: 450px;
+}
+@media screen and (max-width: 991px) and (min-width: 291px) {
+  .size{
+    height: 100px;
+    width: 150px;
+  }
 }
 </style>
