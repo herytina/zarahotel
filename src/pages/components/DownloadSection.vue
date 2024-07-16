@@ -58,14 +58,13 @@
         order="last"
         class="pa-2 text-center"
       >
-        <div class="text-center">
+        <v-col class="text-center">
           <h3 v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 500 } } }">
             Suivez-nous
           </h3>
           <div v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 700 } } }">
-            <a
-              href="#"
-              class="btn btn-neutral btn-round btn-lg"
+            <v-btn
+              variant="text"
             >
               <img
                 :src="require('@/assets/img/zara.jpg')"
@@ -74,41 +73,29 @@
                 width="200"
                 class="rounded-circle"
               >
-            </a>
+            </v-btn>
           </div>
-          <div class="text-center">
-            <a
+          <div class="text-center mt-16">
+            <v-btn
               v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 900 } } }"
-              target="_blank"
-              href="https://www.twitter.com/creativetim"
-              class="btn btn-neutral btn-icon btn-twitter btn-round btn-lg"
-              rel="tooltip"
-              title="Follow us"
+              variant="text"
             >
               <i class="fab fa-twitter" />
-            </a>
-            <a
+            </v-btn>
+            <v-btn
               v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 1000 } } }"
-              target="_blank"
-              href="https://www.facebook.com/creativetim"
-              class="btn btn-neutral btn-icon btn-facebook btn-round btn-lg"
-              rel="tooltip"
-              title="Like us"
+              variant="text"
             >
               <i class="fab fa-facebook-square" />
-            </a>
-            <a
+            </v-btn>
+            <v-btn
               v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 1100 } } }"
-              target="_blank"
-              href="https://www.linkedin.com/company-beta/9430489/"
-              class="btn btn-neutral btn-icon btn-linkedin btn-lg btn-round"
-              rel="tooltip"
-              title="Follow us"
+              variant="text"
             >
               <i class="fab fa-instagram" />
-            </a>
+            </v-btn>
           </div>
-        </div>
+        </v-col>
       </v-col>
     </v-row>
   </div>
