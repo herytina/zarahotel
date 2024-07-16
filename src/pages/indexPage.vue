@@ -13,13 +13,21 @@
           class="txt"
         >
           <h1
-            v-motion="{ initial: { opacity: 0, y: 200 }, enter: { opacity: 1, y: 0, transition: { delay: 300 } } }"
+            v-motion="{ initial: { opacity: 1, y: 5 }, enter: { opacity: 1, y: 0, transition: {repeat: Infinity,
+                                                                                               repeatType: 'mirror', duration : 1300
+            }, } }"
             class="city"
           >
             ZARA HOTEL
           </h1>
           <h3
-            v-motion="{ initial: { opacity: 0, y: 150 }, enter: { opacity: 1, y: 0, transition: { delay: 300 } } }"
+            v-motion
+            :initial="{ opacity: 0, y: 150 }"
+            :enter=" { opacity: 1, y: 0, transition: { 
+              type: 'spring',
+              stiffness: '100',
+              delay: 100,
+            } }"
             class="city"
           >
             ANTANANARIVO
@@ -131,7 +139,7 @@ export default {
   font-size: 64px;
   font-weight: 600;
   color:aliceblue;
-  text-shadow: 1px 2px 3px black;
+  text-shadow: 1px 2px 3px rgb(236, 183, 7);
 }
 .h{
   height: 100%;
