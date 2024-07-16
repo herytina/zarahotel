@@ -41,9 +41,9 @@
               delay="200"
               top="150"
             >
-              <h1 class="center">
+              <h3 class="center">
                 HISTOIRE ET MODERNITER AU COEUR D'ANTANANARIVO
-              </h1>
+              </h3>
             </div>
           </Transition>
         </div>
