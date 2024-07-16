@@ -41,9 +41,9 @@
               delay="200"
               top="150"
             >
-              <h3 class="center">
+              <p class="text-h4 center">
                 HISTOIRE ET MODERNITER AU COEUR D'ANTANANARIVO
-              </h3>
+              </p>
             </div>
           </Transition>
         </div>
@@ -64,7 +64,7 @@
               type="warning"
               size="lg"
             >
-              RESERVEZ AU MEILLEUR TARIF >
+              RESERVEZ AU MEILLEUR TARIF
             </n-button>
           </div>
         </div>
