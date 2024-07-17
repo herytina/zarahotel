@@ -79,7 +79,7 @@
           style="width: 100%; height: 1px; background-color: black;"
         />
 
-        <v-row>
+        <div class="reponsive">
           <v-col>
             <form
               v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 1200 } } }"
@@ -122,7 +122,17 @@
               </v-btn>
             </form>
           </v-col>
-        </v-row>
+          <v-col>
+            <v-expansion-panels variant="accordion">
+              <v-expansion-panel
+                v-for="(item, index) of items"
+                :key="index"
+                :text="item.nom + item.tel"
+                :title="item.action"
+              />
+            </v-expansion-panels>
+          </v-col>
+        </div>
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
             <h2
@@ -206,6 +216,13 @@ export default {
       zoom: 16,
       center: [-18.8972486,47.5099986],
       marker: [-18.8972486,47.5099986],
+      items : [
+        {action:'Directeur général',nom:'test dir', tel:'034 23 568 96'},
+        {action:'Sécretariat',nom:'test sec', tel:'034 23 568 96'},
+        {action:'Service',nom:'test serv', tel:'034 23 568 96'}
+        ,{action:'Securiter',nom:'test secourt', tel:'034 23 568 96'},
+        {action:'Acceuille',nom:'test Accueille', tel:'034 23 568 96'}
+      ]
     }
   },
   computed: {
@@ -228,5 +245,15 @@ export default {
 <style>
 .size3{
   width: 50%;
+}
+.reponsive{
+  display: flex;
+  flex-direction: row;
+}
+@media screen and (max-width: 991px) {
+  .reponsive{
+  display: flex;
+  flex-direction: column;
+}
 }
 </style>
