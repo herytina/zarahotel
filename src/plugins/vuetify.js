@@ -11,5 +11,4 @@ const vuetify = createVuetify({
   directives
 });
 
-
 export default vuetify;

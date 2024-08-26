@@ -8,6 +8,234 @@
         :src="image[0]"
         class="h"
       >
+        <div class="logo">
+          <router-link
+            class="navbar-brand"
+            to="/"
+          >
+            <img
+              v-motion="{ initial: { opacity: 0, y: -100 }, enter: { opacity: 1, y: 0, transition: { delay: 500 } } }"
+              :src="logo"
+              width="200"
+              height="100"
+              alt="logo"
+              class="radius"
+            >
+          </router-link>
+        </div>
+        <div class="responsive">
+          <v-container class="bg-lime-lighten-3 container-with-opacity w-66">
+            <v-card class="opacity-100">
+              <v-row
+                no-gutters
+              >
+                <v-col>
+                  <p class="text-center text-caption">
+                    DATE D'ARRIVER
+                  </p>
+                  <v-menu
+                    ref="menuC"
+                    v-model="commingDate"
+                    v-model:return-value="dateC"
+                    :close-on-content-click="false"
+                    :nudge-right="40"
+                    transition="scale-transition"
+                    offset-y
+                  >
+                    <template #activator="{ attrsC }">
+                      <v-text-field
+                        v-model="formattedDateC"
+                        prepend-icon="mdi-calendar"
+                        readonly
+                        v-bind="attrsC"
+                        required
+                        density="compact"
+                        @click="openMenuC"
+                      />
+                    </template>
+                    <v-date-picker
+                      v-model="dateC"
+                    />
+                  </v-menu>
+                </v-col>
+
+                <v-col>
+                  <p class="text-center text-caption">
+                    DATE DE DEPART
+                  </p>
+                  <v-menu
+                    ref="menuL"
+                    v-model="leavingDate"
+                    v-model:return-value="dateL"
+                    :close-on-content-click="false"
+                    :nudge-right="40"
+                    transition="scale-transition"
+                    offset-y
+                  >
+                    <template #activator="{ attrsL }">
+                      <v-text-field
+                        v-model="formattedDateL"
+                        prepend-icon="mdi-calendar"
+                        readonly
+                        v-bind="attrsL"
+                        required
+                        density="compact"
+                        @click="openMenuL"
+                      />
+                    </template>
+                    <v-date-picker
+                      v-model="dateL"
+                    />
+                  </v-menu>
+                </v-col>
+
+                <v-col>
+                  <p class="text-center text-caption">
+                    CHAMBRES
+                  </p>
+                  <v-select
+                    prepend-icon="mdi-phone"
+                    :items="[0,1,2,3,4]"
+                    density="compact"
+                  />
+                </v-col>
+
+                <v-col>
+                  <p class="text-center text-caption">
+                    ADULTES
+                  </p>
+                  <v-select
+                    prepend-icon="mdi-phone"
+                    :items="[0,1,2,3,4]"
+                    density="compact"
+                  />
+                </v-col>
+
+                <v-col>
+                  <p class="text-center text-caption">
+                    ENFANTS
+                  </p>
+                  <v-select
+                    prepend-icon="mdi-phone"
+                    :items="[0,1,2,3,4]"
+                    density="compact"
+                  />
+                </v-col>
+
+                <v-col class="bg-lime-lighten-3 mx-auto">
+                  .v-col-auto
+                </v-col>
+              </v-row>
+            </v-card>
+          </v-container>
+        </div>
+        <div class="responsiveR w-66 mx-auto">
+          <v-expansion-panels variant="popout">
+            <v-expansion-panel>
+              <v-expansion-panel-title>
+                Réservation
+              </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <v-row>
+                  <v-col>
+                    <p class="text-center text-caption">
+                      DATE D'ARRIVER
+                    </p>
+                    <v-menu
+                      ref="menuC"
+                      v-model="commingDate"
+                      v-model:return-value="dateC"
+                      :close-on-content-click="false"
+                      :nudge-right="40"
+                      transition="scale-transition"
+                      offset-y
+                    >
+                      <template #activator="{ attrsC }">
+                        <v-text-field
+                          v-model="formattedDateC"
+                          readonly
+                          v-bind="attrsC"
+                          required
+                          density="compact"
+                          @click="openMenuC"
+                        />
+                      </template>
+                      <v-date-picker
+                        v-model="dateC"
+                      />
+                    </v-menu>
+                  </v-col>
+                  <v-col>
+                    <p class="text-center text-caption">
+                      DATE DE DEPART
+                    </p>
+                    <v-menu
+                      ref="menuL"
+                      v-model="leavingDate"
+                      v-model:return-value="dateL"
+                      :close-on-content-click="false"
+                      :nudge-right="40"
+                      transition="scale-transition"
+                      offset-y
+                    >
+                      <template #activator="{ attrsL }">
+                        <v-text-field
+                          v-model="formattedDateL"
+                          readonly
+                          v-bind="attrsL"
+                          required
+                          density="compact"
+                          @click="openMenuL"
+                        />
+                      </template>
+                      <v-date-picker
+                        v-model="dateL"
+                      />
+                    </v-menu>
+                  </v-col>
+                </v-row>
+
+                <p class="text-caption">
+                  CHAMBRES
+                </p>
+                <v-select
+                  :items="[0, 1, 2, 3, 4]"
+                  density="compact"
+                />
+
+                <v-row>
+                  <v-col>
+                    <p class="text-center text-caption">
+                      ADULTES
+                    </p>
+                    <v-select
+                      :items="[0, 1, 2, 3, 4]"
+                      density="compact"
+                    />
+                  </v-col>
+                  <v-col>
+                    <p class="text-center text-caption">
+                      ENFANTS
+                    </p>
+                    <v-select
+                      :items="[0, 1, 2, 3, 4]"
+                      density="compact"
+                    />
+                  </v-col>
+                </v-row>
+                <v-btn
+                  block
+                  variant="flat"
+                  size="small"
+                  color="warning"
+                  flat
+                >
+                  Réserver
+                </v-btn>
+              </v-expansion-panel-text>
+            </v-expansion-panel>
+          </v-expansion-panels>
+        </div>
         <div
           v-motion="'fade-in'"
           class="txt"
@@ -125,15 +353,59 @@ export default {
   },
   data() {
     return {
-      image : [require('@/assets/img/zara11.jpg'),require('@/assets/img/chambre.jpeg'),require('@/assets/img/service.jpeg')]
+      image : [require('@/assets/img/zara11.jpg'),require('@/assets/img/chambre.jpeg'),require('@/assets/img/service.jpeg')],
+      logo : require('@/assets/img/zara.jpg'),
+      commingDate : false,
+      leavingDate : false,
+      dateC: null,
+      dateL: null,
+
     }
-  }
+  },
+  computed: {
+    formattedDateC() {
+      return this.dateC ? this.dateC.toLocaleDateString() : '';
+    },
+    formattedDateL() {
+      return this.dateL ? this.dateL.toLocaleDateString() : '';
+    },
+  },
+  methods: {
+    openMenuC() {
+      this.commingDate = true;
+    },
+    openMenuL() {
+      this.leavingDate = true;
+    },
+    closeMenu() {
+      this.commingDate = false;
+      this.leavingDate = false;
+    },
+  },
 }
 </script>
 <style>
 .txt{
-  margin-top: 20%;
   margin-left: 20%;
+}
+.logo{
+  margin-top: 15%;
+  margin-bottom: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+.responsiveR{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.custom-select .v-input__control {
+  min-height: 32px; /* Ajuste la hauteur */
+}
+
+.custom-select .v-select__selections {
+  font-size: 12px; /* Ajuste la taille de la police */
 }
 .city{
   font-size: 64px;
@@ -145,17 +417,39 @@ export default {
   height: 100%;
 }
 
+.container-with-opacity {
+  overflow: hidden;
+}
+
+.container-with-opacity::before {
+  opacity: 0.5;
+  z-index: -1;
+}
+
 @media screen and (min-width: 991px) {
   .post{
     margin-top: -200px;
+  }
+  .responsiveR{
+    display: none;
   }
 }
 @media screen and (max-width: 991px) {
   .post{
     margin-top: 200px;
   }
+  .responsive{
+    display: none;
+  }
+  .responsiveR{
+    display: flex;
+    z-index: 99999;
+  }
+  .logo{
+    margin-top: 30%;
+  }
   .txt{
-    margin-top: 50%;
+    margin-top: 10%;
     margin-left: 10%;
   }
   .city{
