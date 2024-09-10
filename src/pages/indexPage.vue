@@ -16,14 +16,14 @@
             <img
               v-motion="{ initial: { opacity: 0, y: -100 }, enter: { opacity: 1, y: 0, transition: { delay: 500 } } }"
               :src="logo"
-              width="200"
-              height="100"
+              width="300"
+              height="200"
               alt="logo"
               class="radius"
             >
           </router-link>
         </div>
-        <div class="responsive">
+        <!-- <div class="responsive">
           <v-container class="bg-lime-lighten-3 container-with-opacity w-66">
             <v-card class="opacity-100">
               <v-row
@@ -235,7 +235,7 @@
               </v-expansion-panel-text>
             </v-expansion-panel>
           </v-expansion-panels>
-        </div>
+        </div> -->
         <div
           v-motion="'fade-in'"
           class="txt"
@@ -389,7 +389,7 @@ export default {
   margin-left: 20%;
 }
 .logo{
-  margin-top: 15%;
+  margin-top: 10%;
   margin-bottom: 2%;
   display: flex;
   align-items: center;

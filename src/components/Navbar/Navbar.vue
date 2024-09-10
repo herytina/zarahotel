@@ -3,7 +3,7 @@
     :class="classes"
     class="navbar"
   >
-    <v-toobar class="container">
+    <v-toobar class="d-flex justify-space-between align-center">
       <div class="navbar-translate">
         <slot v-bind="slotData" />
         <navbar-toggle-button
@@ -24,7 +24,6 @@
         ]"
         data-color="orange"
       >
-        <v-spacer />
         <slot name="before-menu" />
         <ul
           class="navbar-nav"
@@ -194,8 +193,7 @@ export default {
   .contain{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    margin-left: 50px;
 }
 </style>
