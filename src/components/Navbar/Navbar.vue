@@ -3,7 +3,7 @@
     :class="classes"
     class="navbar"
   >
-    <v-toobar class="d-flex justify-space-between align-center">
+    <v-toobar class="d-flex align-center w-100">
       <div class="navbar-translate">
         <slot v-bind="slotData" />
         <navbar-toggle-button
@@ -15,7 +15,7 @@
         v-if="$slots['navbar-menu'] || $slots['navbar-menu']"
         id="navigation"
         v-click-outside="close"
-        class="navbar-collapse collapse"
+        class="navbar-collapse collapse justify-content-end"
         :style="menuImage ? `background: url(${menuImage}) 0% 0% / cover;` : ''"
         :class="[
           { show: showMenu },
