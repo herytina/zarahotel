@@ -1,7 +1,7 @@
 <template>
   <navbar
     position="fixed"
-    type="warning"
+    type="dark"
     :transparent="transparent"
     :color-on-scroll="colorOnScroll"
     class="d-flex justify-space-between align-center px-8"
@@ -112,40 +112,6 @@
           <p class="text-white item">RESERVATION</p>
         </a>
       </li>
-
-      <li
-        v-motion="{ initial: { opacity: 0, y: -100 }, enter: { opacity: 1, y: 0, transition: { delay: 1100 } } }"
-        class="nav-item"
-      >
-        <a
-          class="nav-link"
-          rel="tooltip"
-          title="Like us on Facebook"
-          data-placement="bottom"
-          href="https://www.facebook.com/zaraHotel"
-          target="_blank"
-        >
-          <i class="fab fa-facebook-square" />
-          <p class="d-lg-none d-xl-none">Facebook</p>
-        </a>
-      </li>
-
-      <li
-        v-motion="{ initial: { opacity: 0, y: -100 }, enter: { opacity: 1, y: 0, transition: { delay: 1100 } } }"
-        class="nav-item"
-      >
-        <a
-          class="nav-link"
-          rel="tooltip"
-          title="Follow us on Instagram"
-          data-placement="bottom"
-          href="https://www.instagram.com/CreativeTimOfficial"
-          target="_blank"
-        >
-          <i class="fab fa-instagram" />
-          <p class="d-lg-none d-xl-none">Instagram</p>
-        </a>
-      </li>
       
       <!-- <div
         v-motion="{
@@ -193,7 +159,7 @@ export default {
   },
   data() {
     return {
-      logo : require('@/assets/img/zara.jpg'),
+      logo : require('@/assets/img/zara-hotel-logo-final.png'),
       navItems: [
         {
           to: 'hotel',

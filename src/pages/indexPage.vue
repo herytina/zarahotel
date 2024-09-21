@@ -17,7 +17,7 @@
               v-motion="{ initial: { opacity: 0, y: -100 }, enter: { opacity: 1, y: 0, transition: { delay: 500 } } }"
               :src="logo"
               width="300"
-              height="200"
+              height="250"
               alt="logo"
               class="radius"
             >
@@ -354,7 +354,7 @@ export default {
   data() {
     return {
       image : [require('@/assets/img/zara11.jpg'),require('@/assets/img/chambre.jpeg'),require('@/assets/img/service.jpeg')],
-      logo : require('@/assets/img/zara.jpg'),
+      logo : require('@/assets/img/zara-hotel-logo-final.png'),
       commingDate : false,
       leavingDate : false,
       dateC: null,

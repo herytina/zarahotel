@@ -4,48 +4,15 @@
     :class="{ [`footer-${type}`]: type }"
     :data-background-color="backgroundColor"
   >
-    <DownloadSection></DownloadSection>
-
-
-    <div class="container">
-      <nav>
-        <ul>
-          <li>
-            <a href="https://www.creative-tim.com">
-              Creative Tix
-            </a>
-          </li>
-          <li>
-            <a href="https:///presentation.creative-tim.com">
-              A propos
-            </a>
-          </li>
-          <li>
-            <a href="https:///blog.creative-tim.com">
-              Blog
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <div class="copyright">
-        &copy; {{ year }}, Designed by
-        <a href="https:///www.invisionapp.com" target="_blank" rel="noopener"
-          >Invision</a
-        >. Coded by
-        <a href="https://binarcode.com" target="_blank" rel="noopener"
-          >BinarCode</a
-        >
-        and
-        <a href="https://www.creative-tim.com" target="_blank" rel="noopener"
-          >Creative Natik Corporation</a
-        >.
-      </div>
-    </div>
+    <DownloadSection />
   </footer>
 </template>
 <script>
 import DownloadSection from '../pages/components/DownloadSection.vue';
 export default {
+  components: {
+    DownloadSection
+  },
   props: {
     backgroundColor: String,
     type: String
@@ -54,9 +21,6 @@ export default {
     return {
       year: new Date().getFullYear()
     };
-  },
-  components: {
-    DownloadSection
   }
 };
 </script>
