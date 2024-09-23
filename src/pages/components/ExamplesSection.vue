@@ -1,72 +1,48 @@
 <template>
   <div
     v-motion="'fade-in'"
-    style="background-color:rgb(248, 248, 248);"
+    :style="{ backgroundColor: bg || 'rgb(248, 248, 248)' }"
   >
-    <div class="col block">
-      <div v-motion="'fade-in'">
-        <div v-if="secondAnim">
-          <Transition
-            appear
-            @before-enter="beforeEnter"
-            @enter="enter"
-          >
-            <div
-              delay="0"
-              left="0"
-            >
-              <v-row
-                class="mb-6"
-                no-gutters
-              >
-                <v-col
-                  v-for="image of images"
-                  :key="image"
-                >
-                  <v-sheet class="pa-2 ma-2">
-                    <img
-                      :src="image"
-                      alt="im"
-                      class="size"
-                    >
-                  </v-sheet>
-                </v-col>
-              </v-row>
-            </div>
-          </Transition>
+    <div class="container text-center">
+      <div class="row justify-content-md-center">
+        <div class="col-md-12 col-lg-8">
+          <h2 class="title">
+            {{ title }}
+          </h2>
+          <h5 class="description">
+            {{ text }}
+          </h5>
         </div>
       </div>
+    </div>
+    <div>
       <div v-motion="'fade-in'">
-        <div v-if="secondAnim">
-          <Transition
-            appear
-            @before-enter="beforeEnterB"
-            @enter="enterB"
+        <v-card
+          class="mx-auto"
+          max-width="1000"
+        >
+          <v-img
+            v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 300 } } }"
+            class="align-end text-white"
+            height="300"
+            :src="image"
+            cover
           >
-            <div
-              delay="200"
-              left="0"
+            <v-avatar
+              class="ma-3"
+              rounded="2"
+              size="200"
+              style="background-color: rgba(0, 0, 0, 0.7);"
             >
-              <v-row
-                class="mb-6"
-                no-gutters
+              <p
+                class="text-center"
+                style="margin: 0; font-weight: bold; color: aliceblue"
               >
-                <v-col
-                  v-for="image of images"
-                  :key="image"
-                >
-                  <v-sheet class="pa-2 ma-2">
-                    <img
-                      :src="image"
-                      alt="im"
-                      class="size"
-                    >
-                  </v-sheet>
-                </v-col>
-              </v-row>
-            </div>
-          </Transition>
-        </div>
+                {{ title }}
+              </p>
+            </v-avatar>
+          </v-img>
+        </v-card>
       </div>
     </div>
   </div>
@@ -75,13 +51,39 @@
 import Velocity from 'velocity-animate';
 
 export default {
+  props: {
+    bg: {
+      type: String,
+      default: 'rgb(248, 248, 248)',
+    },
+    title: {
+      type: String,
+      default: 'Salles',
+    },
+    text: {
+      type: String,
+      default: 'The kit comes with three pre-built pages to help you get started faster. You can change the text and images and you\'re good to go.',
+    },
+    image: {
+      type: String,
+      default: 'https://cdn.vuetifyjs.com/images/cards/docks.jpg',
+    },
+  },
   data() {
     return {
       images:[
         require("@/assets/img/zara.jpg"), require("@/assets/img/zara1.jpg"), require("@/assets/img/zara2.jpg"), require("@/assets/img/zara3.jpg")
       ],
-      secondAnim: true
+      secondAnim: true,
+      imageUrl :require('@/assets/img/chambre.jpeg')
     }
+  },
+  computed: {
+    backgroundStyle() {
+      return {
+        backgroundImage: `url(${this.imageUrl})`,
+      };
+    },
   },
   methods: {
     beforeEnter(el) {
@@ -111,7 +113,7 @@ export default {
         { delay, duration: 1000, complete: done }
       )
     },
-  }
+  },
 };
 </script>
 <style>

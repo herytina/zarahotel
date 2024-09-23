@@ -6,7 +6,10 @@
     :color-on-scroll="colorOnScroll"
     class="d-flex justify-space-between align-center px-8"
   >
-    <div class="d-flex align-center">
+    <div
+      v-if="!showButton"
+      class="d-flex align-center"
+    >
       <router-link
         class="navbar-brand"
         to="/"
@@ -26,7 +29,7 @@
       >
         <i class="now-ui-icons location_pin" />
         <p class="text-caption">
-          Ampefiloha | 101 Antananarivo-Madagascar
+          Boulevard de l’Europe, Ankasina Antananarivo
         </p>
       </router-link>
     </div>
@@ -47,7 +50,7 @@
         </li> -->
 
       <li class="nav-item">
-        <router-link
+        <!-- <router-link
           v-motion="{ initial: { opacity: 0, x: -100 }, enter: { opacity: 1, x: 0, transition: { delay: 650 } } }"
           class="nav-link"
           to="chambre"
@@ -56,7 +59,105 @@
           <p class="text-white item">
             Hébergement
           </p>
-        </router-link>
+        </router-link> -->
+        <div v-motion="{ initial: { opacity: 0, x: -100 }, enter: { opacity: 1, x: 0, transition: { delay: 650 } } }">
+          <v-menu
+            open-on-hover
+          >
+            <template #activator="{ props }">
+              <div
+                v-bind="props"
+                class="nav-link"
+              >
+                <i class="now-ui-icons objects_umbrella-13 text-white item" />
+                <p class="text-white item">
+                  Hébergement
+                </p>
+              </div>
+            </template>
+
+            <v-list>
+              <v-list-group value="Chambres">
+                <template #activator="{ props }">
+                  <v-list-item
+                    v-bind="props"
+                    title="Chambres"
+                  />
+                </template>
+
+                <v-list-group value="Chambre supérieur">
+                  <template #activator="{ props }">
+                    <v-list-item
+                      v-bind="props"
+                      title="Chambre supérieur"
+                    />
+                  </template>
+
+                  <v-list-item
+                    v-for="(title, i) in chambresArborecent"
+                    :key="i"
+                  >
+                    <!-- Utilisation de router-link -->
+                    <router-link
+                      to="chambre"
+                      class="router-link"
+                      style="text-decoration: none;"
+                    >
+                      {{ title.title }}
+                    </router-link>
+                  </v-list-item>
+                </v-list-group>
+
+                <v-list-item
+                  v-for="(title, i) in chambres"
+                  :key="i"
+                >
+                  <!-- Utilisation de router-link -->
+                  <router-link
+                    to="chambre"
+                    class="router-link"
+                    style="text-decoration: none;"
+                  >
+                    {{ title.title }}
+                  </router-link>
+                </v-list-item>
+              </v-list-group>
+
+              <!-- <v-list-item
+                v-for="(item, index) in items"
+                :key="index"
+              >
+                <v-list-item-title>
+                  <v-btn class="w-100">
+                    {{ item.title }}
+                  </v-btn>
+                </v-list-item-title>
+              </v-list-item> -->
+
+              <!-- <v-list-item
+                v-for="(item, i) in items"
+                :key="i"
+                :title="item.title"
+                :value="item.title"
+              /> -->
+
+              <v-list-item
+                v-for="(title, i) in items"
+                :key="i"
+              >
+                <!-- Utilisation de router-link -->
+                <router-link
+                  to="chambre"
+                  class="router-link"
+                  style="text-decoration: none; color:inherit;"
+                >
+                  {{ title.title }}
+                </router-link>
+              </v-list-item>
+
+            </v-list>
+          </v-menu>
+        </div>
       </li>
 
       <li class="nav-item">
@@ -73,16 +174,50 @@
       </li>
 
       <li class="nav-item">
-        <router-link
+        <!-- <router-link
           v-motion="{ initial: { opacity: 0, x: -100 }, enter: { opacity: 1, x: 0, transition: { delay: 800 } } }"
           class="nav-link"
           to="service"
         >
           <i class="now-ui-icons shopping_box text-white item" />
           <p class="text-white item">
-            Services
+            Salle
           </p>
-        </router-link>
+        </router-link> -->
+
+        <div v-motion="{ initial: { opacity: 0, x: -100 }, enter: { opacity: 1, x: 0, transition: { delay: 800 } } }">
+          <v-menu
+            open-on-hover
+          >
+            <template #activator="{ props }">
+              <div
+                v-bind="props"
+                class="nav-link"
+              >
+                <i class="now-ui-icons objects_umbrella-13 text-white item" />
+                <p class="text-white item">
+                  Salles
+                </p>
+              </div>
+            </template>
+
+            <v-list>
+              <v-list-item
+                v-for="(item, i) in itemSalle"
+                :key="i"
+              >
+                <!-- Utilisation de router-link -->
+                <router-link
+                  to="service"
+                  class="router-link"
+                  style="text-decoration: none; color:inherit;"
+                >
+                  {{ item.title }}
+                </router-link>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </div>
       </li>
 
       <li class="nav-item">
@@ -98,7 +233,7 @@
         </router-link>
       </li>
 
-      <li
+      <!--<li
         v-motion="{ initial: { opacity: 0, y: -100 }, enter: { opacity: 1, y: 0, transition: { delay: 1100 } } }"
         class="nav-item"
       >
@@ -113,7 +248,7 @@
         </a>
       </li>
       
-      <!-- <div
+       <div
         v-motion="{
           initial: { opacity: 0, x: -100 },
           enter: { opacity: 1, x: 0, transition: { delay: 500 } },
@@ -144,6 +279,19 @@
       </div> -->
     </template>
   </navbar>
+  <!-- Bouton flottant en bas à droite -->
+  <v-btn
+    v-if="showButton"
+    color="warning"
+    icon="arrows-1_minimal-up"
+    bottom
+    right
+    style="position: fixed; bottom: 30px; right: 70px;z-index: 999999;"
+    size="small"
+    @click="scrollToTop"
+  >
+    <i class="now-ui-icons text-white item arrows-1_minimal-up" />
+  </v-btn>
 </template>
 
 <script>
@@ -159,6 +307,7 @@ export default {
   },
   data() {
     return {
+      showButton: false,
       logo : require('@/assets/img/zara-hotel-logo-final.png'),
       navItems: [
         {
@@ -217,8 +366,43 @@ export default {
           },
         },
       ],
+      items: [
+        { title: 'Appartement' },
+        { title: 'Studio' }
+      ],
+      chambres : [
+        { title: 'Chambre de luxe' },
+        { title: 'Chambre standard' },
+        { title: 'Chambre familiale' },
+        { title: 'Suites' },
+      ],
+      chambresArborecent : [
+        { title: 'Nuit de noces' },
+        { title: 'Business' },
+      ],
+      itemSalle: [
+        { title : 'Reunion/ Conférence'},
+        { title : 'Banquet'}
+      ]
     }
-  }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeMount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      this.showButton = window.scrollY > 300;
+    },
+    scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    },
+  },
 };
 </script>
 

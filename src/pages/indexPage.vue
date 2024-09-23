@@ -272,7 +272,7 @@
             </n-button>
           </div>
         </div>
-        <div class="container section-images">
+        <!-- <div class="container section-images">
           <div class="row">
             <div class="col-md-12">
               <div
@@ -297,58 +297,82 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </v-parallax>
     </div>
-    <div class="main">
-      <div class="section section-images">
-        <div>
-          <carousel-section />
+    <div class="container text-center">
+      <div class="row justify-content-md-center">
+        <div class="col-md-12 col-lg-8">
+          <h2 class="title">
+            Zara hotel description
+          </h2>
+          <h5 class="description">
+            The kit comes with three pre-built pages to help you get started
+            faster. You can change the text and images and you're good to go.
+            More importantly, looking at them will give you a picture of what
+            you can built with this powerful Bootstrap 4 ui kit.
+          </h5>
+          <p>NOS SERVICES</p>
         </div>
       </div>
     </div>
-    <Tabs />
-    <ExamplesSection />
+    <!-- <div class="main">
+      <div>
+        <carousel-section />
+      </div>
+    </div>
+    <Tabs /> -->
+    <ExamplesSection title="Hebergement"/>
+    <ExamplesSection  title="Restaurant" bg="none"/>
+    <ExamplesSection  />
+    
     <div
       v-motion="{ initial: { opacity: 0, scale: 0.5 }, enter: { opacity: 1, scale: 1, transition: { duration: 1200, easing: 'ease-in-out' } } }"
-      class="section"
-    >
-      <div class="container text-center">
-        <div class="row justify-content-md-center">
-          <div class="col-md-12 col-lg-8">
-            <h2 class="title">
-              PETIT DEJEUNER
-            </h2>
-            <h5 class="description">
-              The kit comes with three pre-built pages to help you get started
-              faster. You can change the text and images and you're good to go.
-              More importantly, looking at them will give you a picture of what
-              you can built with this powerful Bootstrap 4 ui kit.
-            </h5>
-            <p>NOS SERVICES</p>
-          </div>
-        </div>
+    />
+    <BasicElementsSection />
+
+    <!-- <progress-pagination></progress-pagination> -->
+  </div>
+  <div class="m-3">
+    <v-row>
+      <v-col>
+        <p>Descrip location</p>
+      </v-col>
+      <v-col>
+        <Map />
+      </v-col>
+    </v-row>
+  </div>
+  <div class="container text-center mb-6">
+    <div class="row justify-content-md-center">
+      <div class="col-md-12 col-lg-8">
+        <h2 class="title">
+          Newsletter
+        </h2>
+        <h5 class="description">
+          The kit comes with three pre-built pages to help you get started
+          faster. You can change the text and images and you're good to go.
+        </h5>
       </div>
     </div>
-    <BasicElementsSection />
-    <!-- <progress-pagination></progress-pagination> -->
   </div>
 </template>
 <script>
 import Button from '@/components/Button.vue';
 import BasicElementsSection from './components/BasicElementsSection.vue';
-import CarouselSection from './components/CarouselSection.vue';
+// import CarouselSection from './components/CarouselSection.vue';
 import ExamplesSection from './components/ExamplesSection.vue';
-import Tabs from './components/Tabs.vue';
-
+// import Tabs from './components/Tabs.vue';
+import Map from './components/map.vue'
 export default {
   name: 'IndexPage',
   bodyClass: 'index-page',
   components: {
     BasicElementsSection,
-    CarouselSection,
-    Tabs,
+    // CarouselSection,
+    // Tabs,
     ExamplesSection,
+    Map,
     [Button.name]: Button,
   },
   data() {

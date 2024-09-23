@@ -5,7 +5,7 @@
   >
     <v-row no-gutters>
       <v-col
-        class="my-4"
+        class="my-4 mt-16"
         order="first"
       >
         <div
@@ -45,14 +45,13 @@
           v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 700 } } }"
           class="mt-9"
         >
-          12, rue Rakotonirina Stanislas<br>
-          Isoraka – BP 4106<br>
-          Antananarivo – Madagascar
+          Boulevard de l’Europe, Ankasina Antananarivo,<br>
+          Madagascar<br>
+          mail: zarahotel.reception@gmail.com
           <h5
             v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 800 } } }"
             class="description mt-3"
           >
-            Téléphone : <br>
             +261 32 05 368 29 <br>
             +261 34 78 459 61 <br>
           </h5>
@@ -62,16 +61,19 @@
         order="last"
         class="pa-2 text-center"
       >
-        <v-col class="text-center">
+        <v-col class="text-center mt-16">
           <h3 v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 500 } } }">
             Suivez-nous
           </h3>
-          <div class="text-center mt-16">
+          <div
+            class="text-center"
+            style="display: flex; flex-direction: column"
+          >
             <v-btn
               v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 900 } } }"
               variant="text"
             >
-              <i class="fab fa-twitter" />
+              <i class="fab fa-twitter btn-footer"/>
             </v-btn>
             <v-btn
               v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 1000 } } }"

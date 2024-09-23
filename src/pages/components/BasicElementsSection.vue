@@ -1,11 +1,24 @@
 <template>
   <div
     class="section section-example"
-    style="background-color:rgb(248, 248, 248);"
   >
-    <div class="container text-center">
+  <div class="container text-center">
+      <div class="row justify-content-md-center">
+        <div class="col-md-12 col-lg-8">
+          <h2 class="title">
+            Autre service, piscine, salle de sport,massage
+          </h2>
+          <h5 class="description">
+            The kit comes with three pre-built pages to help you get started
+            faster. You can change the text and images and you're good to go.
+            More importantly, looking at them will give you a picture of what
+          </h5>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
       <v-row
-        class="mb-6"
+        class="mx-10"
         no-gutters
       >
         <v-col
@@ -18,17 +31,12 @@
               alt="im"
               class="size"
             >
+            <v-btn>
+              RESERVEZ
+            </v-btn>
           </v-sheet>
         </v-col>
       </v-row>
-      <div v-motion="'fade-in'">
-        <n-button
-          type="warning"
-          size="lg"
-        >
-          RESERVER AU MEILLEUR TARIF
-        </n-button>
-      </div>
     </div>
   </div>
 </template>
@@ -43,7 +51,7 @@ export default {
   data() {
     return {
       images:[
-        require("@/assets/img/zara.jpg"), require("@/assets/img/zara1.jpg"), require("@/assets/img/zara2.jpg"), require("@/assets/img/zara3.jpg")
+        require("@/assets/img/zara.jpg"), require("@/assets/img/zara1.jpg"), require("@/assets/img/zara2.jpg")
       ],
       secondAnim :true
     }
@@ -57,8 +65,8 @@ export default {
   margin-bottom: 50px;
 }
 .size{
-  height:300px;
-  width:450px
+  height:250px;
+  width:350px
 }
 @media screen and (max-width: 991px) {
   .size{
