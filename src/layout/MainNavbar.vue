@@ -101,7 +101,8 @@
                     <router-link
                       to="chambre"
                       class="router-link"
-                      style="text-decoration: none;"
+                      :color="isHovering ? 'warning' : undefined"
+                      style="text-decoration: none; color:inherit;"
                     >
                       {{ title.title }}
                     </router-link>
