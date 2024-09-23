@@ -116,7 +116,7 @@
                   <router-link
                     to="chambre"
                     class="router-link"
-                    style="text-decoration: none;"
+                    style="text-decoration: none; color:inherit;"
                   >
                     {{ title.title }}
                   </router-link>
