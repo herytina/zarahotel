@@ -100,8 +100,7 @@
                     <!-- Utilisation de router-link -->
                     <router-link
                       to="chambre"
-                      class="router-link"
-                      :color="isHovering ? 'warning' : undefined"
+                      class="router-link v-hover"
                       style="text-decoration: none; color:inherit;"
                     >
                       {{ title.title }}
