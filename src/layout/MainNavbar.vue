@@ -7,23 +7,23 @@
     class="d-flex justify-space-between align-center px-8"
   >
     <div
-      v-if="!showButton"
+      v-if="showButton"
       class="d-flex align-center"
     >
       <router-link
         class="navbar-brand"
         to="/"
       >
+          <!-- v-motion="{ initial: { opacity: 0, y: -100 }, enter: { opacity: 1, y: 0, transition: { delay: 500 } } }" -->
         <img
-          v-motion="{ initial: { opacity: 0, y: -100 }, enter: { opacity: 1, y: 0, transition: { delay: 500 } } }"
           :src="logo"
           width="70"
           height="50"
           alt="logo"
-          class="radius"
+          class="radius translation-logo"
         >
       </router-link>
-      <router-link
+      <!-- <router-link
         class="navbar-brand d-flex flex-row item text-white"
         to="contact"
       >
@@ -31,7 +31,7 @@
         <p class="text-caption">
           Boulevard de l’Europe, Ankasina Antananarivo
         </p>
-      </router-link>
+      </router-link> -->
     </div>
     <template
       #navbar-menu
@@ -69,7 +69,6 @@
                 v-bind="props"
                 class="nav-link"
               >
-                <i class="now-ui-icons objects_umbrella-13 text-white item" />
                 <p class="text-white item">
                   Hébergement
                 </p>
@@ -166,7 +165,6 @@
           class="nav-link"
           to="chambre"
         >
-          <i class="now-ui-icons design_app text-white item" />
           <p class="text-white item">
             Restaurant
           </p>
@@ -194,9 +192,8 @@
                 v-bind="props"
                 class="nav-link"
               >
-                <i class="now-ui-icons objects_umbrella-13 text-white item" />
                 <p class="text-white item">
-                  Salles
+                  Salles d'évènements
                 </p>
               </div>
             </template>
@@ -226,9 +223,8 @@
           class="nav-link"
           to="contact"
         >
-          <i class="now-ui-icons location_pin text-white item" />
           <p class="text-white item">
-            Contacts
+            Nous contacter
           </p>
         </router-link>
       </li>
@@ -411,7 +407,8 @@ export default {
     text-shadow: 4px 3px 3px black;
     font-size: 14px;
   }
-  .radius{
-    border-radius: 50%;
+
+  .translation-logo {
+    transform: translateX(100%) !important;
   }
 </style>

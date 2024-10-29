@@ -31,9 +31,11 @@
               alt="im"
               class="size"
             >
-            <v-btn>
-              RESERVEZ
-            </v-btn>
+            <div class="reserve-btn">
+              <v-btn>
+                RESERVEZ
+              </v-btn>
+            </div>            
           </v-sheet>
         </v-col>
       </v-row>
@@ -60,18 +62,59 @@ export default {
 </script>
 
 <style>
+
+.v-sheet {
+  position: relative;
+}
+
+.v-sheet:hover {
+  .reserve-btn {
+    display: block;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    transform: translateY(-100%);
+  }
+}
+
+.reserve-btn {
+  background: rgba(var(--bs-dark-rgb)) !important;
+  height: 80px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  transform: translateY(-100%);
+  display: none;
+  position: absolute;
+  width: -webkit-fill-available;
+}
+
 .space1{
   margin-left: 10px;
   margin-bottom: 50px;
 }
-.size{
+/* .size{
   height:250px;
   width:350px
-}
+} */
 @media screen and (max-width: 991px) {
   .size{
     height: 100px;
     width: 400px;
   }
+
+  .reserve-btn {
+    display: block;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    transform: none;
+    height: auto;
+    background: none !important;
+    margin-top: 10px;
+}
 }
 </style>

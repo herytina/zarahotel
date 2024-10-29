@@ -21,7 +21,7 @@
               type="warning"
               size="lg"
             >
-              RESERVEZ AU MEILLEUR TARIF >
+              RESERVEZ AU MEILLEUR TARIF
             </n-button>
           </div>
         </div>
@@ -67,7 +67,7 @@
                   type="warning"
                   size="lg"
                 >
-                  RESERVEZ AU MEILLEUR TARIF >
+                  RESERVEZ AU MEILLEUR TARIF
                 </n-button>
               </div>
             </div>

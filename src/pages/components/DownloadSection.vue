@@ -38,7 +38,7 @@
             alt="logo"
             height="150"
             width="200"
-            class="rounded-circle"
+            class=""
           >
         </div>
         <h5

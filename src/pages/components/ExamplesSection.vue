@@ -128,7 +128,8 @@ export default {
 }
 .size{
   height: 450px;
-  width: 450px;
+  min-width: -webkit-fill-available;
+  /* width: 450px; */
 }
 @media screen and (max-width: 991px) and (min-width: 291px) {
   .size{
