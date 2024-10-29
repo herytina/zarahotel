@@ -25,7 +25,7 @@
           v-for="image of images"
           :key="image"
         >
-          <v-sheet class="pa-2 ma-2">
+          <v-sheet class="ma-2">
             <img
               :src="image"
               alt="im"
