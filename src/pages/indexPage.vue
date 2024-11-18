@@ -79,7 +79,7 @@
             </b>
             , idéal pour vos séjours d'affaires ou de détente.
           </h5>
-          <h2>NOS SERVICES</h2>
+          <h2 class="services">NOS SERVICES</h2>
         </div>
       </div>
     </div>
@@ -188,6 +188,16 @@
   };
 </script>
 <style>
+  .services {
+    background: #ffb236;
+    height: 150px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
   .txt {
     margin-left: 20%;
   }
