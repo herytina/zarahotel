@@ -100,7 +100,7 @@
     <BasicElementsSection />
   </div>
   <div class="m-3">
-    <v-row>
+    <v-row class="info-map">
       <v-col>
         <p>
           ZARA HOTEL bénéficie d’un emplacement stratégique : à 10 minutes du
@@ -189,13 +189,18 @@
 </script>
 <style>
   .services {
-    background: #ffb236;
+    background: #ffc107;
     height: 150px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
+  }
+
+  .info-map {
+    text-align: center;
+    align-items: center;
   }
 
   .txt {
