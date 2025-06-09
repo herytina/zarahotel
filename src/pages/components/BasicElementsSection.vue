@@ -15,11 +15,11 @@
     </div>
     <div class="text-center">
       <v-row class="mx-10" no-gutters>
-        <v-col v-for="image of images" :key="image">
+        <v-col v-for="(image, index) in images" :key="image">
           <v-sheet class="ma-2">
             <img :src="image" alt="im" class="size" />
             <div class="reserve-btn">
-              <v-btn>RESERVEZ</v-btn>
+              <v-btn>{{ btnName[index] }}</v-btn>
             </div>
           </v-sheet>
         </v-col>
@@ -28,74 +28,75 @@
   </div>
 </template>
 <script>
-  import { Button } from '@/components';
-  export default {
-    components: {
-      [Button.name]: Button,
-    },
-    data() {
-      return {
-        images: [
-          require('@/assets/img/zara.jpg'),
-          require('@/assets/img/zara1.jpg'),
-          require('@/assets/img/zara2.jpg'),
-        ],
-        secondAnim: true,
-      };
-    },
-  };
+import { Button } from '@/components';
+export default {
+  components: {
+    [Button.name]: Button,
+  },
+  data() {
+    return {
+      images: [
+        require('@/assets/img/massage.jpg'),
+        require('@/assets/img/piscine.jpg'),
+        require('@/assets/img/sport.jpg'),
+      ],
+      btnName: ['Reservez', 'Contacter', 'Contacter'],
+      secondAnim: true,
+    };
+  },
+};
 </script>
 
 <style>
-  .v-sheet {
-    position: relative;
-  }
+.v-sheet {
+  position: relative;
+}
 
-  .v-sheet:hover {
-    .reserve-btn {
-      display: block;
-      text-align: center;
-      align-items: center;
-      display: flex;
-      justify-content: center;
-      transform: translateY(-100%);
-    }
-  }
-
+.v-sheet:hover {
   .reserve-btn {
-    background: rgba(var(--bs-dark-rgb)) !important;
-    height: 80px;
+    display: block;
     text-align: center;
     align-items: center;
     display: flex;
     justify-content: center;
     transform: translateY(-100%);
-    display: none;
-    position: absolute;
-    width: -webkit-fill-available;
+  }
+}
+
+.reserve-btn {
+  background: rgba(var(--bs-dark-rgb)) !important;
+  height: 80px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  transform: translateY(-100%);
+  display: none;
+  position: absolute;
+  width: -webkit-fill-available;
+}
+
+.space1 {
+  margin-left: 10px;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 991px) {
+  .size {
+    height: 100px;
+    width: 400px;
   }
 
-  .space1 {
-    margin-left: 10px;
-    margin-bottom: 50px;
+  .reserve-btn {
+    display: block;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    transform: none;
+    height: auto;
+    background: none !important;
+    margin-top: 10px;
   }
-
-  @media screen and (max-width: 991px) {
-    .size {
-      height: 100px;
-      width: 400px;
-    }
-
-    .reserve-btn {
-      display: block;
-      text-align: center;
-      align-items: center;
-      display: flex;
-      justify-content: center;
-      transform: none;
-      height: auto;
-      background: none !important;
-      margin-top: 10px;
-    }
-  }
+}
 </style>
