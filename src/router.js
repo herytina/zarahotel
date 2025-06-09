@@ -8,6 +8,7 @@ import indexPage from './pages/indexPage.vue';
 import Aparment from './pages/Aparment.vue';
 import EventRoom from './pages/EventRoom.vue';
 import EcoResponsibility from './pages/EcoResponsibility.vue';
+import Pricing from './pages/Pricing.vue';
 
 const routes = [
   {
@@ -82,6 +83,19 @@ const routes = [
     name: 'EcoResponsibilityPage',
     components: {
       default: EcoResponsibility,
+      header: MainNavbar,
+      footer: MainFooter,
+    },
+    props: {
+      header: { colorOnScroll: 200 },
+      footer: { backgroundColor: 'black' },
+    },
+  },
+  {
+    path: '/pricing',
+    name: 'PricingPage',
+    components: {
+      default: Pricing,
       header: MainNavbar,
       footer: MainFooter,
     },
