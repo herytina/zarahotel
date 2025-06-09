@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-motion="'fade-in'"
-    :style="{ backgroundColor: bg || 'rgb(248, 248, 248)' }"
-  >
+  <div v-motion="'fade-in'" :style="{ backgroundColor: bg || 'rgb(248, 248, 248)' }">
     <div class="container text-center">
       <div class="row justify-content-md-center">
         <div class="col-md-12 col-lg-8">
@@ -17,27 +14,11 @@
     </div>
     <div>
       <div v-motion="'fade-in'">
-        <v-card
-          class="mx-auto"
-          max-width="1000"
-        >
-          <v-img
-            v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 300 } } }"
-            class="align-end text-white"
-            height="300"
-            :src="image"
-            cover
-          >
-            <v-avatar
-              class="ma-3"
-              rounded="2"
-              size="200"
-              style="background-color: rgba(0, 0, 0, 0.7);"
-            >
-              <p
-                class="text-center"
-                style="margin: 0; font-weight: bold; color: aliceblue"
-              >
+        <v-card class="mx-auto imageSection">
+          <v-img v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 300 } } }"
+            class="align-end text-white" height="300" :src="image" cover>
+            <v-avatar class="ma-3" rounded="2" size="200" style="background-color: rgba(0, 0, 0, 0.7);">
+              <p class="text-center" style="margin: 0; font-weight: bold; color: aliceblue">
                 {{ title }}
               </p>
             </v-avatar>
@@ -71,11 +52,11 @@ export default {
   },
   data() {
     return {
-      images:[
+      images: [
         require("@/assets/img/zara.jpg"), require("@/assets/img/zara1.jpg"), require("@/assets/img/zara2.jpg"), require("@/assets/img/zara3.jpg")
       ],
       secondAnim: true,
-      imageUrl :require('@/assets/img/chambre.jpeg')
+      imageUrl: require('@/assets/img/chambre.jpeg')
     }
   },
   computed: {
@@ -117,22 +98,30 @@ export default {
 };
 </script>
 <style>
-.block{
+.imageSection {
+  width: 95%;
+}
+
+.block {
   padding: 50px;
 }
-.space{
+
+.space {
   margin-left: 10px;
 }
-.hauteur{
-  height:1000px;
+
+.hauteur {
+  height: 1000px;
 }
-.size{
+
+.size {
   height: 450px;
   min-width: -webkit-fill-available;
   /* width: 450px; */
 }
+
 @media screen and (max-width: 991px) and (min-width: 291px) {
-  .size{
+  .size {
     height: 100px;
     width: 150px;
   }
