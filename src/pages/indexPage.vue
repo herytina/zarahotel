@@ -4,62 +4,48 @@
       <v-parallax :src="image[0]" class="h">
         <div class="logo">
           <router-link class="navbar-brand" to="/">
-            <img
-              v-motion="{
-                initial: { opacity: 0, y: -100 },
-                enter: { opacity: 1, y: 0, transition: { delay: 500 } },
-              }"
-              :src="logo"
-              width="300"
-              height="250"
-              alt="logo"
-              class="radius"
-            />
+            <img v-motion="{
+              initial: { opacity: 0, y: -100 },
+              enter: { opacity: 1, y: 0, transition: { delay: 500 } },
+            }" :src="logo" width="300" height="250" alt="logo" class="radius" />
           </router-link>
         </div>
         <div v-motion="'fade-in'" class="txt">
-          <h1
-            v-motion="{
-              initial: { opacity: 1, y: 5 },
-              enter: {
-                opacity: 1,
-                y: 0,
-                transition: {
-                  repeat: Infinity,
-                  repeatType: 'mirror',
-                  duration: 1300,
-                },
-              },
-            }"
-            class="city"
-          >
-            ZARA HOTEL
-          </h1>
-          <h3
-            v-motion
-            :initial="{ opacity: 0, y: 150 }"
-            :enter="{
+          <h1 v-motion="{
+            initial: { opacity: 1, y: 5 },
+            enter: {
               opacity: 1,
               y: 0,
               transition: {
-                type: 'spring',
-                stiffness: '100',
-                delay: 100,
+                repeat: Infinity,
+                repeatType: 'mirror',
+                duration: 1300,
               },
-            }"
-            class="city"
-          >
+            },
+          }" class="city">
+            ZARA HOTEL
+          </h1>
+          <h3 v-motion :initial="{ opacity: 0, y: 150 }" :enter="{
+            opacity: 1,
+            y: 0,
+            transition: {
+              type: 'spring',
+              stiffness: '100',
+              delay: 100,
+            },
+          }" class="city">
             ANTANANARIVO
           </h3>
-          <div
-            v-motion="{
-              initial: { opacity: 0, x: 100 },
-              enter: { opacity: 1, x: 0, transition: { delay: 500 } },
-            }"
-            style="margin-top: 40px"
-          >
+          <div v-motion="{
+            initial: { opacity: 0, x: 100 },
+            enter: { opacity: 1, x: 0, transition: { delay: 500 } },
+          }" style="margin-top: 40px">
             <n-button type="warning" size="lg">
-              RESERVEZ AU MEILLEUR TARIF
+              <router-link to="/pricing" class="text-white" style="text-decoration: none ">
+                <span style="font-weight: 600" class="textPricingRedirect">
+                  RESERVEZ AU MEILLEUR TARIF
+                </span>
+              </router-link>
             </n-button>
           </div>
         </div>
@@ -87,16 +73,14 @@
     <ExamplesSection title="Restaurant" :text="restaurantDescription" />
     <ExamplesSection title="Salles" :text="sallesDescription" />
 
-    <div
-      v-motion="{
-        initial: { opacity: 0, scale: 0.5 },
-        enter: {
-          opacity: 1,
-          scale: 1,
-          transition: { duration: 1200, easing: 'ease-in-out' },
-        },
-      }"
-    />
+    <div v-motion="{
+      initial: { opacity: 0, scale: 0.5 },
+      enter: {
+        opacity: 1,
+        scale: 1,
+        transition: { duration: 1200, easing: 'ease-in-out' },
+      },
+    }" />
     <BasicElementsSection />
   </div>
   <div class="m-3">
@@ -132,149 +116,167 @@
   </div>
 </template>
 <script>
-  import Button from '@/components/Button.vue';
-  import BasicElementsSection from './components/BasicElementsSection.vue';
-  import ExamplesSection from './components/ExamplesSection.vue';
-  import Map from './components/map.vue';
-  export default {
-    name: 'IndexPage',
-    bodyClass: 'index-page',
-    components: {
-      BasicElementsSection,
-      ExamplesSection,
-      Map,
-      [Button.name]: Button,
+import Button from '@/components/Button.vue';
+import BasicElementsSection from './components/BasicElementsSection.vue';
+import ExamplesSection from './components/ExamplesSection.vue';
+import Map from './components/map.vue';
+export default {
+  name: 'IndexPage',
+  bodyClass: 'index-page',
+  components: {
+    BasicElementsSection,
+    ExamplesSection,
+    Map,
+    [Button.name]: Button,
+  },
+  data() {
+    return {
+      image: [
+        require('@/assets/img/zara11.jpg'),
+        require('@/assets/img/chambre.jpeg'),
+        require('@/assets/img/service.jpeg'),
+      ],
+      logo: require('@/assets/img/zara-hotel-logo-final.png'),
+      commingDate: false,
+      leavingDate: false,
+      dateC: null,
+      dateL: null,
+      hebergementDescription:
+        'Notre service d’hébergement propose 40 chambres élégantes, un appartement spacieux, une suite luxueuse et un studio moderne, alliant charme, confort et modernité pour un séjour inoubliable.',
+      restaurantDescription:
+        'Découvrez notre restaurant au charme unique, spécialisé dans la cuisine européenne. Dégustez des plats raffinés, préparés avec des ingrédients frais, pour une expérience culinaire authentique et savoureuse.',
+      sallesDescription:
+        'Nos salles modernes et polyvalentes accueillent ateliers, séminaires, mariages et plus. Équipées et élégantes, elles offrent un cadre idéal pour réussir tous vos événements, privés ou professionnels.',
+    };
+  },
+  computed: {
+    formattedDateC() {
+      return this.dateC ? this.dateC.toLocaleDateString() : '';
     },
-    data() {
-      return {
-        image: [
-          require('@/assets/img/zara11.jpg'),
-          require('@/assets/img/chambre.jpeg'),
-          require('@/assets/img/service.jpeg'),
-        ],
-        logo: require('@/assets/img/zara-hotel-logo-final.png'),
-        commingDate: false,
-        leavingDate: false,
-        dateC: null,
-        dateL: null,
-        hebergementDescription:
-          'Notre service d’hébergement propose 40 chambres élégantes, un appartement spacieux, une suite luxueuse et un studio moderne, alliant charme, confort et modernité pour un séjour inoubliable.',
-        restaurantDescription:
-          'Découvrez notre restaurant au charme unique, spécialisé dans la cuisine européenne. Dégustez des plats raffinés, préparés avec des ingrédients frais, pour une expérience culinaire authentique et savoureuse.',
-        sallesDescription:
-          'Nos salles modernes et polyvalentes accueillent ateliers, séminaires, mariages et plus. Équipées et élégantes, elles offrent un cadre idéal pour réussir tous vos événements, privés ou professionnels.',
-      };
+    formattedDateL() {
+      return this.dateL ? this.dateL.toLocaleDateString() : '';
     },
-    computed: {
-      formattedDateC() {
-        return this.dateC ? this.dateC.toLocaleDateString() : '';
-      },
-      formattedDateL() {
-        return this.dateL ? this.dateL.toLocaleDateString() : '';
-      },
+  },
+  methods: {
+    openMenuC() {
+      this.commingDate = true;
     },
-    methods: {
-      openMenuC() {
-        this.commingDate = true;
-      },
-      openMenuL() {
-        this.leavingDate = true;
-      },
-      closeMenu() {
-        this.commingDate = false;
-        this.leavingDate = false;
-      },
+    openMenuL() {
+      this.leavingDate = true;
     },
-  };
+    closeMenu() {
+      this.commingDate = false;
+      this.leavingDate = false;
+    },
+  },
+};
 </script>
 <style>
-  .services {
-    background: #ffc107;
-    height: 150px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
+.services {
+  background: #ffc107;
+  height: 150px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.info-map {
+  text-align: center;
+  align-items: center;
+}
+
+.txt {
+  margin-left: 20%;
+}
+
+.logo {
+  margin-top: 10%;
+  margin-bottom: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.responsiveR {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-select .v-input__control {
+  min-height: 32px;
+  /* Ajuste la hauteur */
+}
+
+.custom-select .v-select__selections {
+  font-size: 12px;
+  /* Ajuste la taille de la police */
+}
+
+.city {
+  font-size: 64px;
+  font-weight: 600;
+  color: aliceblue;
+  text-shadow: 1px 2px 3px rgb(236, 183, 7);
+}
+
+.h {
+  height: 100%;
+}
+
+.container-with-opacity {
+  overflow: hidden;
+}
+
+.container-with-opacity::before {
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.textPricingRedirect {
+  font-weight: 600;
+}
+
+@media screen and (min-width: 991px) {
+  .post {
+    margin-top: -200px;
   }
 
-  .info-map {
-    text-align: center;
-    align-items: center;
+  .responsiveR {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .post {
+    margin-top: 200px;
+  }
+
+  .responsive {
+    display: none;
+  }
+
+  .responsiveR {
+    display: flex;
+    z-index: 99999;
+  }
+
+  .logo {
+    margin-top: 30%;
   }
 
   .txt {
-    margin-left: 20%;
-  }
-  .logo {
     margin-top: 10%;
-    margin-bottom: 2%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .responsiveR {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .custom-select .v-input__control {
-    min-height: 32px; /* Ajuste la hauteur */
+    margin-left: 10%;
   }
 
-  .custom-select .v-select__selections {
-    font-size: 12px; /* Ajuste la taille de la police */
-  }
   .city {
-    font-size: 64px;
+    font-size: 40px;
     font-weight: 600;
     color: aliceblue;
-    text-shadow: 1px 2px 3px rgb(236, 183, 7);
+    text-shadow: 1px 2px 3px black;
   }
-  .h {
-    height: 100%;
-  }
-
-  .container-with-opacity {
-    overflow: hidden;
-  }
-
-  .container-with-opacity::before {
-    opacity: 0.5;
-    z-index: -1;
-  }
-
-  @media screen and (min-width: 991px) {
-    .post {
-      margin-top: -200px;
-    }
-    .responsiveR {
-      display: none;
-    }
-  }
-  @media screen and (max-width: 991px) {
-    .post {
-      margin-top: 200px;
-    }
-    .responsive {
-      display: none;
-    }
-    .responsiveR {
-      display: flex;
-      z-index: 99999;
-    }
-    .logo {
-      margin-top: 30%;
-    }
-    .txt {
-      margin-top: 10%;
-      margin-left: 10%;
-    }
-    .city {
-      font-size: 40px;
-      font-weight: 600;
-      color: aliceblue;
-      text-shadow: 1px 2px 3px black;
-    }
-  }
+}
 </style>
