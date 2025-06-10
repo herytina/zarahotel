@@ -13,7 +13,11 @@
           <div v-motion="{ initial: { opacity: 0, x: -100 }, enter: { opacity: 1, x: 0, transition: { delay: 500 } } }"
             class="text-center">
             <n-button type="warning" size="lg">
-              RESERVEZ AU MEILLEUR TARIF
+              <router-link to="/pricing" class="text-white" style="text-decoration: none ">
+                <span style="font-weight: 600" class="textPricingRedirect">
+                  RESERVEZ AU MEILLEUR TARIF
+                </span>
+              </router-link>
             </n-button>
           </div>
         </div>
@@ -175,6 +179,12 @@ export default {
 };
 </script>
 <style>
+.textPricingRedirect {
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+}
+
 .size3 {
   width: 50%;
 }

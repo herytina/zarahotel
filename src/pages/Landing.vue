@@ -1,27 +1,21 @@
 <template>
   <div>
     <div class="page-header page-header-small">
-      <v-parallax
-        class="page-header-image"
-        :src="require('@/assets/img/chambre.jpeg')"
-      />
+      <v-parallax class="page-header-image" :src="require('@/assets/img/chambre.jpeg')" />
       <div class="content-center">
         <div class="container">
-          <h1
-            v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 500 } } }"
-            class="title"
-          >
+          <h1 v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 500 } } }"
+            class="title">
             DESIGN DU DÉBUT DU SIÈCLE ADAPTÉ À L’ÉPOQUE ACTUELLE
           </h1>
-          <div
-            v-motion="{ initial: { opacity: 0, y: 200 }, enter: { opacity: 1, y: 0, transition: { delay: 400 } } }"
-            class="text-center"
-          >
-            <n-button
-              type="warning"
-              size="lg"
-            >
-              RESERVEZ AU MEILLEUR TARIF
+          <div v-motion="{ initial: { opacity: 0, y: 200 }, enter: { opacity: 1, y: 0, transition: { delay: 400 } } }"
+            class="text-center">
+            <n-button type="warning" size="lg">
+              <router-link to="/pricing" class="text-white" style="text-decoration: none ">
+                <span style="font-weight: 600" class="textPricingRedirect">
+                  RESERVEZ AU MEILLEUR TARIF
+                </span>
+              </router-link>
             </n-button>
           </div>
         </div>
@@ -30,8 +24,7 @@
     <div class="section section-about-us">
       <div class="container">
         <div class="row">
-          <div 
-            v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 800 } } }"
+          <div v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 800 } } }"
             class="col-md-8 ml-auto mr-auto text-center">
             <h2 class="title">
               CHAQUE CHAMBRE DU
@@ -52,22 +45,19 @@
             <div class="col-md-6">
               <div
                 v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 500 } } }"
-                class="image-container image-left"
-                :style="backgroundStyle"
-              >
+                class="image-container image-left" :style="backgroundStyle">
                 <!-- First image on the left side -->
               </div>
               <!-- Second image on the left side of the article -->
               <div
                 v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 300 } } }"
-                class="image-container position"
-                :style="backgroundStyle"
-              >
-                <n-button
-                  type="warning"
-                  size="lg"
-                >
-                  RESERVEZ AU MEILLEUR TARIF
+                class="image-container position" :style="backgroundStyle">
+                <n-button type="warning" size="lg">
+                  <router-link to="/pricing" class="text-white" style="text-decoration: none ">
+                    <span style="font-weight: 600" class="textPricingRedirect">
+                      RESERVEZ AU MEILLEUR TARIF
+                    </span>
+                  </router-link>
                 </n-button>
               </div>
             </div>
@@ -75,9 +65,7 @@
               <!-- First image on the right side, above the article -->
               <div
                 v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 800 } } }"
-                class="image-container image-right"
-                :style="backgroundStyle"
-              />
+                class="image-container image-right" :style="backgroundStyle" />
               <h3>
                 So what does the new record for the lowest level of winter ice
                 actually mean
@@ -102,11 +90,7 @@
 
 
               <div>
-                <v-btn
-                  height="72"
-                  min-width="164"
-                  variant="tonal"
-                >
+                <v-btn height="72" min-width="164" variant="tonal">
                   VOIR NOS TARIFS ET CONDITIONS >
                 </v-btn>
               </div>
@@ -134,7 +118,7 @@ export default {
         email: '',
         message: ''
       },
-      imageUrl :require('@/assets/img/chambre.jpeg')
+      imageUrl: require('@/assets/img/chambre.jpeg')
     };
   },
   computed: {
@@ -147,10 +131,15 @@ export default {
 };
 </script>
 <style>
+.textPricingRedirect {
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 991px) {
-  .position{
+  .position {
     margin-top: -200px;
   }
 }
-
 </style>
