@@ -52,10 +52,11 @@
 
               <v-list-item v-for="(title, i) in items" :key="i">
                 <!-- Utilisation de router-link -->
-                <router-link to="chambre" class="router-link" style="text-decoration: none; color: inherit">
+                <router-link to="/apartment" class="router-link" style="text-decoration: none; color: inherit">
                   {{ title.title }}
                 </router-link>
               </v-list-item>
+
             </v-list>
           </v-menu>
         </div>
@@ -96,13 +97,22 @@
             <v-list>
               <v-list-item v-for="(item, i) in itemSalle" :key="i">
                 <!-- Utilisation de router-link -->
-                <router-link to="service" class="router-link" style="text-decoration: none; color: inherit">
+                <router-link to="eventRoom" class="router-link" style="text-decoration: none; color: inherit">
                   {{ item.title }}
                 </router-link>
               </v-list-item>
             </v-list>
           </v-menu>
         </div>
+      </li>
+
+      <li class="nav-item">
+        <router-link v-motion="{
+          initial: { opacity: 0, x: -100 },
+          enter: { opacity: 1, x: 0, transition: { delay: 950 } },
+        }" class="nav-link" to="ecoResponsibility">
+          <p class="text-white item">Environnement</p>
+        </router-link>
       </li>
 
       <li class="nav-item">
