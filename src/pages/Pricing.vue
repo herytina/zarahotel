@@ -59,160 +59,160 @@ export default {
     name: 'HotelPricingApp',
     data() {
         return {
-            hotelName: 'Grand Luxury Hotel',
-            tagline: 'Experience Excellence in Every Detail',
-            searchQuery: '',
-            selectedCategory: 'All',
+            hotelName: "Grand Hôtel de Luxe",
+            tagline: "Vivez l'excellence dans chaque détail",
+            searchQuery: "",
+            selectedCategory: "All",
             services: [
                 {
                     id: 1,
-                    name: 'Standard Room',
-                    category: 'Rooms',
+                    name: 'Chambre Standard',
+                    category: 'Chambres',
                     price: 150,
-                    unit: 'per night',
+                    unit: 'par nuit',
                     icon: '🛏️',
                     featured: false,
-                    features: ['Queen size bed', 'City view', 'Free WiFi', 'Room service', 'Air conditioning']
+                    features: ['Lit queen size', 'Vue sur la ville', 'WiFi gratuit', 'Service en chambre', 'Climatisation']
                 },
                 {
                     id: 2,
-                    name: 'Deluxe Suite',
-                    category: 'Rooms',
+                    name: 'Suite Deluxe',
+                    category: 'Chambres',
                     price: 280,
-                    unit: 'per night',
+                    unit: 'par nuit',
                     icon: '🏨',
                     featured: true,
-                    features: ['King size bed', 'Ocean view', 'Balcony', 'Mini bar', 'Premium amenities']
+                    features: ['Lit king size', 'Vue sur l\'océan', 'Balcon', 'Mini-bar', 'Équipements haut de gamme']
                 },
                 {
                     id: 3,
-                    name: 'Presidential Suite',
-                    category: 'Rooms',
+                    name: 'Suite Présidentielle',
+                    category: 'Chambres',
                     price: 650,
-                    unit: 'per night',
+                    unit: 'par nuit',
                     icon: '👑',
                     featured: false,
-                    features: ['Master bedroom', 'Living room', 'Private terrace', 'Butler service', 'Jacuzzi']
+                    features: ['Chambre principale', 'Salon', 'Terrasse privée', 'Service de majordome', 'Jacuzzi']
                 },
                 {
                     id: 4,
-                    name: 'Fine Dining Restaurant',
-                    category: 'Dining',
+                    name: 'Restaurant Gastronomique',
+                    category: 'Restauration',
                     price: 85,
-                    unit: 'per person',
+                    unit: 'par personne',
                     icon: '🍽️',
                     featured: false,
-                    features: ['5-course tasting menu', 'Wine pairing', 'Chef\'s special', 'Premium ingredients']
+                    features: ['Menu dégustation 5 plats', 'Accord mets et vins', 'Spécialité du chef', 'Ingrédients haut de gamme']
                 },
                 {
                     id: 5,
-                    name: 'Breakfast Buffet',
-                    category: 'Dining',
+                    name: 'Buffet Petit-Déjeuner',
+                    category: 'Restauration',
                     price: 35,
-                    unit: 'per person',
+                    unit: 'par personne',
                     icon: '🥐',
                     featured: false,
-                    features: ['International cuisine', 'Fresh pastries', 'Healthy options', 'Premium coffee']
+                    features: ['Cuisine internationale', 'Pâtisseries fraîches', 'Options saines', 'Café premium']
                 },
                 {
                     id: 6,
-                    name: 'Full Body Massage',
+                    name: 'Massage Complet',
                     category: 'Spa',
                     price: 120,
-                    unit: 'per session',
+                    unit: 'par séance',
                     icon: '💆',
                     featured: true,
-                    features: ['90-minute session', 'Essential oils', 'Expert therapist', 'Relaxation room']
+                    features: ['Séance de 90 minutes', 'Huiles essentielles', 'Thérapeute expert', 'Salle de relaxation']
                 },
                 {
                     id: 7,
-                    name: 'Facial Treatment',
+                    name: 'Soin du Visage',
                     category: 'Spa',
                     price: 80,
-                    unit: 'per session',
+                    unit: 'par séance',
                     icon: '✨',
                     featured: false,
-                    features: ['Deep cleansing', 'Anti-aging treatment', 'Organic products', 'Skin analysis']
+                    features: ['Nettoyage en profondeur', 'Traitement anti-âge', 'Produits bio', 'Analyse de la peau']
                 },
                 {
                     id: 8,
-                    name: 'Fitness Center Access',
-                    category: 'Recreation',
+                    name: 'Accès au Centre de Fitness',
+                    category: 'Loisirs',
                     price: 25,
-                    unit: 'per day',
+                    unit: 'par jour',
                     icon: '🏋️',
                     featured: false,
-                    features: ['Modern equipment', 'Personal trainer', 'Group classes', '24/7 access']
+                    features: ['Équipements modernes', 'Coach personnel', 'Cours collectifs', 'Accès 24/7']
                 },
                 {
                     id: 9,
-                    name: 'Swimming Pool & Sauna',
-                    category: 'Recreation',
+                    name: 'Piscine et Sauna',
+                    category: 'Loisirs',
                     price: 40,
-                    unit: 'per day',
+                    unit: 'par jour',
                     icon: '🏊',
                     featured: false,
-                    features: ['Olympic pool', 'Heated sauna', 'Pool bar', 'Towel service']
+                    features: ['Piscine olympique', 'Sauna chauffé', 'Bar au bord de la piscine', 'Service de serviettes']
                 },
                 {
                     id: 10,
-                    name: 'Golf Course Access',
-                    category: 'Recreation',
+                    name: 'Accès au Parcours de Golf',
+                    category: 'Loisirs',
                     price: 95,
-                    unit: 'per round',
+                    unit: 'par partie',
                     icon: '⛳',
                     featured: false,
-                    features: ['18-hole course', 'Golf cart included', 'Club rental', 'Pro shop access']
+                    features: ['Parcours 18 trous', 'Voiturette de golf incluse', 'Location de clubs', 'Accès à la boutique pro']
                 },
                 {
                     id: 11,
-                    name: 'Conference Room',
-                    category: 'Business',
+                    name: 'Salle de Conférence',
+                    category: 'Affaires',
                     price: 200,
-                    unit: 'per hour',
+                    unit: 'par heure',
                     icon: '📊',
                     featured: false,
-                    features: ['Up to 50 people', 'AV equipment', 'Catering service', 'Technical support']
+                    features: ['Jusqu\'à 50 personnes', 'Équipements audiovisuels', 'Service de restauration', 'Support technique']
                 },
                 {
                     id: 12,
-                    name: 'Executive Meeting Room',
-                    category: 'Business',
+                    name: 'Salle de Réunion Exécutive',
+                    category: 'Affaires',
                     price: 350,
-                    unit: 'per hour',
+                    unit: 'par heure',
                     icon: '💼',
                     featured: true,
-                    features: ['Premium location', 'Up to 20 people', 'Video conferencing', 'Refreshments']
+                    features: ['Emplacement premium', 'Jusqu\'à 20 personnes', 'Vidéoconférence', 'Rafraîchissements']
                 },
                 {
                     id: 13,
-                    name: 'Laundry Service',
+                    name: 'Service de Blanchisserie',
                     category: 'Services',
                     price: 15,
-                    unit: 'per item',
+                    unit: 'par article',
                     icon: '👕',
                     featured: false,
-                    features: ['Same day service', 'Dry cleaning', 'Pressing included', 'Eco-friendly']
+                    features: ['Service le jour même', 'Nettoyage à sec', 'Repassage inclus', 'Écologique']
                 },
                 {
                     id: 14,
-                    name: 'Airport Transfer',
+                    name: 'Transfert Aéroport',
                     category: 'Services',
                     price: 45,
-                    unit: 'one way',
+                    unit: 'aller simple',
                     icon: '🚗',
                     featured: false,
-                    features: ['Luxury vehicle', 'Professional driver', 'Meet & greet', 'Luggage assistance']
+                    features: ['Véhicule de luxe', 'Chauffeur professionnel', 'Accueil personnalisé', 'Assistance bagages']
                 },
                 {
                     id: 15,
-                    name: 'Valet Parking',
+                    name: 'Service de Voiturier',
                     category: 'Services',
                     price: 20,
-                    unit: 'per night',
+                    unit: 'par nuit',
                     icon: '🅿️',
                     featured: false,
-                    features: ['24/7 service', 'Covered parking', 'Car wash available', 'Security monitored']
+                    features: ['Service 24/7', 'Parking couvert', 'Lavage de voiture disponible', 'Surveillance sécurisée']
                 }
             ]
         }

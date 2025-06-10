@@ -45,52 +45,52 @@ export default {
         return {
             eventRooms: [
                 {
-                    name: "Grand Ballroom",
+                    name: "Grande Salle de Bal",
                     image: "https://images.pexels.com/photos/169192/pexels-photo-169192.jpeg",
-                    description: "Opulent ballroom perfect for weddings and gala dinners",
-                    capacity: "200 people",
-                    rate: "$500/hour",
-                    amenities: ["Chandelier Lighting", "Dance Floor", "Premium Sound System", "Catering Services"]
+                    description: "Salle de bal opulente parfaite pour les mariages et les dîners de gala",
+                    capacity: "200 personnes",
+                    rate: "500 €/heure",
+                    amenities: ["Éclairage par lustres", "Piste de danse", "Système audio premium", "Services de restauration"]
                 },
                 {
-                    name: "Garden Terrace",
+                    name: "Terrasse Jardin",
                     image: "https://images.pexels.com/photos/2251247/pexels-photo-2251247.jpeg",
-                    description: "Open-air venue for outdoor ceremonies and receptions",
-                    capacity: "150 people",
-                    rate: "$300/hour",
-                    amenities: ["Scenic Garden View", "String Lighting", "Outdoor Seating", "Event Planning"]
+                    description: "Lieu en plein air pour les cérémonies et réceptions en extérieur",
+                    capacity: "150 personnes",
+                    rate: "300 €/heure",
+                    amenities: ["Vue panoramique sur le jardin", "Éclairage par guirlandes", "Sièges extérieurs", "Planification d'événements"]
                 },
                 {
-                    name: "Skyline Lounge",
+                    name: "Salon Skyline",
                     image: "https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg",
-                    description: "Chic rooftop space for cocktail parties and social events",
-                    capacity: "80 people",
-                    rate: "$250/hour",
-                    amenities: ["City View", "Bar Setup", "Ambient Lighting", "DJ Booth"]
+                    description: "Espace chic sur le toit pour les soirées cocktails et événements sociaux",
+                    capacity: "80 personnes",
+                    rate: "250 €/heure",
+                    amenities: ["Vue sur la ville", "Installation de bar", "Éclairage d'ambiance", "Cabine DJ"]
                 },
                 {
-                    name: "Crystal Hall",
+                    name: "Salle Cristal",
                     image: "https://images.pexels.com/photos/587741/pexels-photo-587741.jpeg",
-                    description: "Elegant hall for large-scale conferences and banquets",
-                    capacity: "300 people",
-                    rate: "$600/hour",
-                    amenities: ["Stage Platform", "High-Tech AV", "Customizable Layout", "VIP Lounge"]
+                    description: "Salle élégante pour les conférences à grande échelle et les banquets",
+                    capacity: "300 personnes",
+                    rate: "600 €/heure",
+                    amenities: ["Plateforme de scène", "AV haute technologie", "Disposition personnalisable", "Salon VIP"]
                 },
                 {
-                    name: "Intimate Salon",
+                    name: "Salon Intime",
                     image: "https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg",
-                    description: "Cozy venue for private celebrations and small gatherings",
-                    capacity: "30 people",
-                    rate: "$150/hour",
-                    amenities: ["Fireplace", "Luxury Seating", "Private Bar", "Mood Lighting"]
+                    description: "Lieu chaleureux pour les célébrations privées et petits rassemblements",
+                    capacity: "30 personnes",
+                    rate: "150 €/heure",
+                    amenities: ["Cheminée", "Sièges de luxe", "Bar privé", "Éclairage d'ambiance"]
                 },
                 {
-                    name: "Theater Studio",
+                    name: "Studio Théâtre",
                     image: "https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg",
-                    description: "Modern space for performances and creative events",
-                    capacity: "100 people",
-                    rate: "$350/hour",
-                    amenities: ["Theater Lighting", "Stage Setup", "Surround Sound", "Backstage Area"]
+                    description: "Espace moderne pour les performances et événements créatifs",
+                    capacity: "100 personnes",
+                    rate: "350 €/heure",
+                    amenities: ["Éclairage de théâtre", "Installation de scène", "Son surround", "Zone des coulisses"]
                 }
             ]
         }

@@ -1,8 +1,9 @@
 <template>
     <div class="eco-responsibility-page">
         <div class="hero-section">
-            <h1 class="hero-title">Our Commitment to a Sustainable Future</h1>
-            <p class="hero-subtitle">Discover how our hotel embraces eco-friendly practices to protect the planet</p>
+            <h1 class="hero-title">Notre engagement pour un avenir durable</h1>
+            <p class="hero-subtitle">Découvrez comment notre hôtel adopte des pratiques éco-responsables pour protéger
+                la planète</p>
         </div>
 
         <div class="eco-commitments">
@@ -16,7 +17,7 @@
         </div>
 
         <div class="eco-gallery">
-            <h2 class="gallery-title">Proof of Our Eco-Friendly Practices</h2>
+            <h2 class="gallery-title">Preuve de nos pratiques éco-responsables</h2>
             <div class="gallery-grid">
                 <div class="gallery-item" v-for="(image, index) in ecoImages" :key="index">
                     <div class="gallery-image-wrapper">
@@ -30,7 +31,7 @@
         </div>
 
         <div class="eco-stats">
-            <h2 class="stats-title">Our Environmental Impact</h2>
+            <h2 class="stats-title">Notre impact environnemental</h2>
             <div class="stats-grid">
                 <div class="stat-item" v-for="(stat, index) in stats" :key="index">
                     <div class="stat-number">{{ stat.value }}</div>
@@ -40,9 +41,9 @@
         </div>
 
         <div class="call-to-action">
-            <h2 class="cta-title">Join Us in Making a Difference</h2>
-            <p class="cta-description">Stay with us and be part of our eco-friendly journey.</p>
-            <button class="cta-button">Learn More</button>
+            <h2 class="cta-title">Rejoignez-nous pour faire la différence</h2>
+            <p class="cta-description">Séjournez chez nous et participez à notre démarche éco-responsable.</p>
+            <button class="cta-button">En savoir plus</button>
         </div>
     </div>
 </template>
@@ -55,50 +56,50 @@ export default {
         return {
             commitments: [
                 {
-                    title: "Energy Efficiency",
-                    description: "We use solar panels and energy-efficient lighting to reduce our carbon footprint.",
+                    title: "Efficacité Énergétique",
+                    description: "Nous utilisons des panneaux solaires et un éclairage économe en énergie pour réduire notre empreinte carbone.",
                     icon: "https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg",
                 },
                 {
-                    title: "Waste Reduction",
-                    description: "Our zero-waste programs include composting and recycling initiatives.",
+                    title: "Réduction des Déchets",
+                    description: "Nos programmes zéro déchet incluent des initiatives de compostage et de recyclage.",
                     icon: "https://images.pexels.com/photos/747999/pexels-photo-747999.jpeg",
                 },
                 {
-                    title: "Sustainable Materials",
-                    description: "We prioritize eco-friendly materials in our furnishings and amenities.",
+                    title: "Matériaux Durables",
+                    description: "Nous privilégions les matériaux écologiques pour nos meubles et commodités.",
                     icon: "https://images.pexels.com/photos/1586973/pexels-photo-1586973.jpeg",
                 },
                 {
-                    title: "Water Conservation",
-                    description: "Low-flow fixtures and rainwater harvesting help us save water.",
+                    title: "Conservation de l'Eau",
+                    description: "Des appareils à faible débit et la collecte d'eau de pluie nous aident à économiser l'eau.",
                     icon: "https://images.pexels.com/photos/1024248/pexels-photo-1024248.jpeg",
                 },
             ],
             ecoImages: [
                 {
                     src: "https://images.pexels.com/photos/110857/pexels-photo-110857.jpeg",
-                    caption: "Solar panels powering our facilities",
+                    caption: "Panneaux solaires alimentant nos installations",
                 },
                 {
                     src: "https://images.pexels.com/photos/128421/pexels-photo-128421.jpeg",
-                    caption: "On-site recycling and composting station",
+                    caption: "Station de recyclage et de compostage sur place",
                 },
                 {
                     src: "https://images.pexels.com/photos/103094/pexels-photo-103094.jpeg",
-                    caption: "Eco-friendly bamboo furnishings",
+                    caption: "Meubles en bambou écologiques",
                 },
                 {
                     src: "https://images.pexels.com/photos/1632790/pexels-photo-1632790.jpeg",
-                    caption: "Rainwater harvesting system",
+                    caption: "Système de collecte d'eau de pluie",
                 },
             ],
             stats: [
-                { value: "75%", label: "Energy from Renewables" },
-                { value: "90%", label: "Waste Recycled" },
-                { value: "50k", label: "Liters of Water Saved" },
-                { value: "200+", label: "Trees Planted" },
-            ],
+                { value: "75%", label: "Énergie issue des renouvelables" },
+                { value: "90%", label: "Déchets recyclés" },
+                { value: "50k", label: "Litres d'eau économisés" },
+                { value: "200+", label: "Arbres plantés" },
+            ]
         };
     },
 };

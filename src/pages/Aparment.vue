@@ -34,46 +34,46 @@ export default {
         return {
             apartments: [
                 {
-                    name: "Royal Penthouse Suite",
+                    name: "Suite Penthouse Royale",
                     image: "https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg",
-                    description: "Ultimate luxury with panoramic city views and premium amenities",
-                    features: ["2 Bedrooms", "Ocean View", "Private Balcony", "Jacuzzi"],
-                    price: "$899/night"
+                    description: "Luxe ultime avec vues panoramiques sur la ville et commodités haut de gamme",
+                    features: ["2 chambres", "Vue sur l'océan", "Balcon privé", "Jacuzzi"],
+                    price: "899 Ar/nuit"
                 },
                 {
-                    name: "Executive Business Suite",
+                    name: "Suite d'Affaires Exécutive",
                     image: "https://images.pexels.com/photos/237371/pexels-photo-237371.jpeg",
-                    description: "Perfect for business travelers with dedicated workspace",
-                    features: ["1 Bedroom", "Work Desk", "Meeting Area", "City View"],
-                    price: "$599/night"
+                    description: "Parfaite pour les voyageurs d'affaires avec espace de travail dédié",
+                    features: ["1 chambre", "Bureau de travail", "Espace de réunion", "Vue sur la ville"],
+                    price: "599 Ar/nuit"
                 },
                 {
-                    name: "Family Comfort Suite",
+                    name: "Suite Confort Familiale",
                     image: "https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg",
-                    description: "Spacious accommodation designed for families",
-                    features: ["3 Bedrooms", "Living Room", "Kitchen", "Garden View"],
-                    price: "$799/night"
+                    description: "Hébergement spacieux conçu pour les familles",
+                    features: ["3 chambres", "Salon", "Cuisine", "Vue sur le jardin"],
+                    price: "799 Ar/nuit"
                 },
                 {
-                    name: "Romantic Honeymoon Suite",
+                    name: "Suite Romantique Lune de Miel",
                     image: "https://images.pexels.com/photos/1743227/pexels-photo-1743227.jpeg",
-                    description: "Intimate luxury suite perfect for romantic getaways",
-                    features: ["1 Bedroom", "Fireplace", "Private Spa", "Champagne"],
-                    price: "$999/night"
+                    description: "Suite de luxe intime parfaite pour les escapades romantiques",
+                    features: ["1 chambre", "Cheminée", "Spa privé", "Champagne"],
+                    price: "999 Ar/nuit"
                 },
                 {
-                    name: "Modern Studio Apartment",
+                    name: "Appartement Studio Moderne",
                     image: "https://images.pexels.com/photos/2029722/pexels-photo-2029722.jpeg",
-                    description: "Contemporary design with all essential amenities",
-                    features: ["Studio", "Kitchenette", "Modern Design", "WiFi"],
-                    price: "$399/night"
+                    description: "Design contemporain avec toutes les commodités essentielles",
+                    features: ["Studio", "Kitchenette", "Design moderne", "WiFi"],
+                    price: "399 Ar/nuit"
                 },
                 {
-                    name: "Luxury Presidential Suite",
+                    name: "Suite Présidentielle de Luxe",
                     image: "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg",
-                    description: "The pinnacle of luxury accommodation",
-                    features: ["3 Bedrooms", "Butler Service", "Private Elevator", "Terrace"],
-                    price: "$1299/night"
+                    description: "Le summum de l'hébergement de luxe",
+                    features: ["3 chambres", "Service de majordome", "Ascenseur privé", "Terrasse"],
+                    price: "1299 Ar/nuit"
                 }
             ]
         };
