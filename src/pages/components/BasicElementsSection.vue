@@ -37,8 +37,8 @@ export default {
   data() {
     return {
       images: [
-        require('@/assets/img/massage.jpg'),
-        require('@/assets/img/piscine.jpg'),
+        require('@/assets/img/Massage.jpeg'),
+        require('@/assets/img/piscine.jpeg'),
         require('@/assets/img/sport.jpg'),
       ],
       btnName: ['Reservez', 'Contacter', 'Contacter'],
