@@ -69,9 +69,9 @@
         </div>
       </div>
     </div>
-    <ExamplesSection title="Hebergement" :text="hebergementDescription" />
-    <ExamplesSection title="Restaurant" :text="restaurantDescription" />
-    <ExamplesSection title="Salles" :text="sallesDescription" />
+    <ExamplesSection title="Hebergement" :text="hebergementDescription" :img="imageExempleSection[0]" />
+    <ExamplesSection title="Restaurant" :text="restaurantDescription" :img="imageExempleSection[1]" />
+    <ExamplesSection title="Salles" :text="sallesDescription" :img="imageExempleSection[2]" />
 
     <div v-motion="{
       initial: { opacity: 0, scale: 0.5 },
@@ -132,9 +132,14 @@ export default {
   data() {
     return {
       image: [
-        require('@/assets/img/zara11.jpg'),
+        require('@/assets/img/HotelsZara.jpeg'),
         require('@/assets/img/chambre.jpeg'),
         require('@/assets/img/service.jpeg'),
+      ],
+      imageExempleSection: [
+        require('@/assets/img/hebergement.jpeg'),
+        require('@/assets/img/restaurant.jpeg'),
+        require('@/assets/img/salle.jpeg')
       ],
       logo: require('@/assets/img/zara-hotel-logo-final.png'),
       commingDate: false,
