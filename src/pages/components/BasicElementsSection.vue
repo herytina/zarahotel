@@ -14,12 +14,12 @@
       </div>
     </div>
     <div class="text-center">
-      <v-row class="mx-10" no-gutters>
+      <v-row class="mx-10">
         <v-col v-for="(image, index) in images" :key="image">
           <v-sheet class="ma-2">
             <img :src="image" alt="im" class="size" />
             <div class="reserve-btn">
-              <v-btn>{{ btnName[index] }}</v-btn>
+              <v-btn class="reserve-btn-name">{{ btnName[index] }}</v-btn>
             </div>
           </v-sheet>
         </v-col>
@@ -27,6 +27,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import { Button } from '@/components';
 export default {
@@ -47,56 +48,56 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .v-sheet {
   position: relative;
 }
 
-.v-sheet:hover {
-  .reserve-btn {
-    display: block;
-    text-align: center;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    transform: translateY(-100%);
-  }
-}
-
 .reserve-btn {
-  background: rgba(var(--bs-dark-rgb)) !important;
+  background: rgba(var(--bs-dark-rgb), 0.9) !important;
+  box-shadow: 0 -8px 12px 2px rgba(0, 0, 0, 0.9);
   height: 80px;
-  text-align: center;
-  align-items: center;
+  width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   transform: translateY(-100%);
-  display: none;
   position: absolute;
-  width: -webkit-fill-available;
 }
 
-.space1 {
-  margin-left: 10px;
-  margin-bottom: 50px;
+.reserve-btn-name {
+  background: rgba(var(--bs-dark-rgb), 0.9);
+  color: white;
+  text-decoration: underline;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 4px;
 }
 
 @media screen and (max-width: 991px) {
   .size {
     height: 100px;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
   }
 
   .reserve-btn {
-    display: block;
-    text-align: center;
-    align-items: center;
-    display: flex;
-    justify-content: center;
     transform: none;
     height: auto;
-    background: none !important;
+    background: rgba(var(--bs-dark-rgb), 0.9) !important;
     margin-top: 10px;
+    position: relative;
+    box-shadow: none;
+    padding: 10px;
+  }
+
+  .reserve-btn-name {
+    background: rgba(var(--bs-dark-rgb), 0.9);
+    color: white;
+    text-decoration: underline;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 4px;
   }
 }
 </style>
