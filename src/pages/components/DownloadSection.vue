@@ -1,124 +1,266 @@
 <template>
-  <div
-    id="#download-section"
-    data-background-color="black"
-  >
-    <v-row no-gutters>
-      <v-col
-        class="my-4 mt-16"
-        order="first"
-      >
-        <div
-          v-for="(item, i) in boutons"
-          :key="i"
-          v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 700 } } }"
-          :value="item.url"
-          color="primary"
-          class="ml-16"
-        >
-          <router-link
-            v-popover:popover1
-            class="navbar-brand"
-            :to="item.url"
-          >
-            <ul class="ml-15">
-              <li class="mt-3 ml-5 text-h6">
-                {{ item.name }}
-              </li>
-            </ul>
-          </router-link>
-        </div>
-      </v-col>
-      <v-col
-        class="pa-2 ma-2 text-center"
-      >
-        <div v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 700 } } }">
-          <img
-            :src="logo"
-            alt="logo"
-            height="150"
-            width="200"
-            class=""
-          >
-        </div>
-        <h5
-          v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 700 } } }"
-          class="mt-9"
-        >
+  <div id="download-section" class="footer-container">
+    <div class="links-section">
+      <div v-for="(item, i) in boutons" :key="i"
+        v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 700 } } }"
+        class="link-item">
+        <router-link v-popover:popover1 class="navbar-brand" :to="item.url">
+          {{ item.name }}
+        </router-link>
+      </div>
+    </div>
+
+    <div class="contact-section">
+      <div v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 700 } } }"
+        class="logo-container">
+        <img :src="logo" alt="logo" class="logo">
+      </div>
+      <div class="contact-info">
+        <h5 v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 700 } } }"
+          class="contact-text">
           Boulevard de l’Europe, Ankasina Antananarivo,<br>
-          Madagascar<br>
-          mail: zarahotel.reception@gmail.com
-          <h5
-            v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 800 } } }"
-            class="description mt-3"
-          >
-            +261 32 05 368 29 <br>
-            +261 34 78 459 61 <br>
-          </h5>
+          Madagascar
         </h5>
-      </v-col>
-      <v-col
-        order="last"
-        class="pa-2 text-center"
-      >
-        <v-col class="text-center mt-16">
-          <h3 v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 500 } } }">
-            Suivez-nous
-          </h3>
-          <div
-            class="text-center"
-            style="display: flex; flex-direction: column"
-          >
-            <v-btn
-              v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 900 } } }"
-              variant="text"
-            >
-              <i class="fab fa-twitter btn-footer"/>
-            </v-btn>
-            <v-btn
-              v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 1000 } } }"
-              variant="text"
-            >
-              <i class="fab fa-facebook-square" />
-            </v-btn>
-            <v-btn
-              v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 1100 } } }"
-              variant="text"
-            >
-              <i class="fab fa-instagram" />
-            </v-btn>
-          </div>
-        </v-col>
-      </v-col>
-    </v-row>
+        <h5 v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 700 } } }"
+          class="contact-email">
+          mail: zarahotel.reception@gmail.com
+        </h5>
+        <h5 v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 800 } } }"
+          class="description">
+          +261 32 05 368 29 <br>
+          +261 34 78 459 61
+        </h5>
+      </div>
+    </div>
+
+    <div class="social-section">
+      <h3 v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 500 } } }"
+        class="social-title">
+        Suivez-nous
+      </h3>
+      <div class="social-buttons">
+        <v-btn v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 900 } } }"
+          variant="text" class="social-btn">
+          <i class="fab fa-twitter" />
+        </v-btn>
+        <v-btn v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 1000 } } }"
+          variant="text" class="social-btn">
+          <i class="fab fa-facebook-square" />
+        </v-btn>
+        <v-btn v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 1100 } } }"
+          variant="text" class="social-btn">
+          <i class="fab fa-instagram" />
+        </v-btn>
+      </div>
+    </div>
   </div>
 </template>
+
 <script>
 export default {
   data() {
     return {
-      logo : require('@/assets/img/zara-hotel-logo-final.png'),
+      logo: require('@/assets/img/zara-hotel-logo-final.png'),
       boutons: [
         {
           url: "hotel",
-          name :"HOTEL"
+          name: "HOTEL"
         },
         {
           url: "service",
-          name :"SERVICES"
+          name: "SERVICES"
         },
         {
           url: "chambre",
-          name :"CHAMBBRE"
+          name: "CHAMBRE"
         },
         {
           url: "contact",
-          name :"CONTACTS"
+          name: "CONTACTS"
         }
       ],
-      secondAnim:true
+      secondAnim: true
     }
   }
 };
 </script>
-<style></style>
+
+<style scoped>
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.links-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.link-item {
+  margin-bottom: 25px;
+}
+
+.navbar-brand {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #ccc;
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-container {
+  margin-bottom: 15px;
+}
+
+.contact-email {
+  text-align: center;
+  font-size: 17px;
+  margin: 15px 0;
+  margin-top: 10px;
+  color: #fff;
+}
+
+
+.logo {
+  height: 80px;
+  width: 110px;
+  object-fit: contain;
+}
+
+.contact-text {
+  text-align: center;
+  font-size: 17px;
+  margin: 15px 0;
+  color: #fff;
+}
+
+.description {
+  text-align: center;
+  margin: 15px 0;
+  color: #fff;
+  font-size: 15px;
+}
+
+.social-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.social-title {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.social-btn {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.social-btn i {
+  font-size: 2rem;
+  margin: 10px 0;
+  transition: color 0.3s ease;
+}
+
+.social-btn i:hover {
+  color: #ccc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+  }
+
+  .links-section,
+  .contact-section,
+  .social-section {
+    width: 100%;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .link-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-brand {
+    font-size: 1rem;
+  }
+
+  .logo {
+    height: 60px;
+    width: 90px;
+  }
+
+  .contact-text,
+  .description {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+
+  .social-title {
+    font-size: 1.2rem;
+  }
+
+  .social-btn i {
+    font-size: 1.8rem;
+    margin: 8px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    padding: 1rem;
+  }
+
+  .navbar-brand {
+    font-size: 0.9rem;
+  }
+
+  .logo {
+    height: 50px;
+    width: 80px;
+  }
+
+  .contact-text,
+  .description {
+    font-size: 13px;
+    margin: 8px 0;
+  }
+
+  .social-title {
+    font-size: 1rem;
+  }
+
+  .social-btn i {
+    font-size: 1.5rem;
+    margin: 6px 0;
+  }
+}
+</style>
