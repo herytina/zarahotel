@@ -1,27 +1,20 @@
 <template>
-  <div v-motion="'fade-in'" :style="{ backgroundColor: bg || 'rgb(248, 248, 248)' }">
-    <div class="container text-center">
-      <div class="row justify-content-md-center">
-        <div class="col-md-12 col-lg-8">
-          <h2 class="title">
-            {{ title }}
-          </h2>
-          <h5 class="description">
-            {{ text }}
-          </h5>
-        </div>
-      </div>
-    </div>
-    <div>
+  <div v-motion="'fade-in'">
+    <div class="container-card">
       <div v-motion="'fade-in'">
         <v-card class="mx-auto imageSection">
           <v-img v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 300 } } }"
-            class="align-end text-white" height="300" :src="image" cover>
-            <v-avatar class="ma-3" rounded="2" size="200" style="background-color: rgba(0, 0, 0, 0.7);">
-              <p class="text-center" style="margin: 0; font-weight: bold; color: aliceblue">
-                {{ title }}
-              </p>
-            </v-avatar>
+            class="align-end text-white v-img-wrapper" height="300" :src="image" cover>
+            <div :class="title === 'Restaurant' ? 'avatar-wrapper' : 'avatar'">
+              <v-avatar class="ma-3" rounded="2" size="200" style="width: 300px; height: 250px;">
+                <p class="text-center" style="margin: 0; font-weight: bold; color: aliceblue">
+                  {{ title }}
+                </p>
+                <span class="text-description">
+                  {{ text }}
+                </span>
+              </v-avatar>
+            </div>
           </v-img>
         </v-card>
       </div>
@@ -99,7 +92,8 @@ export default {
 </script>
 <style>
 .imageSection {
-  width: 95%;
+  width: 75%;
+  margin-bottom: 30px;
 }
 
 .block {
@@ -118,6 +112,49 @@ export default {
   height: 450px;
   min-width: -webkit-fill-available;
   /* width: 450px; */
+}
+
+.move-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.v-img-wrapper {
+  position: relative;
+}
+
+.avatar-wrapper {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 25px;
+  margin-right: 15px;
+}
+
+.avatar {
+  font-size: 25px;
+  margin-bottom: 25px;
+  margin-left: 15px;
+}
+
+.v-avatar {
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container-card {
+  background-color: white;
+  border: 1px solid white;
+}
+
+.text-description {
+  font-size: 16px;
+  color: aliceblue;
+  text-align: center;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 @media screen and (max-width: 991px) and (min-width: 291px) {
