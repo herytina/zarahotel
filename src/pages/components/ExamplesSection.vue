@@ -4,7 +4,7 @@
       <div v-motion="'fade-in'">
         <v-card class="mx-auto imageSection">
           <v-img v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 300 } } }"
-            class="align-end text-white v-img-wrapper" height="300" :src="image" cover>
+            class="align-end text-white v-img-wrapper" height="300" :src="img" cover>
             <div :class="title === 'Restaurant' ? 'avatar-wrapper' : 'avatar'">
               <v-avatar class="ma-3" rounded="2" size="200" style="width: 300px; height: 250px;">
                 <p class="text-center" style="margin: 0; font-weight: bold; color: aliceblue">
@@ -42,6 +42,9 @@ export default {
       type: String,
       default: 'https://cdn.vuetifyjs.com/images/cards/docks.jpg',
     },
+    img:{
+      type:String
+    }
   },
   data() {
     return {
