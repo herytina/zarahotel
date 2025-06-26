@@ -111,7 +111,7 @@
           initial: { opacity: 0, x: -100 },
           enter: { opacity: 1, x: 0, transition: { delay: 950 } },
         }" class="nav-link" to="ecoResponsibility">
-          <p class="text-white item">Environnement</p>
+          <p class="text-white item">NOS ENGAGEMENTS</p>
         </router-link>
       </li>
 
