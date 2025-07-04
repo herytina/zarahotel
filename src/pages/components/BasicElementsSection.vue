@@ -1,9 +1,8 @@
 <template>
-  <div class="section section-example">
+  <div class="sections section-example">
     <div class="container text-center">
       <div class="row justify-content-md-center">
-        <div class="col-md-12 col-lg-8">
-          <h2 class="title">Autre service, piscine, salle de sport, massage</h2>
+        <div class="col-md-12 col-lg-8 container-child">
           <h5 class="description">
             Offrez-vous un moment de détente inoubliable avec notre piscine
             chauffée, nos massages apaisants, une terrasse charmante, un bar
@@ -49,13 +48,22 @@ export default {
 </script>
 
 <style scoped>
+.sections {
+  padding: 18px 0;
+  position: relative;
+  background: #FFFFFF;
+}
+
+.container-child {
+  padding-bottom: 45px;
+}
+
 .v-sheet {
   position: relative;
 }
 
 .reserve-btn {
   background: rgba(var(--bs-dark-rgb), 0.9) !important;
-  box-shadow: 0 -8px 12px 2px rgba(0, 0, 0, 0.9);
   height: 80px;
   width: 100%;
   display: flex;
