@@ -53,8 +53,7 @@
     </div>
     <div class="container text-center">
       <div class="row justify-content-md-center">
-        <div class="col-md-12 col-lg-8">
-          <h2 class="title">Zara hotel description</h2>
+        <div class="col-md-12 col-lg-8" style="padding: 45px;">
           <h5 class="description">
             Découvrez ZARA HOTEL, un charmant complexe hôtelier
             <b>3 étoiles</b>
@@ -65,7 +64,6 @@
             </b>
             , idéal pour vos séjours d'affaires ou de détente.
           </h5>
-          <h2 class="services">NOS SERVICES</h2>
         </div>
       </div>
     </div>
