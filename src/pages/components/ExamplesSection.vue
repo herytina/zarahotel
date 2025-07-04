@@ -42,8 +42,8 @@ export default {
       type: String,
       default: 'https://cdn.vuetifyjs.com/images/cards/docks.jpg',
     },
-    img:{
-      type:String
+    img: {
+      type: String
     }
   },
   data() {
@@ -95,7 +95,7 @@ export default {
 </script>
 <style>
 .imageSection {
-  width: 75%;
+  width: 55%;
   margin-bottom: 30px;
 }
 
