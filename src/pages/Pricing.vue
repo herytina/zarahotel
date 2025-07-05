@@ -269,7 +269,7 @@ body {
 .hero-section {
     text-align: center;
     padding: 4rem 2rem;
-    background: url('https://images.pexels.com/photos/1743231/pexels-photo-1743231.jpeg') no-repeat center center;
+    background: url('https://images.pexels.com/photos/261169/pexels-photo-261169.jpeg') no-repeat center center;
     background-size: cover;
     position: relative;
     color: white;
