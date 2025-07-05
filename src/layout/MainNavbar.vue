@@ -3,7 +3,7 @@
     class="d-flex justify-space-between align-center px-8">
     <div v-if="showButton" class="d-flex align-center">
       <router-link class="navbar-brand" to="/">
-        <img :src="logo" width="70" height="50" alt="logo" class="radius translation-logo" />
+        <img :src="logo" width="70" height="50" alt="logo" class="radius translation-logo logoImage" />
       </router-link>
     </div>
     <template #navbar-menu>
@@ -243,5 +243,18 @@ export default {
 
 .translation-logo {
   transform: translateX(100%) !important;
+}
+
+.logoImage {
+  position: absolute;
+  top: 3px;
+  left: -18px
+}
+
+@media screen and (max-width: 991px) {
+  .logoImage {
+    top: -9px;
+    left: -67px
+  }
 }
 </style>
