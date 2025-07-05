@@ -39,8 +39,8 @@
           <div v-motion="{
             initial: { opacity: 0, x: 100 },
             enter: { opacity: 1, x: 0, transition: { delay: 500 } },
-          }" style="margin-top: 40px">
-            <n-button type="warning" size="lg">
+          }" class="reservationTarif">
+            <n-button size="lg" class="button">
               <router-link to="/pricing" class="text-white" style="text-decoration: none ">
                 <span style="font-weight: 600" class="textPricingRedirect">
                   RESERVEZ AU MEILLEUR TARIF
@@ -175,16 +175,6 @@ export default {
 };
 </script>
 <style>
-.services {
-  background: #ffc107;
-  height: 150px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-
 .info-map {
   text-align: center;
   align-items: center;
@@ -200,6 +190,15 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.reservationTarif {
+  margin-top: 40px;
+
+  .button {
+    background-color: rgb(221, 186, 71);
+    ;
+  }
 }
 
 .responsiveR {
@@ -222,7 +221,8 @@ export default {
   font-size: 64px;
   font-weight: 600;
   color: aliceblue;
-  text-shadow: 1px 2px 3px rgb(236, 183, 7);
+  text-shadow: 1px 2px 3px rgb(221, 186, 71);
+  margin-bottom: 25px;
 }
 
 .h {
@@ -281,5 +281,22 @@ export default {
     color: aliceblue;
     text-shadow: 1px 2px 3px black;
   }
+}
+
+@media screen and (max-width: 576px) {
+  .reservationTarif {
+    margin-top: 40px;
+    width: 90%;
+  }
+
+  .txt {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+  }
+
 }
 </style>
