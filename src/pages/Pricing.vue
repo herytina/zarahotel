@@ -1,19 +1,9 @@
 <template>
     <div id="app">
-        <!-- Header Section -->
-        <!-- <header class="header">
-      <div class="container">
-        <h1 class="hotel-name">{{ hotelName }}</h1>
-        <p class="hotel-tagline">{{ tagline }}</p>
-      </div>
-    </header> -->
-
-        <!-- Search and Filter Section -->
-        <section class="search-section" style="height: 200px; display: flex; align-items: center;">
+        <!-- Hero Section with Title and Search -->
+        <div class="hero-section">
             <div class="container">
-                <!-- <div class="search-box">
-          <input type="text" v-model="searchQuery" placeholder="Search services..." class="search-input">
-        </div> -->
+                <h1 class="hero-title">Nos Services & Tarifs</h1>
                 <div class="filter-buttons">
                     <button v-for="category in categories" :key="category" @click="selectedCategory = category"
                         :class="['filter-btn', { active: selectedCategory === category }]">
@@ -21,12 +11,11 @@
                     </button>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Pricing Section -->
         <main class="pricing-section">
             <div class="container">
-                <h2 class="section-title">Our Services & Pricing</h2>
                 <div class="pricing-grid">
                     <div v-for="service in filteredServices" :key="service.id" class="pricing-card"
                         :class="service.featured ? 'featured' : ''">
@@ -243,13 +232,13 @@ export default {
     },
     methods: {
         bookService(service) {
-            alert(`Booking ${service.name} for $${service.price} ${service.unit}. Thank you for choosing our hotel!`);
+            alert(`Réservation de ${service.name} pour $${service.price} ${service.unit}. Merci d'avoir choisi notre hôtel !`);
         }
     }
 }
 </script>
 
-<style>
+<style scoped>
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -271,88 +260,56 @@ body {
     padding: 0 20px;
 }
 
-/* Header Styles */
-.header {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 2rem 0;
+#app {
+    margin-bottom: 4rem;
+    min-height: 100vh;
+}
+
+/* Hero Section */
+.hero-section {
     text-align: center;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    position: sticky;
+    padding: 4rem 2rem;
+    background: url('https://images.pexels.com/photos/1743231/pexels-photo-1743231.jpeg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    color: white;
+    width: 100vw;
+    margin: 0;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
     top: 0;
-    z-index: 100;
-    animation: slideDown 0.8s ease-out;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
 }
 
-@keyframes slideDown {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.hotel-name {
+.hero-title {
     font-size: 3rem;
     font-weight: 700;
-    color: #1a237e;
-    margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    animation: fadeInUp 1s ease-out 0.2s both;
+    margin-bottom: 2rem;
+    position: relative;
+    animation: fadeInDown 1s ease-out;
+    z-index: 1;
 }
 
-.hotel-tagline {
-    font-size: 1.2rem;
-    color: #666;
-    font-style: italic;
-    animation: fadeInUp 1s ease-out 0.4s both;
-}
-
-@keyframes fadeInUp {
+@keyframes fadeInDown {
     from {
-        transform: translateY(30px);
         opacity: 0;
+        transform: translateY(-20px);
     }
 
     to {
-        transform: translateY(0);
         opacity: 1;
+        transform: translateY(0);
     }
-}
-
-/* Search Section */
-.search-section {
-    padding: 2rem 0;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-}
-
-.search-box {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.search-input {
-    width: 100%;
-    max-width: 400px;
-    padding: 1rem 1.5rem;
-    font-size: 1.1rem;
-    border: 2px solid #e2e8f0;
-    border-radius: 50px;
-    outline: none;
-    transition: all 0.3s ease;
-    background: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-.search-input:focus {
-    border-color: #D4AF37;
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
-    transform: translateY(-2px);
 }
 
 .filter-buttons {
@@ -360,6 +317,8 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
+    position: relative;
+    z-index: 1;
 }
 
 .filter-btn {
@@ -391,15 +350,6 @@ body {
     padding: 4rem 0;
 }
 
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #1a237e;
-    margin-bottom: 3rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    animation: fadeInUp 1s ease-out;
-}
-
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -424,7 +374,6 @@ body {
     background: white;
     border-radius: 20px;
     padding: 1.5rem;
-    /* Reduced from 2rem to decrease height */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
@@ -476,7 +425,7 @@ body {
 }
 
 .pricing-card.featured::before {
-    content: 'POPULAR';
+    content: 'POPULAIRE';
     position: absolute;
     top: 20px;
     right: -30px;
@@ -492,14 +441,11 @@ body {
 .card-header {
     text-align: center;
     margin-bottom: 1rem;
-    /* Reduced from 2rem to decrease height */
 }
 
 .service-icon {
     font-size: 2rem;
-    /* Reduced from 3rem to decrease height */
     margin-bottom: 0.5rem;
-    /* Reduced from 1rem */
     display: block;
     animation: bounce 2s infinite;
 }
@@ -525,30 +471,24 @@ body {
 
 .service-name {
     font-size: 1.2rem;
-    /* Reduced from 1.5rem to decrease height */
     font-weight: 700;
     color: #1a237e;
     margin-bottom: 0.25rem;
-    /* Reduced from 0.5rem */
 }
 
 .service-category {
     background: #f0f4f8;
     color: #1a237e;
     padding: 0.2rem 0.8rem;
-    /* Slightly reduced padding */
     border-radius: 15px;
     font-size: 0.8rem;
-    /* Reduced from 0.9rem */
     font-weight: 600;
 }
 
 .price-container {
     text-align: center;
     margin-bottom: 1rem;
-    /* Reduced from 2rem to decrease height */
     padding: 0.75rem;
-    /* Reduced from 1rem */
     background: linear-gradient(45deg, rgba(26, 35, 126, 0.8), rgba(212, 175, 55, 0.8));
     border-radius: 15px;
     color: white;
@@ -556,32 +496,27 @@ body {
 
 .price {
     font-size: 2rem;
-    /* Reduced from 2.5rem to decrease height */
     font-weight: 800;
     display: block;
 }
 
 .price-unit {
     font-size: 0.9rem;
-    /* Reduced from 1rem */
     opacity: 0.9;
 }
 
 .features-list {
     list-style: none;
     margin-bottom: 1rem;
-    /* Reduced from 2rem to decrease height */
 }
 
 .features-list li {
     padding: 0.3rem 0;
-    /* Reduced from 0.5rem to decrease height */
     display: flex;
     align-items: center;
     color: #666;
     transition: transform 0.2s ease;
     font-size: 0.9rem;
-    /* Added to reduce text size slightly */
 }
 
 .features-list li:hover {
@@ -592,9 +527,7 @@ body {
     color: #D4AF37;
     font-weight: bold;
     margin-right: 0.5rem;
-    /* Reduced from 0.75rem */
     font-size: 1rem;
-    /* Reduced from 1.2rem */
 }
 
 .card-footer {
@@ -607,9 +540,7 @@ body {
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
-    /* Reduced from 1rem 2rem to decrease height */
     font-size: 1rem;
-    /* Reduced from 1.1rem */
     font-weight: 700;
     border-radius: 15px;
     cursor: pointer;
@@ -647,12 +578,12 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .hotel-name {
-        font-size: 2rem;
+    .hero-section {
+        padding: 3rem 1rem;
     }
 
-    .section-title {
-        font-size: 2rem;
+    .hero-title {
+        font-size: 2.5rem;
     }
 
     .pricing-grid {
@@ -662,7 +593,6 @@ body {
 
     .pricing-card {
         padding: 1rem;
-        /* Further reduced for smaller screens */
     }
 
     .filter-buttons {
@@ -673,30 +603,23 @@ body {
     .filter-btn {
         width: 200px;
     }
-
-    .search-input {
-        width: 90%;
-    }
 }
 
 @media (max-width: 480px) {
-    .hotel-name {
-        font-size: 1.5rem;
+    .hero-title {
+        font-size: 2rem;
     }
 
     .pricing-card {
         padding: 0.75rem;
-        /* Further reduced for very small screens */
     }
 
     .price {
         font-size: 1.8rem;
-        /* Adjusted for smaller screens */
     }
 
     .service-icon {
         font-size: 1.5rem;
-        /* Further reduced */
     }
 }
 
@@ -709,16 +632,8 @@ body {
 
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
-    .header {
-        background: rgba(17, 24, 39, 0.95);
-    }
-
-    .hotel-name {
-        color: #D4AF37;
-    }
-
-    .search-section {
-        background: rgba(17, 24, 39, 0.9);
+    .hero-section::before {
+        background: rgba(0, 0, 0, 0.6);
     }
 }
 
@@ -734,7 +649,7 @@ body {
 /* Print styles */
 @media print {
 
-    .search-section,
+    .filter-buttons,
     .book-btn {
         display: none;
     }
