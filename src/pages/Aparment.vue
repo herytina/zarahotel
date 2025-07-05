@@ -1,5 +1,9 @@
 <template>
     <div class="apartments-page">
+        <div class="hero-section">
+            <h1 class="hero-title">Nos Suites et Appartements de Luxe</h1>
+            <p class="hero-subtitle">Découvrez nos hébergements élégants pour un séjour inoubliable</p>
+        </div>
         <div class="apartments-container">
             <div class="apartment-card" v-for="(apartment, index) in apartments" :key="index">
                 <div class="image-container">
@@ -8,7 +12,7 @@
                         <div class="overlay-content">
                             <h3>{{ apartment.name }}</h3>
                             <p>{{ apartment.price }}</p>
-                            <button class="view-btn">View Details</button>
+                            <button class="view-btn">Voir les Détails</button>
                         </div>
                     </div>
                 </div>
@@ -26,10 +30,11 @@
         </div>
     </div>
 </template>
+
 <script>
 export default {
     name: "ApartmentPage",
-    bodyClass: "appartment-page",
+    bodyClass: "apartment-page",
     data() {
         return {
             apartments: [
@@ -80,37 +85,62 @@ export default {
     }
 }
 </script>
+
 <style scoped>
 .apartments-page {
-    padding: 2rem 0;
+    padding: 0;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     min-height: 100vh;
+    margin-bottom: 4rem;
 }
 
-.page-header {
+.hero-section {
     text-align: center;
-    margin-bottom: 3rem;
-    padding: 0 2rem;
+    padding: 4rem 2rem;
+    background: url('https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    color: white;
+    width: 100vw;
+    margin: 0;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
-.page-title {
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-title {
     font-size: 3rem;
-    color: #1a237e;
     font-weight: 700;
     margin-bottom: 1rem;
-    animation: slideInFromTop 1s ease-out;
+    position: relative;
+    animation: fadeInDown 1s ease-out;
+    z-index: 1;
 }
 
-.page-subtitle {
+.hero-subtitle {
     font-size: 1.2rem;
-    color: #666;
     font-weight: 300;
-    animation: slideInFromTop 1s ease-out 0.3s both;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    animation: fadeInUp 1s ease-out 0.3s both;
+    z-index: 1;
 }
 
 .apartments-container {
     max-width: 1400px;
-    margin: 0 auto;
+    margin: 4rem auto 0;
     padding: 0 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -253,7 +283,7 @@ export default {
     text-align: right;
 }
 
-@keyframes slideInFromTop {
+@keyframes fadeInDown {
     from {
         opacity: 0;
         transform: translateY(-50px);
@@ -278,14 +308,18 @@ export default {
 }
 
 @media (max-width: 768px) {
+    .hero-section {
+        padding: 3rem 1rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
     .apartments-container {
         grid-template-columns: 1fr;
         gap: 2rem;
         padding: 0 1rem;
-    }
-
-    .page-title {
-        font-size: 2.5rem;
     }
 
     .apartment-card {
@@ -302,8 +336,12 @@ export default {
 }
 
 @media (max-width: 480px) {
-    .page-title {
+    .hero-title {
         font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
     }
 
     .apartments-container {
