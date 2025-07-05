@@ -6,7 +6,7 @@
           <v-img v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 300 } } }"
             class="align-end text-white v-img-wrapper" height="300" :src="img" cover>
             <div :class="title === 'Restaurant' ? 'avatar-wrapper' : 'avatar'">
-              <v-avatar class="ma-3" rounded="2" size="200" style="width: 300px; height: 250px;">
+              <v-avatar class="v-avatar" rounded="2">
                 <p class="text-center" style="margin: 0; font-weight: bold; color: aliceblue">
                   {{ title }}
                 </p>
@@ -21,6 +21,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import Velocity from 'velocity-animate';
 
@@ -49,7 +50,10 @@ export default {
   data() {
     return {
       images: [
-        require("@/assets/img/zara.jpg"), require("@/assets/img/zara1.jpg"), require("@/assets/img/zara2.jpg"), require("@/assets/img/zara3.jpg")
+        require("@/assets/img/zara.jpg"),
+        require("@/assets/img/zara1.jpg"),
+        require("@/assets/img/zara2.jpg"),
+        require("@/assets/img/zara3.jpg")
       ],
       secondAnim: true,
       imageUrl: require('@/assets/img/chambre.jpeg')
@@ -76,7 +80,6 @@ export default {
         { delay, duration: 700, complete: done }
       )
     },
-
     beforeEnterB(el) {
       el.style.marginLeft = "-200px";
       el.style.opacity = 0;
@@ -93,10 +96,12 @@ export default {
   },
 };
 </script>
+
 <style>
 .imageSection {
   width: 55%;
   margin-bottom: 30px;
+  position: relative;
 }
 
 .block {
@@ -114,7 +119,6 @@ export default {
 .size {
   height: 450px;
   min-width: -webkit-fill-available;
-  /* width: 450px; */
 }
 
 .move-right {
@@ -126,25 +130,44 @@ export default {
   position: relative;
 }
 
-.avatar-wrapper {
+.avatar-wrapper,
+.avatar {
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 25px;
-  margin-right: 15px;
+  font-size: 1.5rem;
 }
 
-.avatar {
-  font-size: 25px;
-  margin-bottom: 25px;
-  margin-left: 15px;
+.avatar-wrapper {
+  margin-top: 15px;
 }
 
 .v-avatar {
   background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
+  width: 250px !important;
+  height: 250px !important;
+  border-radius: 8px;
+  padding: 16px;
+  box-sizing: border-box;
+
+}
+
+.v-avatar p {
+  font-weight: bold;
+  color: aliceblue;
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.text-description {
+  font-size: 1rem;
+  color: aliceblue;
+  text-align: center;
+  padding: 8px;
 }
 
 .container-card {
@@ -152,18 +175,79 @@ export default {
   border: 1px solid white;
 }
 
-.text-description {
-  font-size: 16px;
-  color: aliceblue;
-  text-align: center;
-  padding-left: 4px;
-  padding-right: 4px;
+/* Desktop styles (screens larger than 992px) */
+@media screen and (min-width: 992px) {
+  .avatar-wrapper {
+    top: 10px;
+    right: 15px;
+  }
+
+  .avatar {
+    top: auto;
+    bottom: 25px;
+    left: 15px;
+    right: auto;
+  }
+
+  .v-avatar {
+    width: 250px !important;
+    height: 250px !important;
+  }
 }
 
-@media screen and (max-width: 991px) and (min-width: 291px) {
-  .size {
-    height: 100px;
-    width: 150px;
+/* Tablet and mobile styles (screens up to 991px) */
+@media screen and (max-width: 991px) {
+
+  .avatar-wrapper,
+  .avatar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 0.875rem;
+  }
+
+  .v-avatar {
+    width: 170px !important;
+    height: 180px !important;
+    padding: 10px;
+  }
+
+  .v-avatar p {
+    font-size: 0.875rem;
+  }
+
+  .text-description {
+    font-size: 0.75rem;
+  }
+}
+
+/* Small mobile screens (up to 576px) */
+@media screen and (max-width: 576px) {
+
+  .avatar-wrapper,
+  .avatar {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.75rem;
+  }
+
+  .v-avatar {
+    width: 140px !important;
+    height: 180px !important;
+    padding: 8px;
+    right: 28px;
+
+  }
+
+  .v-avatar p {
+    font-size: 0.75rem;
+  }
+
+  .text-description {
+    font-size: 0.625rem;
   }
 }
 </style>
