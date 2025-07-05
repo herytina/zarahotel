@@ -107,7 +107,7 @@ export default {
 
 <style scoped>
 .eco-responsibility-page {
-    padding: 2rem 0;
+    padding: 0;
     background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
     min-height: 100vh;
     font-family: 'Arial', sans-serif;
@@ -120,8 +120,12 @@ export default {
     background-size: cover;
     position: relative;
     color: white;
-    border-radius: 20px;
-    margin: 0 2rem 4rem;
+    width: 100vw;
+    margin: 0;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
 .hero-section::before {
@@ -132,7 +136,6 @@ export default {
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
 }
 
 .hero-title {
@@ -156,7 +159,7 @@ export default {
 
 .eco-commitments {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 4rem auto 0;
     padding: 0 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -234,7 +237,7 @@ export default {
 .gallery-item {
     position: relative;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 10kx;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     animation: fadeInUp 0.8s ease-out;
 }
@@ -330,8 +333,6 @@ export default {
 .call-to-action {
     text-align: center;
     padding: 4rem 2rem;
-    background: #388e3c;
-    color: white;
     border-radius: 20px;
     margin: 0 2rem;
 }
@@ -410,7 +411,6 @@ export default {
 @media (max-width: 768px) {
     .hero-section {
         padding: 3rem 1rem;
-        margin: 0 1rem 3rem;
     }
 
     .hero-title {
