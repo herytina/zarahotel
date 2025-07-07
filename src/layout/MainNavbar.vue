@@ -2,7 +2,7 @@
   <navbar position="fixed" type="dark" :transparent="transparent" :color-on-scroll="colorOnScroll"
     class="d-flex justify-space-between align-center px-8">
     <div v-if="showButton" class="d-flex align-center">
-      <router-link class="navbar-brand" to="/">
+      <router-link class="navbar-brand" to="#">
         <img :src="logo" width="70" height="50" alt="logo" class="radius translation-logo logoImage" />
       </router-link>
     </div>
@@ -26,7 +26,7 @@
                 </template>
                 <v-list-item v-for="(title, i) in chambres" :key="i">
                   <!-- Utilisation de router-link -->
-                  <router-link to="chambre" class="router-link" style="text-decoration: none; color: inherit">
+                  <router-link to="#" class="router-link" style="text-decoration: none; color: inherit">
                     {{ title.title }}
                   </router-link>
                 </v-list-item>
@@ -52,7 +52,7 @@
 
               <v-list-item v-for="(title, i) in items" :key="i">
                 <!-- Utilisation de router-link -->
-                <router-link to="/apartment" class="router-link" style="text-decoration: none; color: inherit">
+                <router-link to="#" class="router-link" style="text-decoration: none; color: inherit">
                   {{ title.title }}
                 </router-link>
               </v-list-item>
@@ -66,7 +66,7 @@
         <router-link v-motion="{
           initial: { opacity: 0, x: -100 },
           enter: { opacity: 1, x: 0, transition: { delay: 650 } },
-        }" class="nav-link" to="chambre">
+        }" class="nav-link" to="#">
           <p class="text-white item">Restaurant</p>
         </router-link>
       </li>
@@ -97,7 +97,7 @@
             <v-list>
               <v-list-item v-for="(item, i) in itemSalle" :key="i">
                 <!-- Utilisation de router-link -->
-                <router-link to="eventRoom" class="router-link" style="text-decoration: none; color: inherit">
+                <router-link to="#" class="router-link" style="text-decoration: none; color: inherit">
                   {{ item.title }}
                 </router-link>
               </v-list-item>
@@ -110,7 +110,7 @@
         <router-link v-motion="{
           initial: { opacity: 0, x: -100 },
           enter: { opacity: 1, x: 0, transition: { delay: 950 } },
-        }" class="nav-link" to="ecoResponsibility">
+        }" class="nav-link" to="#">
           <p class="text-white item">NOS ENGAGEMENTS</p>
         </router-link>
       </li>
@@ -119,7 +119,7 @@
         <router-link v-motion="{
           initial: { opacity: 0, x: -100 },
           enter: { opacity: 1, x: 0, transition: { delay: 950 } },
-        }" class="nav-link" to="contact">
+        }" class="nav-link" to="#">
           <p class="text-white item">Nous contacter</p>
         </router-link>
       </li>
