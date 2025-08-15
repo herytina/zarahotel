@@ -145,7 +145,6 @@ export default {
 .v-avatar {
   background-color: rgba(0, 0, 0, 0.7);
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 250px !important;
@@ -166,8 +165,10 @@ export default {
 .text-description {
   font-size: 1rem;
   color: aliceblue;
-  text-align: center;
-  padding: 8px;
+  text-align: left;
+  font-family: Lato;
+  padding-top: 5px;
+  font-weight: 300;
 }
 
 .container-card {
