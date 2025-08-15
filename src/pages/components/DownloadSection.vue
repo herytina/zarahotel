@@ -23,12 +23,12 @@
         </h5>
         <h5 v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 700 } } }"
           class="contact-email">
-          mail: zarahotel.reception@gmail.com
+          mail: info@zarahotel.mg
         </h5>
         <h5 v-motion="{ initial: { opacity: 0, y: 100 }, enter: { opacity: 1, y: 0, transition: { delay: 800 } } }"
           class="description">
-          +261 32 05 368 29 <br>
-          +261 34 78 459 61
+          +261 32 07 088 88 <br>
+          +261 33 50 088 88
         </h5>
       </div>
     </div>
@@ -38,21 +38,44 @@
         class="social-title">
         Suivez-nous
       </h3>
+
       <div class="social-buttons">
-        <v-btn v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 900 } } }"
-          variant="text" class="social-btn">
-          <i class="fab fa-twitter" />
-        </v-btn>
-        <v-btn v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 1000 } } }"
-          variant="text" class="social-btn">
-          <i class="fab fa-facebook-square" />
-        </v-btn>
-        <v-btn v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 1100 } } }"
-          variant="text" class="social-btn">
-          <i class="fab fa-instagram" />
-        </v-btn>
+
+        <!-- Twitter (ajouter un lien si besoin) -->
+        <div class="social-item">
+          <v-btn v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 900 } } }"
+            variant="text" class="social-btn" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </v-btn>
+        </div>
+
+        <!-- Facebook -->
+        <div class="social-item">
+          <a href="https://www.facebook.com/ZaraHotels" target="_blank" rel="noopener" class="social-link"
+            aria-label="ZARA HOTEL on Facebook">
+            <v-btn
+              v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 1000 } } }"
+              variant="text" class="social-btn">
+              <i class="fab fa-facebook-square"></i>
+            </v-btn>
+          </a>
+        </div>
+
+        <!-- Instagram -->
+        <div class="social-item">
+          <a href="https://www.instagram.com/zarahotel_antananarivo" target="_blank" rel="noopener" class="social-link"
+            aria-label="ZARA HOTEL on Instagram">
+            <v-btn
+              v-motion="{ initial: { opacity: 0, x: 100 }, enter: { opacity: 1, x: 0, transition: { delay: 1100 } } }"
+              variant="text" class="social-btn">
+              <i class="fab fa-instagram"></i>
+            </v-btn>
+          </a>
+        </div>
+
       </div>
     </div>
+
   </div>
 </template>
 
@@ -134,6 +157,10 @@ export default {
   color: #fff;
 }
 
+.social-section {
+  padding: 40px 0;
+  text-align: center;
+}
 
 .logo {
   height: 80px;
