@@ -11,7 +11,7 @@
           </router-link>
         </div>
         <div v-motion="'fade-in'" class="txt">
-          <h1 v-motion="{
+          <h5 v-motion="{
             initial: { opacity: 1, y: 5 },
             enter: {
               opacity: 1,
@@ -23,9 +23,8 @@
               },
             },
           }" class="city">
-            ZARA HOTEL
-          </h1>
-          <h3 v-motion :initial="{ opacity: 0, y: 150 }" :enter="{
+            Le Havre d'excellence </h5>
+          <h5 v-motion :initial="{ opacity: 0, y: 150 }" :enter="{
             opacity: 1,
             y: 0,
             transition: {
@@ -34,8 +33,8 @@
               delay: 100,
             },
           }" class="city">
-            ANTANANARIVO
-          </h3>
+            au carrefour de votre itinéraire
+          </h5>
           <div v-motion="{
             initial: { opacity: 0, x: 100 },
             enter: { opacity: 1, x: 0, transition: { delay: 500 } },
@@ -218,7 +217,7 @@ export default {
 }
 
 .city {
-  font-size: 64px;
+  font-size: 54px;
   font-weight: 600;
   color: aliceblue;
   text-shadow: 1px 2px 3px rgb(221, 186, 71);
