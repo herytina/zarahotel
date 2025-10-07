@@ -4,43 +4,66 @@
       <v-parallax :src="image[0]" class="h">
         <div class="logo">
           <router-link class="navbar-brand" to="/">
-            <img v-motion="{
-              initial: { opacity: 0, y: -100 },
-              enter: { opacity: 1, y: 0, transition: { delay: 500 } },
-            }" :src="logo" width="300" height="250" alt="logo" class="radius" />
+            <img
+              v-motion="{
+                initial: { opacity: 0, y: -100 },
+                enter: { opacity: 1, y: 0, transition: { delay: 500 } },
+              }"
+              :src="logo"
+              width="300"
+              height="250"
+              alt="logo"
+              class="radius"
+            />
           </router-link>
         </div>
         <div v-motion="'fade-in'" class="txt">
-          <h5 v-motion="{
-            initial: { opacity: 1, y: 5 },
-            enter: {
+          <h5
+            v-motion="{
+              initial: { opacity: 1, y: 5 },
+              enter: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  repeat: Infinity,
+                  repeatType: 'mirror',
+                  duration: 1300,
+                },
+              },
+            }"
+            class="city"
+          >
+            Le Havre d'excellence
+          </h5>
+          <h5
+            v-motion
+            :initial="{ opacity: 0, y: 150 }"
+            :enter="{
               opacity: 1,
               y: 0,
               transition: {
-                repeat: Infinity,
-                repeatType: 'mirror',
-                duration: 1300,
+                type: 'spring',
+                stiffness: '100',
+                delay: 100,
               },
-            },
-          }" class="city">
-            Le Havre d'excellence </h5>
-          <h5 v-motion :initial="{ opacity: 0, y: 150 }" :enter="{
-            opacity: 1,
-            y: 0,
-            transition: {
-              type: 'spring',
-              stiffness: '100',
-              delay: 100,
-            },
-          }" class="city">
+            }"
+            class="city"
+          >
             au carrefour de votre itinéraire
           </h5>
-          <div v-motion="{
-            initial: { opacity: 0, x: 100 },
-            enter: { opacity: 1, x: 0, transition: { delay: 500 } },
-          }" class="reservationTarif">
+          <div
+            v-motion="{
+              initial: { opacity: 0, x: 100 },
+              enter: { opacity: 1, x: 0, transition: { delay: 500 } },
+            }"
+            class="reservationTarif"
+          >
             <n-button size="lg" class="button">
-              <router-link to="/pricing" class="text-white" style="text-decoration: none ">
+              <router-link
+                to="#"
+                class="text-white"
+                style="text-decoration: none"
+              >
                 <span style="font-weight: 600" class="textPricingRedirect">
                   RESERVEZ AU MEILLEUR TARIF
                 </span>
@@ -52,7 +75,7 @@
     </div>
     <div class="container text-center">
       <div class="row justify-content-md-center">
-        <div class="col-md-12 col-lg-8" style="padding: 45px;">
+        <div class="col-md-12 col-lg-8" style="padding: 45px">
           <h5 class="description">
             Découvrez ZARA HOTEL, un charmant complexe hôtelier
             <b>3 étoiles</b>
@@ -66,18 +89,32 @@
         </div>
       </div>
     </div>
-    <ExamplesSection title="Hebergement" :text="hebergementDescription" :img="imageExempleSection[0]" />
-    <ExamplesSection title="Restaurant" :text="restaurantDescription" :img="imageExempleSection[1]" />
-    <ExamplesSection title="Salles" :text="sallesDescription" :img="imageExempleSection[2]" />
+    <ExamplesSection
+      title="Hebergement"
+      :text="hebergementDescription"
+      :img="imageExempleSection[0]"
+    />
+    <ExamplesSection
+      title="Restaurant"
+      :text="restaurantDescription"
+      :img="imageExempleSection[1]"
+    />
+    <ExamplesSection
+      title="Salles"
+      :text="sallesDescription"
+      :img="imageExempleSection[2]"
+    />
 
-    <div v-motion="{
-      initial: { opacity: 0, scale: 0.5 },
-      enter: {
-        opacity: 1,
-        scale: 1,
-        transition: { duration: 1200, easing: 'ease-in-out' },
-      },
-    }" />
+    <div
+      v-motion="{
+        initial: { opacity: 0, scale: 0.5 },
+        enter: {
+          opacity: 1,
+          scale: 1,
+          transition: { duration: 1200, easing: 'ease-in-out' },
+        },
+      }"
+    />
     <BasicElementsSection />
   </div>
   <div class="m-3">
@@ -113,189 +150,187 @@
   </div>
 </template>
 <script>
-import Button from '@/components/Button.vue';
-import BasicElementsSection from './components/BasicElementsSection.vue';
-import ExamplesSection from './components/ExamplesSection.vue';
-import Map from './components/map.vue';
-export default {
-  name: 'IndexPage',
-  bodyClass: 'index-page',
-  components: {
-    BasicElementsSection,
-    ExamplesSection,
-    Map,
-    [Button.name]: Button,
-  },
-  data() {
-    return {
-      image: [
-        require('@/assets/img/HotelsZara.jpeg'),
-        require('@/assets/img/chambre.jpeg'),
-        require('@/assets/img/service.jpeg'),
-      ],
-      imageExempleSection: [
-        require('@/assets/img/hebergement.jpeg'),
-        require('@/assets/img/restaurant.jpeg'),
-        require('@/assets/img/salle.jpeg')
-      ],
-      logo: require('@/assets/img/zara-hotel-logo-final.png'),
-      commingDate: false,
-      leavingDate: false,
-      dateC: null,
-      dateL: null,
-      hebergementDescription:
-        'Notre service d’hébergement propose 40 chambres élégantes, un appartement spacieux, une suite luxueuse et un studio moderne, alliant charme, confort et modernité pour un séjour inoubliable.',
-      restaurantDescription:
-        'Découvrez notre restaurant au charme unique, spécialisé dans la cuisine européenne. Dégustez des plats raffinés, préparés avec des ingrédients frais, pour une expérience culinaire authentique et savoureuse.',
-      sallesDescription:
-        'Nos salles modernes et polyvalentes accueillent ateliers, séminaires, mariages et plus. Équipées et élégantes, elles offrent un cadre idéal pour réussir tous vos événements, privés ou professionnels.',
-    };
-  },
-  computed: {
-    formattedDateC() {
-      return this.dateC ? this.dateC.toLocaleDateString() : '';
+  import Button from '@/components/Button.vue';
+  import BasicElementsSection from './components/BasicElementsSection.vue';
+  import ExamplesSection from './components/ExamplesSection.vue';
+  import Map from './components/map.vue';
+  export default {
+    name: 'IndexPage',
+    bodyClass: 'index-page',
+    components: {
+      BasicElementsSection,
+      ExamplesSection,
+      Map,
+      [Button.name]: Button,
     },
-    formattedDateL() {
-      return this.dateL ? this.dateL.toLocaleDateString() : '';
+    data() {
+      return {
+        image: [
+          require('@/assets/img/HotelsZara.jpeg'),
+          require('@/assets/img/chambre.jpeg'),
+          require('@/assets/img/service.jpeg'),
+        ],
+        imageExempleSection: [
+          require('@/assets/img/hebergement.jpeg'),
+          require('@/assets/img/restaurant.jpeg'),
+          require('@/assets/img/salle.jpeg'),
+        ],
+        logo: require('@/assets/img/zara-hotel-logo-final.png'),
+        commingDate: false,
+        leavingDate: false,
+        dateC: null,
+        dateL: null,
+        hebergementDescription:
+          'Notre service d’hébergement propose 40 chambres élégantes, un appartement spacieux, une suite luxueuse et un studio moderne, alliant charme, confort et modernité pour un séjour inoubliable.',
+        restaurantDescription:
+          'Découvrez notre restaurant au charme unique, spécialisé dans la cuisine européenne. Dégustez des plats raffinés, préparés avec des ingrédients frais, pour une expérience culinaire authentique et savoureuse.',
+        sallesDescription:
+          'Nos salles modernes et polyvalentes accueillent ateliers, séminaires, mariages et plus. Équipées et élégantes, elles offrent un cadre idéal pour réussir tous vos événements, privés ou professionnels.',
+      };
     },
-  },
-  methods: {
-    openMenuC() {
-      this.commingDate = true;
+    computed: {
+      formattedDateC() {
+        return this.dateC ? this.dateC.toLocaleDateString() : '';
+      },
+      formattedDateL() {
+        return this.dateL ? this.dateL.toLocaleDateString() : '';
+      },
     },
-    openMenuL() {
-      this.leavingDate = true;
+    methods: {
+      openMenuC() {
+        this.commingDate = true;
+      },
+      openMenuL() {
+        this.leavingDate = true;
+      },
+      closeMenu() {
+        this.commingDate = false;
+        this.leavingDate = false;
+      },
     },
-    closeMenu() {
-      this.commingDate = false;
-      this.leavingDate = false;
-    },
-  },
-};
+  };
 </script>
 <style>
-.info-map {
-  text-align: center;
-  align-items: center;
-}
-
-.txt {
-  margin-left: 20%;
-}
-
-.logo {
-  margin-top: 10%;
-  margin-bottom: 2%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.reservationTarif {
-  margin-top: 40px;
-
-  .button {
-    background-color: rgb(221, 186, 71);
-    ;
-  }
-}
-
-.responsiveR {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.custom-select .v-input__control {
-  min-height: 32px;
-  /* Ajuste la hauteur */
-}
-
-.custom-select .v-select__selections {
-  font-size: 12px;
-  /* Ajuste la taille de la police */
-}
-
-.city {
-  font-size: 54px;
-  font-weight: 600;
-  color: aliceblue;
-  text-shadow: 1px 2px 3px rgb(221, 186, 71);
-  margin-bottom: 25px;
-}
-
-.h {
-  height: 100%;
-}
-
-.container-with-opacity {
-  overflow: hidden;
-}
-
-.container-with-opacity::before {
-  opacity: 0.5;
-  z-index: -1;
-}
-
-.textPricingRedirect {
-  font-weight: 600;
-}
-
-@media screen and (min-width: 991px) {
-  .post {
-    margin-top: -200px;
+  .info-map {
+    text-align: center;
+    align-items: center;
   }
 
-  .responsiveR {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 991px) {
-  .post {
-    margin-top: 200px;
-  }
-
-  .responsive {
-    display: none;
-  }
-
-  .responsiveR {
-    display: flex;
-    z-index: 99999;
+  .txt {
+    margin-left: 20%;
   }
 
   .logo {
-    margin-top: 30%;
+    margin-top: 10%;
+    margin-bottom: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .txt {
-    margin-top: 10%;
-    margin-left: 10%;
+  .reservationTarif {
+    margin-top: 40px;
+
+    .button {
+      background-color: rgb(221, 186, 71);
+    }
+  }
+
+  .responsiveR {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .custom-select .v-input__control {
+    min-height: 32px;
+    /* Ajuste la hauteur */
+  }
+
+  .custom-select .v-select__selections {
+    font-size: 12px;
+    /* Ajuste la taille de la police */
   }
 
   .city {
-    font-size: 40px;
+    font-size: 54px;
     font-weight: 600;
     color: aliceblue;
-    text-shadow: 1px 2px 3px black;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .reservationTarif {
-    margin-top: 40px;
-    width: 90%;
+    text-shadow: 1px 2px 3px rgb(221, 186, 71);
+    margin-bottom: 25px;
   }
 
-  .txt {
-    width: 95%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 60px;
+  .h {
+    height: 100%;
   }
 
-}
+  .container-with-opacity {
+    overflow: hidden;
+  }
+
+  .container-with-opacity::before {
+    opacity: 0.5;
+    z-index: -1;
+  }
+
+  .textPricingRedirect {
+    font-weight: 600;
+  }
+
+  @media screen and (min-width: 991px) {
+    .post {
+      margin-top: -200px;
+    }
+
+    .responsiveR {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    .post {
+      margin-top: 200px;
+    }
+
+    .responsive {
+      display: none;
+    }
+
+    .responsiveR {
+      display: flex;
+      z-index: 99999;
+    }
+
+    .logo {
+      margin-top: 30%;
+    }
+
+    .txt {
+      margin-top: 10%;
+      margin-left: 10%;
+    }
+
+    .city {
+      font-size: 40px;
+      font-weight: 600;
+      color: aliceblue;
+      text-shadow: 1px 2px 3px black;
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    .reservationTarif {
+      margin-top: 40px;
+      width: 90%;
+    }
+
+    .txt {
+      width: 95%;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 60px;
+    }
+  }
 </style>
