@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import MainFooter from './layout/MainFooter.vue';
 import MainNavbar from './layout/MainNavbar.vue';
-import Landing from './pages/Landing.vue';
 import Profile from './pages/Profile.vue';
 import StarterPage from './pages/StarterPage.vue';
 import indexPage from './pages/indexPage.vue';
@@ -9,6 +8,8 @@ import Aparment from './pages/Aparment.vue';
 import EventRoom from './pages/EventRoom.vue';
 import EcoResponsibility from './pages/EcoResponsibility.vue';
 import Pricing from './pages/Pricing.vue';
+import Chambre from './pages/Chambre.vue';
+import Restaurant from './pages/Restaurant.vue';
 
 const routes = [
   {
@@ -32,7 +33,7 @@ const routes = [
   {
     path: '/chambre',
     name: 'chambre',
-    components: { default: Landing, header: MainNavbar, footer: MainFooter },
+    components: { default: Chambre, header: MainNavbar, footer: MainFooter },
     props: {
       header: { colorOnScroll: 200 },
       footer: { backgroundColor: 'black' },
@@ -99,6 +100,15 @@ const routes = [
       header: MainNavbar,
       footer: MainFooter,
     },
+    props: {
+      header: { colorOnScroll: 200 },
+      footer: { backgroundColor: 'black' },
+    },
+  },
+  {
+    path: '/restaurant',
+    name: 'restaurant',
+    components: { default: Restaurant, header: MainNavbar, footer: MainFooter },
     props: {
       header: { colorOnScroll: 200 },
       footer: { backgroundColor: 'black' },
