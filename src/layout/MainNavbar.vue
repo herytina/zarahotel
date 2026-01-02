@@ -124,7 +124,7 @@
               <v-list-item v-for="(item, i) in itemSalle" :key="i">
                 <!-- Utilisation de router-link -->
                 <router-link
-                  to="eventRoom"
+                  to="eventroom"
                   class="router-link"
                   style="text-decoration: none; color: inherit"
                 >
@@ -143,7 +143,7 @@
             enter: { opacity: 1, x: 0, transition: { delay: 950 } },
           }"
           class="nav-link"
-          to="ecoResponsibility"
+          to="ecoresponsibility"
         >
           <p class="text-white item">NOS ENGAGEMENTS</p>
         </router-link>
@@ -166,7 +166,7 @@
   <!-- Bouton flottant en bas à droite -->
   <v-btn
     v-if="showButton"
-    color="#ffc107"
+    color="#ddba47"
     icon="arrows-1_minimal-up"
     bottom
     right
@@ -258,7 +258,7 @@
           { title: 'Suites' },
         ],
         chambresArborecent: [{ title: 'Nuit de noces' }, { title: 'Business' }],
-        itemSalle: [{ title: 'Reunion/ Conférence' }, { title: 'Banquet' }],
+        itemSalle: [{ title: 'Reunion/Conférence' }],
       };
     },
     mounted() {

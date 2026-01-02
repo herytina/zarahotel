@@ -4,7 +4,7 @@
     <div class="page-header page-header-small">
       <v-parallax
         class="page-header-image"
-        :src="require('@/assets/img/restaurant.jpeg')"
+        :src="require('@/assets/img/salle.jpeg')"
       />
       <div class="content-center">
         <div class="container">
@@ -22,7 +22,7 @@
                 style="text-decoration: none"
               >
                 <span style="font-weight: 600" class="textPricingRedirect">
-                  RÉSERVEZ VOTRE TABLE
+                  RÉSERVER UNE SALLE DE SÉMINAIRE
                 </span>
               </router-link>
             </n-button>
@@ -41,12 +41,14 @@
             }"
             class="col-md-8 ml-auto mr-auto text-center"
           >
-            <h2 class="title">UNE EXPÉRIENCE CULINAIRE UNIQUE</h2>
+            <h2 class="title">
+              Des salles de séminaire pensées pour la performance
+            </h2>
             <h5 class="description">
-              Notre restaurant vous accueille dans un cadre chaleureux et
-              raffiné, où chaque plat est préparé avec passion à partir de
-              produits frais et soigneusement sélectionnés. Ici, la cuisine
-              devient un véritable moment de partage et d’émotion.
+              Offrez à vos équipes un environnement propice à la réflexion, à
+              l’échange et à la prise de décision. Nos salles de séminaire
+              allient confort, modernité et fonctionnalité afin de garantir le
+              succès de tous vos événements professionnels.
             </h5>
           </div>
         </div>
@@ -84,17 +86,24 @@
                 class="image-container image-right"
                 :style="backgroundStyleRight"
               />
-              <h3>Une cuisine authentique et généreuse</h3>
+              <h3>Un cadre professionnel, moderne et modulable</h3>
               <p>
-                Chaque plat est conçu avec soin par notre chef, mêlant tradition
-                et créativité. Nous mettons un point d’honneur à sublimer les
-                saveurs locales à travers des recettes savoureuses et
-                équilibrées.
+                Nos salles de séminaire sont conçues pour s’adapter à tous vos
+                formats d’événements : réunions stratégiques, formations,
+                conférences, ateliers collaboratifs ou présentations
+                professionnelles.
               </p>
               <p>
-                Que ce soit pour un déjeuner entre amis, un dîner en famille ou
-                une occasion spéciale, notre équipe vous accueille avec
-                professionnalisme et convivialité.
+                Chaque espace bénéficie d’un aménagement modulable, d’un
+                équipement audiovisuel performant et d’une atmosphère propice à
+                la concentration et à l’échange. Notre équipe vous accompagne à
+                chaque étape afin de garantir une organisation fluide et
+                efficace.
+              </p>
+              <p>
+                Que vous accueilliez un petit comité ou un groupe plus large,
+                nous vous proposons des solutions sur mesure, adaptées à vos
+                objectifs et à votre image professionnelle.
               </p>
 
               <div>
@@ -105,7 +114,7 @@
                     style="text-decoration: none"
                   >
                     <span style="font-weight: 600" class="textPricingRedirect">
-                      CONTACTEZ-NOUS POUR RÉSERVER
+                      DEMANDER UN DEVIS PERSONNALISÉ
                     </span>
                   </router-link>
                 </n-button>
@@ -135,9 +144,9 @@
           email: '',
           message: '',
         },
-        imageUrlLeftSide: require('@/assets/img/restaurant-1.jpg'),
-        imageUrlRightSide: require('@/assets/img/restaurant-2.jpg'),
-        imageUrl: require('@/assets/img/restaurant-3.jpg'),
+        imageUrlLeftSide: require('@/assets/img/salle-2.jpg'),
+        imageUrlRightSide: require('@/assets/img/salle-3.jpg'),
+        imageUrl: require('@/assets/img/salle-1.jpg'),
       };
     },
     computed: {
@@ -172,7 +181,6 @@
       margin-top: -200px;
     }
   }
-
   .button-zara {
     background-color: rgb(221, 186, 71) !important;
   }

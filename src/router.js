@@ -2,14 +2,14 @@ import { createRouter, createWebHistory } from 'vue-router';
 import MainFooter from './layout/MainFooter.vue';
 import MainNavbar from './layout/MainNavbar.vue';
 import Profile from './pages/Profile.vue';
-import StarterPage from './pages/StarterPage.vue';
 import indexPage from './pages/indexPage.vue';
 import Aparment from './pages/Aparment.vue';
-import EventRoom from './pages/EventRoom.vue';
+import Event from './pages/Event.vue';
 import EcoResponsibility from './pages/EcoResponsibility.vue';
 import Pricing from './pages/Pricing.vue';
 import Chambre from './pages/Chambre.vue';
 import Restaurant from './pages/Restaurant.vue';
+import Contact from './pages/Contact.vue';
 
 const routes = [
   {
@@ -52,7 +52,7 @@ const routes = [
     path: '/contact',
     name: 'contact',
     components: {
-      default: StarterPage,
+      default: Contact,
       header: MainNavbar,
       footer: MainFooter,
     },
@@ -71,16 +71,16 @@ const routes = [
     },
   },
   {
-    path: '/eventRoom',
+    path: '/eventroom',
     name: 'EventRoomPage',
-    components: { default: EventRoom, header: MainNavbar, footer: MainFooter },
+    components: { default: Event, header: MainNavbar, footer: MainFooter },
     props: {
       header: { colorOnScroll: 200 },
       footer: { backgroundColor: 'black' },
     },
   },
   {
-    path: '/ecoResponsibility',
+    path: '/ecoresponsibility',
     name: 'EcoResponsibilityPage',
     components: {
       default: EcoResponsibility,
