@@ -37,14 +37,14 @@
                 <template #activator="{ props }">
                   <v-list-item v-bind="props" title="Chambres" />
                 </template>
-                <v-list-item v-for="(title, i) in chambres" :key="i">
+                <v-list-item v-for="(item, i) in chambres" :key="i">
                   <!-- Utilisation de router-link -->
                   <router-link
-                    to="chambre"
+                    :to="item.path"
                     class="router-link"
                     style="text-decoration: none; color: inherit"
                   >
-                    {{ title.title }}
+                    {{ item.title }}
                   </router-link>
                 </v-list-item>
               </v-list-group>
@@ -252,10 +252,10 @@
         ],
         items: [{ title: 'Appartement' }],
         chambres: [
-          { title: 'Chambre de luxe' },
-          { title: 'Chambre standard' },
-          { title: 'Chambre familiale' },
-          { title: 'Suites' },
+          { title: 'Chambre de luxe', path: 'chambreluxury' },
+          { title: 'Chambre standard', path: 'chambrestandard' },
+          { title: 'Chambre familiale', path: 'chambrefamily' },
+          { title: 'Suites', path: '#' },
         ],
         chambresArborecent: [{ title: 'Nuit de noces' }, { title: 'Business' }],
         itemSalle: [{ title: 'Reunion/Conférence' }],
