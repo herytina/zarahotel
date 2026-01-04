@@ -10,7 +10,7 @@
       <router-link class="navbar-brand" to="/">
         <img
           :src="logo"
-          width="70"
+          width="60"
           height="50"
           alt="logo"
           class="radius translation-logo logoImage"
@@ -25,7 +25,7 @@
             enter: { opacity: 1, x: 0, transition: { delay: 650 } },
           }"
         >
-          <v-menu open-on-hover>
+          <v-menu :open-on-hover="!isMobile" :open-on-click="isMobile">
             <template #activator="{ props }">
               <div v-bind="props" class="nav-link">
                 <p class="text-white item">Hébergement</p>
@@ -48,24 +48,6 @@
                   </router-link>
                 </v-list-item>
               </v-list-group>
-
-              <!-- <v-list-item
-                v-for="(item, index) in items"
-                :key="index"
-              >
-                <v-list-item-title>
-                  <v-btn class="w-100">
-                    {{ item.title }}
-                  </v-btn>
-                </v-list-item-title>
-              </v-list-item> -->
-
-              <!-- <v-list-item
-                v-for="(item, i) in items"
-                :key="i"
-                :title="item.title"
-                :value="item.title"
-              /> -->
 
               <v-list-item v-for="(title, i) in items" :key="i">
                 <!-- Utilisation de router-link -->
@@ -96,24 +78,13 @@
       </li>
 
       <li class="nav-item">
-        <!-- <router-link
-          v-motion="{ initial: { opacity: 0, x: -100 }, enter: { opacity: 1, x: 0, transition: { delay: 800 } } }"
-          class="nav-link"
-          to="service"
-        >
-          <i class="now-ui-icons shopping_box text-white item" />
-          <p class="text-white item">
-            Salle
-          </p>
-        </router-link> -->
-
         <div
           v-motion="{
             initial: { opacity: 0, x: -100 },
             enter: { opacity: 1, x: 0, transition: { delay: 800 } },
           }"
         >
-          <v-menu open-on-hover>
+          <v-menu :open-on-hover="!isMobile" :open-on-click="isMobile">
             <template #activator="{ props }">
               <div v-bind="props" class="nav-link">
                 <p class="text-white item">Salles d'évènements</p>
@@ -145,7 +116,7 @@
           class="nav-link"
           to="ecoresponsibility"
         >
-          <p class="text-white item">NOS ENGAGEMENTS</p>
+          <p class="text-white item">Nos engagements</p>
         </router-link>
       </li>
 
@@ -188,6 +159,11 @@
     props: {
       transparent: Boolean,
       colorOnScroll: Number,
+    },
+    computed: {
+      isMobile() {
+        return window.innerWidth < 992;
+      },
     },
     data() {
       return {
@@ -299,8 +275,8 @@
 
   @media screen and (max-width: 991px) {
     .logoImage {
-      top: -9px;
-      left: -67px;
+      top: -42%;
+      left: -25%;
     }
   }
 </style>
