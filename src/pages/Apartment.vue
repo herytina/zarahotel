@@ -14,8 +14,8 @@
             }"
             class="title"
           >
-            UN APPARTEMENT SPACIEUX ET INDÉPENDANT, ALLIANT LIBERTÉ, CONFORT ET
-            ÉLÉGANCE POUR UN SÉJOUR EN TOUTE AUTONOMIE
+            Des appartements spacieux et indépendant, alliant liberté, confort
+            et élégance pour un séjour en toute autonomie
           </h1>
           <div
             v-motion="{
@@ -50,15 +50,15 @@
             }"
             class="col-md-8 ml-auto mr-auto text-center"
           >
-            <h2 class="title">
+            <!-- <h2 class="title">
               UN APPARTEMENT CONÇU POUR VIVRE COMME CHEZ SOI
-            </h2>
-            <h5 class="description">
-              Idéal pour les séjours prolongés, les familles ou les voyageurs en
-              quête d’indépendance, notre appartement offre des volumes généreux
-              et des espaces distincts pour vivre, se reposer et se détendre.
-              Une solution parfaite entre le confort d’un hôtel et la liberté
-              d’un véritable lieu de vie.
+            </h2> -->
+            <h5>
+              idéal pour les séjours prolongés, les familles ou les voyageurs en
+              quête d’indépendance notre appartement est doté d’équipements
+              modernes et d’espaces distinctes pour se détendre, cuisiner ou
+              même travailler. Une solution parfaite entre le confort d’un hôtel
+              et la liberté d’un véritable lieu de vie.
             </h5>
           </div>
         </div>
@@ -77,14 +77,14 @@
                 :style="backgroundStyleLeftSide"
               ></div>
 
-              <div
+              <!-- <div
                 v-motion="{
                   initial: { opacity: 0, y: 100 },
                   enter: { opacity: 1, y: 0, transition: { delay: 300 } },
                 }"
                 class="image-container position"
                 :style="backgroundStyle"
-              ></div>
+              ></div> -->
             </div>
 
             <div class="col-md-5">
@@ -96,35 +96,16 @@
                 class="image-container image-right"
                 :style="backgroundStyleRightSide"
               />
-
-              <h3>Un espace de vie fonctionnel, confortable et raffiné</h3>
-
-              <p>
-                Pensé pour offrir un maximum de confort et de praticité,
-                l’appartement dispose d’un agencement harmonieux avec des
-                espaces bien définis. Le mobilier élégant, la literie de qualité
-                et les équipements modernes créent une atmosphère chaleureuse et
-                propice à la détente.
-              </p>
-
-              <p>
-                Que vous voyagiez pour affaires, en famille ou pour un long
-                séjour, cet appartement vous permet de profiter d’une totale
-                autonomie tout en bénéficiant des services et du standing du
-                Zara Hotel. Un lieu idéal pour se sentir chez soi, loin de chez
-                soi.
-              </p>
-
-              <div>
-                <v-btn
-                  height="72"
-                  min-width="164"
-                  variant="tonal"
-                  class="button-zara text-white"
-                >
-                  DÉCOUVRIR NOS TARIFS ET CONDITIONS
-                </v-btn>
-              </div>
+            </div>
+            <div>
+              <v-btn
+                height="72"
+                min-width="164"
+                variant="tonal"
+                class="button-zara text-white"
+              >
+                DÉCOUVRIR NOS TARIFS ET CONDITIONS
+              </v-btn>
             </div>
           </div>
         </div>

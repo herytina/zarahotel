@@ -14,8 +14,8 @@
             }"
             class="title"
           >
-            UN DESIGN ÉLÉGANT INSPIRÉ DU DÉBUT DU SIÈCLE, RÉINVENTÉ POUR LE
-            CONFORT MODERNE
+            Un équilibre parfait entre confort, modernité et praticité pour un
+            séjour tout en douceur
           </h1>
           <div
             v-motion="{
@@ -50,14 +50,14 @@
             }"
             class="col-md-8 ml-auto mr-auto text-center"
           >
-            <h2 class="title">
+            <!-- <h2 class="title">
               CHAQUE CHAMBRE DU ZARA HOTEL EST UNE EXPÉRIENCE UNIQUE
-            </h2>
-            <h5 class="description">
-              Pensées comme de véritables havres de paix, nos chambres de luxe
-              associent raffinement, matériaux nobles et équipements modernes.
-              Chaque détail est soigneusement étudié pour offrir une atmosphère
-              élégante, intime et propice à la détente.
+            </h2> -->
+            <h5>
+              Confort haut de gamme et vue captivante. Passez un séjour
+              harmonieux dans notre chambre supérieur quelle que soit la raison
+              de votre venue : escapade en amoureux, nuit de noce, voyage
+              d’affaire et bien d’autre
             </h5>
           </div>
         </div>
@@ -96,24 +96,25 @@
                 :style="backgroundStyleRightSide"
               />
 
-              <h3>
-                Un équilibre parfait entre esthétique, confort et intimité
-              </h3>
+              <div style="margin-top: 30%">
+                <h3>Aménagement de la chambre</h3>
+                <p>
+                  dans une superficie de plus de 20m2 la chambre familiale de
+                  ZARA HOTEL contient 2 grands lits queen size pouvant
+                  accueillir confortablement 4 adultes.
+                </p>
 
-              <p>
-                Nos chambres de luxe offrent un espace généreux baigné de
-                lumière, où le design intemporel rencontre des équipements haut
-                de gamme. Literie premium, finitions élégantes et ambiance
-                feutrée créent un cadre idéal pour se ressourcer après une
-                journée bien remplie.
-              </p>
-
-              <p>
-                Que vous voyagiez pour affaires ou pour le plaisir, chaque
-                séjour est pensé pour répondre aux exigences les plus élevées.
-                Le calme, la qualité des services et l’attention portée aux
-                détails font de chaque nuit une expérience inoubliable.
-              </p>
+                <ul class="features">
+                  <li>Salle de bain privative</li>
+                  <li>Coin bureau</li>
+                  <li>Accès wifi</li>
+                  <li>Coffre-fort</li>
+                  <li>Chaînes TV câblées</li>
+                  <li>Minibar</li>
+                  <li>Climatiseur réversible</li>
+                  <li>Lampe liseuse</li>
+                </ul>
+              </div>
 
               <div>
                 <v-btn

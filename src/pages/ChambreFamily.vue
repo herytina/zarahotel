@@ -14,8 +14,8 @@
             }"
             class="title"
           >
-            UN ESPACE GÉNÉREUX ET CONVIVIAL, PENSÉ POUR ACCUEILLIR TOUTE LA
-            FAMILLE DANS UN CONFORT ABSOLU
+            Un équilibre parfait entre confort, modernité et praticité pour un
+            séjour tout en douceur
           </h1>
           <div
             v-motion="{
@@ -50,15 +50,13 @@
             }"
             class="col-md-8 ml-auto mr-auto text-center"
           >
-            <h2 class="title">
+            <!-- <h2 class="title">
               LA CHAMBRE IDÉALE POUR PARTAGER DES MOMENTS EN FAMILLE
-            </h2>
-            <h5 class="description">
-              Spécialement conçues pour accueillir les familles et les groupes,
-              nos chambres familiales offrent de vastes espaces pouvant recevoir
-              confortablement plus de cinq personnes. Fonctionnalité,
-              convivialité et élégance s’y rencontrent pour garantir un séjour
-              serein et agréable à tous.
+            </h2> -->
+            <h5>
+              si vous souhaitez séjourner dans une chambre luxueuse en toute
+              convivialité, la chambre familiale de ZARA HOTEL est l’endroit
+              parfait pour vous
             </h5>
           </div>
         </div>
@@ -97,24 +95,25 @@
                 :style="backgroundStyleRightSide"
               />
 
-              <h3>Confort, espace et praticité pour petits et grands</h3>
+              <div style="margin-top: 30%">
+                <h3>Aménagement de la chambre</h3>
+                <p>
+                  dans une superficie de plus de 20m2 la chambre familiale de
+                  ZARA HOTEL contient 2 grands lits queen size pouvant
+                  accueillir confortablement 4 adultes.
+                </p>
 
-              <p>
-                Pensées pour répondre aux besoins des familles, nos chambres
-                familiales disposent d’un agencement spacieux et intelligent,
-                permettant à chacun de profiter de son intimité tout en
-                partageant des moments précieux ensemble. Literie confortable,
-                rangements pratiques et circulation fluide garantissent un
-                séjour sans compromis.
-              </p>
-
-              <p>
-                Idéales pour les séjours prolongés, les vacances en famille ou
-                les voyages en groupe, ces chambres offrent un cadre chaleureux
-                et apaisant. Ici, tout est réuni pour que chaque membre de la
-                famille se sente à l’aise, en sécurité et pleinement détendu, de
-                jour comme de nuit.
-              </p>
+                <ul class="features">
+                  <li>Salle de bain privative</li>
+                  <li>Coin bureau</li>
+                  <li>Accès wifi</li>
+                  <li>Coffre-fort</li>
+                  <li>Chaînes TV câblées</li>
+                  <li>Minibar</li>
+                  <li>Climatiseur réversible</li>
+                  <li>Lampe liseuse</li>
+                </ul>
+              </div>
 
               <div>
                 <v-btn

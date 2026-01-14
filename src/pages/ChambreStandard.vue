@@ -14,8 +14,8 @@
             }"
             class="title"
           >
-            UN DESIGN ÉLÉGANT ET INTEMPOREL, PENSÉ POUR UN CONFORT ABSOLU AU
-            QUOTIDIEN
+            Un équilibre parfait entre confort, modernité et praticité pour un
+            séjour tout en douceur
           </h1>
           <div
             v-motion="{
@@ -50,14 +50,12 @@
             }"
             class="col-md-8 ml-auto mr-auto text-center"
           >
-            <h2 class="title">
+            <!-- <h2 class="title">
               UNE CHAMBRE STANDARD OÙ CONFORT, CALME ET ÉLÉGANCE SE RENCONTRENT
-            </h2>
-            <h5 class="description">
-              Pensées pour offrir un bien-être immédiat, nos chambres standards
-              allient sobriété, fonctionnalité et raffinement. Chaque espace est
-              conçu pour créer une atmosphère chaleureuse, propice à la détente
-              et au repos, tout en répondant aux exigences du confort moderne.
+            </h2> -->
+            <h5>
+              si vous cherchez le luxe au meilleur prix, la chambre standard est
+              le lieu idéal pour vous
             </h5>
           </div>
         </div>
@@ -96,22 +94,25 @@
                 :style="backgroundStyleRightSide"
               />
 
-              <h3>Un espace accueillant pensé pour votre bien-être</h3>
+              <div style="margin-top: 30%">
+                <h3>Aménagement de la chambre</h3>
+                <p>
+                  dans une superficie de plus de 20m2 la chambre Standard de
+                  ZARA HOTEL contient un grand lit queen size modelable en deux
+                  lits une place.
+                </p>
 
-              <p>
-                Spacieuses et lumineuses, nos chambres standards offrent un
-                cadre harmonieux où chaque détail a été soigneusement étudié.
-                Literie confortable, mobilier élégant et ambiance apaisante
-                créent un environnement idéal pour se détendre après une journée
-                bien remplie.
-              </p>
-
-              <p>
-                Que vous soyez en déplacement professionnel ou en séjour de
-                loisirs, vous profitez d’un espace fonctionnel et chaleureux,
-                conçu pour garantir repos, tranquillité et sérénité. Ici,
-                simplicité rime avec qualité et confort durable.
-              </p>
+                <ul class="features">
+                  <li>Salle de bain privative</li>
+                  <li>Coin bureau</li>
+                  <li>Accès wifi</li>
+                  <li>Coffre-fort</li>
+                  <li>Chaînes TV câblées</li>
+                  <li>Minibar</li>
+                  <li>Climatiseur réversible</li>
+                  <li>Lampe liseuse</li>
+                </ul>
+              </div>
 
               <div>
                 <v-btn

@@ -8,6 +8,15 @@
       />
       <div class="content-center">
         <div class="container">
+          <h1
+            v-motion="{
+              initial: { opacity: 0, y: 100 },
+              enter: { opacity: 1, y: 0, transition: { delay: 500 } },
+            }"
+            class="title"
+          >
+            un cadre spacieux, moderne et modulable
+          </h1>
           <div
             v-motion="{
               initial: { opacity: 0, y: 200 },
@@ -15,14 +24,14 @@
             }"
             class="text-center"
           >
-            <n-button type="warning" size="lg" class="button-zara">
+            <n-button type="button" size="lg" class="button-zara">
               <router-link
                 to="/pricing"
                 class="text-white"
                 style="text-decoration: none"
               >
                 <span style="font-weight: 600" class="textPricingRedirect">
-                  RÉSERVER UNE SALLE DE SÉMINAIRE
+                  RÉSERVEZ VOTRE APPARTEMENT AU MEILLEUR TARIF
                 </span>
               </router-link>
             </n-button>
@@ -41,14 +50,11 @@
             }"
             class="col-md-8 ml-auto mr-auto text-center"
           >
-            <h2 class="title">
-              Des salles de séminaire pensées pour la performance
-            </h2>
-            <h5 class="description">
-              Offrez à vos équipes un environnement propice à la réflexion, à
-              l’échange et à la prise de décision. Nos salles de séminaire
-              allient confort, modernité et fonctionnalité afin de garantir le
-              succès de tous vos événements professionnels.
+            <h5>
+              Avec une capacité d’accueil de 10 à 200 personnes nos salles de
+              réception sont conçues pour s’adapter à tous vos formats
+              d’évènements : réunions corporate, conférences, atelier,
+              célébration familiale ou cérémonies religieuses
             </h5>
           </div>
         </div>
@@ -86,25 +92,17 @@
                 class="image-container image-right"
                 :style="backgroundStyleRight"
               />
-              <h3>Un cadre professionnel, moderne et modulable</h3>
-              <p>
-                Nos salles de séminaire sont conçues pour s’adapter à tous vos
-                formats d’événements : réunions stratégiques, formations,
-                conférences, ateliers collaboratifs ou présentations
-                professionnelles.
-              </p>
-              <p>
-                Chaque espace bénéficie d’un aménagement modulable, d’un
-                équipement audiovisuel performant et d’une atmosphère propice à
-                la concentration et à l’échange. Notre équipe vous accompagne à
-                chaque étape afin de garantir une organisation fluide et
-                efficace.
-              </p>
-              <p>
-                Que vous accueilliez un petit comité ou un groupe plus large,
-                nous vous proposons des solutions sur mesure, adaptées à vos
-                objectifs et à votre image professionnelle.
-              </p>
+
+              <div style="margin-top: 30%">
+                <h3>Equipements</h3>
+                <ul class="features">
+                  <li>Groupe éléctrogène</li>
+                  <li>Accès wifi</li>
+                  <li>Flipchart</li>
+                  <li>Vidéo projecteur</li>
+                  <li>Micro & haut parleur</li>
+                </ul>
+              </div>
 
               <div>
                 <n-button type="warning" size="lg" class="button-zara">
