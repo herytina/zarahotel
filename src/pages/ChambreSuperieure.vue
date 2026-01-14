@@ -3,7 +3,7 @@
     <div class="page-header page-header-small">
       <v-parallax
         class="page-header-image"
-        :src="require('@/assets/img/chambre-luxe.jpg')"
+        :src="require('@/assets/img/photo-chambre-superieure.jpg')"
       />
       <div class="content-center">
         <div class="container">
@@ -150,7 +150,7 @@
           email: '',
           message: '',
         },
-        imageUrl: require('@/assets/img/chambre-luxe.jpg'),
+        imageUrl: require('@/assets/img/kit-chambre-superieur.jpg'),
         imageUrlLeftSide: require('@/assets/img/chambre-luxe-2.jpg'),
         imageUrlRightSide: require('@/assets/img/chambre-luxe-3.jpg'),
       };

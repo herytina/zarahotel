@@ -12,7 +12,7 @@ import Contact from './pages/Contact.vue';
 import ChambreLuxury from './pages/ChambreLuxury.vue';
 import ChambreStandard from './pages/ChambreStandard.vue';
 import ChambreFamily from './pages/ChambreFamily.vue';
-import ChambreSuite from './pages/ChambreSuite.vue';
+import ChambreSuperieure from './pages/ChambreSuperieure.vue';
 
 const routes = [
   {
@@ -61,9 +61,9 @@ const routes = [
     },
   },
    {
-    path: '/suite',
-    name: 'suite',
-    components: { default: ChambreSuite, header: MainNavbar, footer: MainFooter },
+    path: '/chambresuperior',
+    name: 'chambresuperior',
+    components: { default: ChambreSuperieure, header: MainNavbar, footer: MainFooter },
     props: {
       header: { colorOnScroll: 200 },
       footer: { backgroundColor: 'black' },
@@ -103,7 +103,7 @@ const routes = [
   },
   {
     path: '/eventroom',
-    name: 'EventRoomPage',
+    name: 'eventroom',
     components: { default: Event, header: MainNavbar, footer: MainFooter },
     props: {
       header: { colorOnScroll: 200 },
@@ -112,7 +112,7 @@ const routes = [
   },
   {
     path: '/ecoresponsibility',
-    name: 'EcoResponsibilityPage',
+    name: 'ecoresponsibility',
     components: {
       default: EcoResponsibility,
       header: MainNavbar,
@@ -125,7 +125,7 @@ const routes = [
   },
   {
     path: '/pricing',
-    name: 'PricingPage',
+    name: 'pricing',
     components: {
       default: Pricing,
       header: MainNavbar,

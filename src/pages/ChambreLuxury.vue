@@ -54,7 +54,7 @@
               CHAQUE CHAMBRE DU ZARA HOTEL EST UNE EXPÉRIENCE UNIQUE
             </h2>
             <h5 class="description">
-              Pensées comme de véritables havres de paix, nos chambres de luxe
+              Pensées comme de véritables havres de paix, nos chambres deluxe
               associent raffinement, matériaux nobles et équipements modernes.
               Chaque détail est soigneusement étudié pour offrir une atmosphère
               élégante, intime et propice à la détente.
@@ -101,7 +101,7 @@
               </h3>
 
               <p>
-                Nos chambres de luxe offrent un espace généreux baigné de
+                Nos chambres deluxe offrent un espace généreux baigné de
                 lumière, où le design intemporel rencontre des équipements haut
                 de gamme. Literie premium, finitions élégantes et ambiance
                 feutrée créent un cadre idéal pour se ressourcer après une

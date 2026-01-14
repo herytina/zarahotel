@@ -78,33 +78,16 @@
       </li>
 
       <li class="nav-item">
-        <div
+        <router-link
           v-motion="{
             initial: { opacity: 0, x: -100 },
-            enter: { opacity: 1, x: 0, transition: { delay: 800 } },
+            enter: { opacity: 1, x: 0, transition: { delay: 650 } },
           }"
+          class="nav-link"
+          to="eventroom"
         >
-          <v-menu :open-on-hover="!isMobile" :open-on-click="isMobile">
-            <template #activator="{ props }">
-              <div v-bind="props" class="nav-link">
-                <p class="text-white item">Salles d'évènements</p>
-              </div>
-            </template>
-
-            <v-list>
-              <v-list-item v-for="(item, i) in itemSalle" :key="i">
-                <!-- Utilisation de router-link -->
-                <router-link
-                  to="eventroom"
-                  class="router-link"
-                  style="text-decoration: none; color: inherit"
-                >
-                  {{ item.title }}
-                </router-link>
-              </v-list-item>
-            </v-list>
-          </v-menu>
-        </div>
+          <p class="text-white item">Salles d'évènements</p>
+        </router-link>
       </li>
 
       <li class="nav-item">
@@ -114,9 +97,9 @@
             enter: { opacity: 1, x: 0, transition: { delay: 950 } },
           }"
           class="nav-link"
-          to="ecoresponsibility"
+          to="pricing"
         >
-          <p class="text-white item">Nos engagements</p>
+          <p class="text-white item">NOS TARIFS</p>
         </router-link>
       </li>
 
@@ -228,10 +211,10 @@
         ],
         items: [{ title: 'Appartement' }],
         chambres: [
-          { title: 'Chambre de luxe', path: 'chambreluxury' },
+          { title: 'Chambre deluxe', path: 'chambreluxury' },
           { title: 'Chambre standard', path: 'chambrestandard' },
           { title: 'Chambre familiale', path: 'chambrefamily' },
-          { title: 'Suites', path: '#' },
+          { title: 'Chambre supérieure', path: 'chambresuperior' },
         ],
         chambresArborecent: [{ title: 'Nuit de noces' }, { title: 'Business' }],
         itemSalle: [{ title: 'Reunion/Conférence' }],
