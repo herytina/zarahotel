@@ -108,7 +108,7 @@
     <div class="container text-center">
       <div class="row justify-content-md-center">
         <div class="col-md-12 col-lg-8" style="padding: 45px">
-          <h5 class="description">
+          <h5>
             Découvrez ZARA HOTEL, un charmant complexe hôtelier
             <b>3 étoiles</b>
             situé à Ankasina, Boulevard de l'Europe, Antananarivo. Profitez de
@@ -156,7 +156,7 @@
     <div class="row justify-content-md-center">
       <div class="col-md-12 col-lg-8">
         <h2 class="title">Newsletter</h2>
-        <h5 class="description">
+        <h5>
           Restez informé avec notre Newsletter !
           <br />
           <br />

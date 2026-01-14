@@ -3,7 +3,7 @@
     <div class="container text-center">
       <div class="row justify-content-md-center">
         <div class="col-md-12 col-lg-8 container-child">
-          <h5 class="description">
+          <h5>
             Offrez-vous un moment de détente inoubliable avec notre piscine
             chauffée, nos massages apaisants, une terrasse charmante, un bar
             convivial et une salle de sport équipée pour allier relaxation et

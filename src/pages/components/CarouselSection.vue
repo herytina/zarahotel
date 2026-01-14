@@ -61,7 +61,7 @@
   }
 
   .carol {
-    margin: 100px;
+    margin: 30px;
   }
 
   @media screen and (max-width: 991px) {
