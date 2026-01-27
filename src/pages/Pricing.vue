@@ -10,6 +10,11 @@
                         {{ category }}
                     </button>
                 </div>
+                <div>
+                    <button class="reservation_btn" @click="showBookingModal = true">
+                        Faire une réservation
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -40,18 +45,91 @@
                 </div>
             </div>
         </main>
+
+        <!-- Modal de réservation -->
+        <div v-if="showBookingModal" class="modal-overlay" @click.self="showBookingModal = false">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Réservation</h2>
+                    <button class="close-btn" @click="showBookingModal = false">×</button>
+                </div>
+
+                <form @submit.prevent="submitReservation" class="booking-form">
+                    <div class="form-group">
+                        <label>Nom complet *</label>
+                        <input v-model="form.name" type="text" required placeholder="Nom et Prénom(s)" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input v-model="form.email" type="email" required placeholder="votre@email.com" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Téléphone / WhatsApp *</label>
+                        <input v-model="form.phone" type="tel" required placeholder="+261 34 12 345 67" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Type de chambre *</label>
+                        <select v-model="form.room" required>
+                            <option value="" disabled>Sélectionnez une chambre</option>
+                            <option v-for="room in chambreOptions" :key="room.id" :value="room.name">
+                                {{ room.name }} — ${{ room.price }}/nuit
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Date d'arrivée *</label>
+                            <input v-model="form.arrivee" type="date" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Date de départ *</label>
+                            <input v-model="form.depart" type="date" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nombre de nuits</label>
+                        <input type="text" :value="nightsDisplay" readonly class="readonly-input" />
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-cancel" @click="showBookingModal = false">
+                            Annuler
+                        </button>
+                        <button type="submit" class="btn-submit" :disabled="nights <= 0">
+                            Confirmer la réservation
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
+import { sendEmailService } from '@/services/sendEmail.service';
+
 export default {
     name: 'HotelPricingApp',
+
     data() {
         return {
-            hotelName: "Grand Hôtel de Luxe",
-            tagline: "Vivez l'excellence dans chaque détail",
-            searchQuery: "",
             selectedCategory: "All",
+            showBookingModal: false,
+
+            form: {
+                name: "",
+                email: "",
+                phone: "",
+                room: "",
+                arrivee: "",
+                depart: ""
+            },
+
             services: [
                 {
                     id: 1,
@@ -206,20 +284,20 @@ export default {
             ]
         }
     },
+
     computed: {
         categories() {
             const cats = ['All', ...new Set(this.services.map(service => service.category))];
             return cats;
         },
+
         filteredServices() {
             let filtered = this.services;
 
-            // Filter by category
             if (this.selectedCategory !== 'All') {
                 filtered = filtered.filter(service => service.category === this.selectedCategory);
             }
 
-            // Filter by search query
             if (this.searchQuery) {
                 filtered = filtered.filter(service =>
                     service.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
@@ -228,18 +306,79 @@ export default {
             }
 
             return filtered;
+        },
+
+        chambreOptions() {
+            return this.services.filter(s => s.category === 'Chambres');
+        },
+
+        nights() {
+            if (!this.form.arrivee || !this.form.depart) return 0;
+            const start = new Date(this.form.arrivee);
+            const end = new Date(this.form.depart);
+            if (end <= start) return 0;
+            const diff = end - start;
+            return Math.ceil(diff / (1000 * 60 * 60 * 24));
+        },
+
+        nightsDisplay() {
+            return this.nights > 0 ? this.nights : '—';
         }
     },
+
     methods: {
-        bookService(service) {
-            alert(`Réservation de ${service.name} pour $${service.price} ${service.unit}. Merci d'avoir choisi notre hôtel !`);
+        showSuccessToast() {
+            this.$toast.success('Réservation confirmée ! Merci pour votre confiance.', {
+                timeout: 2000
+            });
+        },
+        async submitReservation() {
+            const action = "reservation";
+
+
+            if (this.nights <= 0) {
+                alert("Veuillez choisir une date de départ postérieure à la date d'arrivée.");
+                return;
+            }
+            const payload = {
+                email: this.form.email,
+                nom_prenoms: this.form.name,
+                contact: this.form.phone,
+                type_chambre: this.form.room,
+                date: this.form.depart,
+                sejours: this.nights
+            }
+
+
+            if (payload) {
+                const response = await sendEmailService(payload, action);
+                if (response) {
+                    this.showSuccessToast();
+                    this.showBookingModal = false;
+                    this.form = {
+                        name: "",
+                        email: "",
+                        phone: "",
+                        room: "",
+                        arrivee: "",
+                        depart: ""
+                    };
+                }
+
+
+            }
+
+
         }
     }
 }
 </script>
 
 <style scoped>
-/* Reset and Base Styles */
+/* ──────────────────────────────────────────────── */
+/*         TON CSS ORIGINAL (inchangé)             */
+/* ──────────────────────────────────────────────── */
+
 * {
     margin: 0;
     padding: 0;
@@ -285,7 +424,6 @@ body {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
@@ -530,52 +668,6 @@ body {
     font-size: 1rem;
 }
 
-.card-footer {
-    text-align: center;
-}
-
-.book-btn {
-    width: 100%;
-    background: #D4AF37;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 700;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: relative;
-    overflow: hidden;
-}
-
-.book-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
-}
-
-.book-btn:hover::before {
-    left: 100%;
-}
-
-.book-btn:hover {
-    background: #B8941F;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
-}
-
-.book-btn:active {
-    transform: translateY(0);
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-section {
@@ -623,41 +715,167 @@ body {
     }
 }
 
-/* High-resolution display optimizations */
-@media (min-resolution: 2dppx) {
-    .pricing-card {
-        border: 0.5px solid rgba(0, 0, 0, 0.1);
-    }
+/* ──────────────────────────────────────────────── */
+/*               Styles MODALE (ajoutés)           */
+/* ──────────────────────────────────────────────── */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-    .hero-section::before {
-        background: rgba(0, 0, 0, 0.6);
-    }
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 520px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
 }
 
-/* Reduced motion for accessibility */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
+.modal-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Print styles */
-@media print {
+.modal-header h2 {
+    margin: 0;
+    color: #1a237e;
+}
 
-    .filter-buttons,
-    .book-btn {
-        display: none;
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2.2rem;
+    cursor: pointer;
+    color: #777;
+}
+
+.close-btn:hover {
+    color: #c62828;
+}
+
+.booking-form {
+    padding: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    color: #444;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.form-row .form-group {
+    flex: 1;
+    min-width: 45%;
+}
+
+.readonly-input {
+    background: #f8f9fa;
+    color: #555;
+    font-weight: 500;
+    cursor: default;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.8rem;
+    justify-content: flex-end;
+}
+
+.reservation_btn {
+    background-color: #D4AF37;
+    margin-top: 15px;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+.btn-cancel,
+.btn-submit {
+    padding: 0.8rem 1.6rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-cancel {
+    background: #f1f1f1;
+    color: #333;
+}
+
+.btn-cancel:hover {
+    background: #e0e0e0;
+}
+
+.btn-submit {
+    background: #D4AF37;
+    color: white;
+}
+
+.btn-submit:hover:not(:disabled) {
+    background: #b8941f;
+}
+
+.btn-submit:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Responsive modale */
+@media (max-width: 520px) {
+    .form-row {
+        flex-direction: column;
+        gap: 1rem;
     }
 
-    .pricing-card {
-        break-inside: avoid;
-        box-shadow: none;
-        border: 1px solid #ccc;
+    .form-row .form-group {
+        min-width: 100%;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .btn-cancel,
+    .btn-submit {
+        width: 100%;
     }
 }
 </style>

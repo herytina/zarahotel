@@ -23,11 +23,19 @@ import 'leaflet.fullscreen/Control.FullScreen.css';
 import NowUiKit from './plugins/now-ui-kit';
 import vuetify from './plugins/vuetify'; // You need to create this file
 import router from './router';
+import VueToast from 'vue-toast-notification';
+import 'vue-toast-notification/dist/theme-sugar.css'; 
 
 const app = createApp(App);
 app.use(NowUiKit);
 app.use(MotionPlugin);
 app.use(vuetify);
 app.use(router);
+// Toast configuration
+app.use(VueToast, {
+  position: 'top-right', 
+  timeout: 3000,     
+  type: 'success',    
+});
 
 app.mount('#app');
